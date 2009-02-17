@@ -1,0 +1,65 @@
+﻿td {
+	text-align: left;
+	font-family:tahoma;
+	font-size:11px;
+	color:#AEBFD1;
+	line-height:14px;
+}
+
+a {text-decoration:underline;
+   color:#AEBFD1;}
+  
+body { 	margin:0px;padding:0px; background:#272E36}
+
+.copy{  font-family:tahoma;
+		color:#7F8A93;
+		text-decoration:none;
+		font-size:11px;}
+
+
+
+.bot_txt {	color:#A8A8A8;
+			text-decoration:none}
+
+
+.white {color:#ffffff; text-decoration:none}
+
+.m {vertical-align:middle}
+.sm {font-size:12px}
+.l {text-decoration:underline}
+.n {text-decoration:none}
+.t {text-transform:uppercase}
+.big {font-size:12px}
+.list {line-height:15px}
+
+.form { width:113px;
+		height:18px;
+		font-family:tahoma;
+		font-size:11px;
+		border-style: solid;
+		border-width: 1px;
+		border-color:#101318;
+		background-color:#333C46;
+		color:#ffffff;
+		margin-left:0px;
+		margin-right:0px}
+		
+.textarea { width:113px;
+		height:67px;
+		font-family:tahoma;
+		font-size:11px;
+		border-style: solid;
+		border-width: 1px;
+		border-color:#101318;
+		background-color:#333C46;
+		color:#ffffff;
+		margin-left:0px;
+		margin-right:0px}
+		
+
+a:hover{text-decoration:none;}
+.a:hover{text-decoration:underline;}
+
+
+img { border:0px; }
+
