@@ -268,6 +268,29 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="products_active_antenna_glonass_gps.htm" />
+    <Content Include="products_active_antenna_tri_band_gps.htm" />
+    <Content Include="products_active_antenna_dual_band_gps.htm" />
+    <Content Include="products_active_antenna_gps.htm" />
+    <Content Include="products_tunning_kit_12.htm" />
+    <Content Include="products_tunning_kit_15.htm" />
+    <Content Include="products_tunning_kit_18.htm" />
+    <Content Include="products_tunning_kit_25.htm" />
+    <Content Include="products_tunning_kit_10.htm" />
+    <Content Include="images\active_antenna.gif" />
+    <Content Include="images\active_antenna_small.gif" />
+    <Content Include="images\tuning_kit_full10.gif" />
+    <Content Include="images\tuning_kit_full12.gif" />
+    <Content Include="images\tuning_kit_full15.gif" />
+    <Content Include="images\tuning_kit_full18.gif" />
+    <Content Include="images\tuning_kit_full25.gif" />
+    <Content Include="images\tuning_kit_small10.gif" />
+    <Content Include="images\tuning_kit_small12.gif" />
+    <Content Include="images\tuning_kit_small15.gif" />
+    <Content Include="images\tuning_kit_small18.gif" />
+    <Content Include="images\tuning_kit_small25.gif" />
+    <Content Include="products_mpa1575d104.htm" />
+    <Content Include="news_msua_conference.htm" />
     <Content Include="employment.htm" />
     <Content Include="docs\app_notes.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
