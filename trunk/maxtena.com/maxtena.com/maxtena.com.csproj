@@ -468,6 +468,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="news_09_04_licul_nomination.htm" />
+    <Content Include="news_09_04_technite_awards.htm" />
     <Content Include="docs\MPA1575_104_datasheet.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
