@@ -1,12 +1,16 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MaxtenaNoSound.Master.cs" Inherits="maxtena.com.MaxtenaNoSound" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>Maxtena - Compact GPS Antennas and Mobile SatCom Systems</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <table width="100%" style="height: 100%" border="0" cellspacing="0" cellpadding="0">
+    <form id="form1" runat="server">
+      <table width="100%" style="height: 100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td width="50%" valign="top" style="background: url(images/px_main.gif) top repeat-x">
             </td>
@@ -44,33 +48,9 @@
                         <td width="729" height="363" valign="top" style="background: url(images/bg.gif) top left no-repeat">
                             <table width="729" style="height: 100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td width="497" valign="top">
-                                        <table width="497" style="height: 100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td width="46" valign="top">
-                                                </td>
-                                                <td width="451" valign="top">
-                                                    <table width="451" border="0" cellspacing="0" cellpadding="0">
-                                                        <tr>
-                                                            <td valign="top">                                                                
-                                                                <div style="margin: 31px 21px 0px 0px;">
-                                                                    <a href="images/tuning_kit_small12.gif" target="_blank">
-                                                                        <img src="images/tuning_kit_full12.gif" alt="Tuning Kit" width="150" /></a>
-                                                                </div>
-                                                            </td>
-                                                            <td valign="top">                                                               
-                                                                <div style="margin: 31px 15px 0px 0px;">
-                                                                    <strong class="white">Tuning Kit <img src="images/spacer.gif" height="1" width="120" alt="" /></strong><br />
-                                                                    <br />
-                                                                    <img src="images/a.gif" alt="" class="m" width="9" height="9" />
-                                                                    <a href="docs/MPA1575_124_Tuning_kit.pdf" target="_blank">Datasheet</a>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <td width="497" valign="top">                                     
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                        </asp:ContentPlaceHolder>                                    
                                     </td>
                                     <td width="232" valign="top">
                                         <table width="232" style="height: 100%" border="0" cellspacing="0" cellpadding="0">
@@ -89,7 +69,7 @@
                                                                         <td valign="top">
                                                                             <div style="margin: 17px 15px 15px 18px;">                                                                                
                                                                                 <strong class="white">Maxtena News</strong><br /><br />
-                                                                               
+                                                                                
                                                                                 Maxtena Announces New Stocking Distributor for Eastern Europe, 05/09<br />                                                                                
                                                                                 <img src="images/a.gif" alt="" style="margin-right: 7px;" class="m" width="9" height="9" /><a
                                                                                     href="news_09_05_distributor_eastern_europe.htm">Read More</a><br /><br />
@@ -102,7 +82,7 @@
                                                                                 <img src="images/a.gif" alt="" style="margin-right: 7px;" class="m" width="9" height="9" /><a
                                                                                     href="news_09_04_technite_awards.htm">Read More</a><br /><br />
                                                                                     
-                                                                                Dr. Stanislav Licul Nomination for Technology Review Magazines� Top 35 Young Innovators Under 35, 04/09<br />                                                                                
+                                                                                Dr. Stanislav Licul Nomination for Technology Review Magazines’ Top 35 Young Innovators Under 35, 04/09<br />                                                                                
                                                                                 <img src="images/a.gif" alt="" style="margin-right: 7px;" class="m" width="9" height="9" /><a
                                                                                     href="news_09_04_licul_nomination.htm">Read More</a><br /><br />                                                                                                                                                               
                                                                                                                                                                     
@@ -164,6 +144,7 @@
             <td width="50%" valign="top" style="background: url(images/px_main.gif) top repeat-x">
             </td>
         </tr>
-    </table>
+    </table>    
+    </form>
 </body>
 </html>
