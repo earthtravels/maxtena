@@ -494,8 +494,22 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\m1575d137i_full.gif" />
+    <Content Include="images\m1575d137i_small.gif" />
+    <Content Include="products_m1575d137i.htm" />
     <Content Include="templates\MaxtenaNoSound.Master" />
     <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\M1575D137i.pdf" />
+    <Content Include="images\m1575d157i_full.gif" />
+    <Content Include="images\m1575d157i_small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\M1575D137i_90.gif" />
+    <Content Include="images\M1575D157i_90.gif" />
+    <Content Include="products_m1575d157i.htm" />
+    <Content Include="docs\M1575D157i.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
