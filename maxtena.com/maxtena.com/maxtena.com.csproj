@@ -504,6 +504,7 @@
     <Content Include="images\m1575d157i_full.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\carlo.gif" />
     <Content Include="images\M1575D137i_90.gif" />
     <Content Include="images\M1575D157i_90.gif" />
     <Content Include="products_m1575d157i.htm" />
