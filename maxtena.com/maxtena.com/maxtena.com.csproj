@@ -504,9 +504,13 @@
     <Content Include="images\m1575d157i_full.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="flash\ad.swf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\carlo.gif" />
     <Content Include="images\M1575D137i_90.gif" />
     <Content Include="images\M1575D157i_90.gif" />
+    <Content Include="images\web_ION.gif" />
     <Content Include="products_m1575d157i.htm" />
     <Content Include="docs\M1575D157i.pdf" />
   </ItemGroup>
