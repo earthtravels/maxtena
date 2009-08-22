@@ -504,6 +504,11 @@
     <Content Include="images\m1575d157i_full.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="news_09_08_telman_promotion.htm" />
+    <Content Include="news_09_08_new_chief_scientist.htm" />
+    <Content Include="news_09_08_new_distributor_north_america.htm" />
+    <Content Include="news_09_08_mutual_success_story.htm" />
+    <Content Include="news_09_08_ION.htm" />
     <Content Include="flash\ad.swf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
