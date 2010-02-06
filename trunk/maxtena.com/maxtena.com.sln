@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maxtena.com", "maxtena.com\maxtena.com.csproj", "{6130CDD7-FF27-4693-928A-A1DCF15BEE5D}"
 EndProject
 Global
