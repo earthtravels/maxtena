@@ -558,6 +558,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="news_10_02_helical_antenna.htm" />
     <Content Include="news_10_02_DeVenCI.htm" />
     <Content Include="docs\M1227HCT22A.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
