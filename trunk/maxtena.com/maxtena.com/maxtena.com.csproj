@@ -610,6 +610,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="news_10_04_tech_nite.htm" />
     <Content Include="docs\M1516HCT.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
