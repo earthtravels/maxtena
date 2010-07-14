@@ -610,6 +610,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="news_10_07_sas.htm" />
     <Content Include="news_10_06_viking.htm" />
     <Content Include="news_10_05_antenna.htm" />
     <Content Include="news_10_05_kruse.htm" />
