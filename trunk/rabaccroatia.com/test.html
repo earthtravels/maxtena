@@ -1,0 +1,21 @@
+<html>
+<head>
+<style type="text/css">
+.expandedNode div{
+display: block;
+margin-left:20px;
+}
+.collapsedNode div{
+display:none;
+}
+</style>
+</head>
+<body>
+<div class="collapsedNode" style="cursor:pointer" href="#" onclick="this.className = this.className=='collapsedNode' ? 'expandedNode' : 'collapsedNode'">Main node
+<div>Content to expand<br>Content to expand</div>
+</div>
+<div class="collapsedNode" style="cursor:pointer" href="#" onclick="this.className = this.className=='collapsedNode' ? 'expandedNode' : 'collapsedNode'">Another Main node
+<div>More Content to expand<br>More Content to expand</div>
+</div>
+</body>
+</html>
