@@ -265,6 +265,7 @@ small			{ display: block; font-size: 11px; line-height: 14px; }
 #main img.alignright	{ margin-bottom: 10px; }
 
 .light #main .rule	{ width: 100%; height: 2px; background: url('../images/light_line.png') top left repeat-x; padding-bottom: 20px; }
+.light .post .rule	{ width: 100%; height: 2px; background: url('../images/light_line.png') top left repeat-x; padding-bottom: 20px; }
 .dark #main .rule	{ width: 100%; height: 2px; background: url('../images/dark_line.png') top left repeat-x; padding-bottom: 20px; }
 .boxes .white .rule	{ width: 100%; height: 2px; background: url('../images/light_line.png') top left repeat-x; }
 .boxes .black .rule	{ width: 100%; height: 2px; background: url('../images/dark_line.png') top left repeat-x; }
@@ -452,8 +453,8 @@ small			{ display: block; font-size: 11px; line-height: 14px; }
 
 .sidesearch			{}
 .sidesearch form		{ width: 100%; }
-.sidesearch .text		{ width: 139px; height: 24px; float: left; background: url(../images/search_input.png); }
-.sidesearch .text input		{ background: none; border: none; width: 129px; line-height: 14px; font-family: arial; font-size: 12px; padding: 5px 0px 0px 0px; margin-left: 5px; }
+.sidesearch .text		{ width: 205px; height: 24px; float: left; background: url(../images/search_input.png); }
+.sidesearch .text input		{ background: none; border: none; width:195px; line-height: 14px; font-family: arial; font-size: 12px; padding: 5px 0px 0px 0px; margin-left: 5px; }
 .sidesearch .submit		{ width: 34px; height: 24px; float: left; background: url(../images/search_button.png); }
 .sidesearch .submit input	{ background: none; border: none; display: block; width: 34px; height: 24px; font-family: arial; font-size: 0%; line-height: 0%; cursor: pointer; text-indent: -9999px; }
 .sidesearch .advanced		{ width: 67px; height: 24px; float: left; line-height: 12px; font-size: 11px; }
