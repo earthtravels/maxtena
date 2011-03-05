@@ -1,369 +1,297 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta name="description"  content=""/>
-<meta name="keywords" content=""/>
-<meta name="robots" content="ALL,FOLLOW"/>
-<meta name="Author" content="AIT"/>
-<meta http-equiv="imagetoolbar" content="no"/>
-<title>Contact : Simplicius Simplicissimus</title>
-
-<link rel="stylesheet" href="./css/reset.css" type="text/css"/>
-<link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css"/>
-<link rel="stylesheet" href="./css/nivo-slider.css" type="text/css"/>
-<link rel="stylesheet" href="./css/screen.css" type="text/css"/>
-<!--[if IE 7]>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="ALL,FOLLOW" />
+    <meta name="Author" content="AIT" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="./css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" />
+    <link rel="stylesheet" href="./css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="./css/screen.css" type="text/css" />
+    <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
-<![endif]-->	
-<meta charset="UTF-8"></head>
+<![endif]-->
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false" />
 
-<body class="light"> <!-- setting of light/dark main page box -->
-<div class="back">
-	<div class="base">
-		<div id="header">
-			<div id="logo">
-				<div class="picture">
-				<a href="./index.html" title="">
-					<img src="./images/logo.png" alt="Simplicius Simplicissimus" />					
-				</a>
-				</div>
+    <script type="text/javascript">
+        function initialize() {
+            var latlng = new google.maps.LatLng((45.047329561139506, 14.1668701171875));
+            var myOptions = {
+                zoom: 9,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP                
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+        }
 
-				<div class="text">
-				<a href="./index.html" title="">
-					<span class="title">Simplicius Sipmlicissimus</span>
-					<span class="subtitle">universal template</span>
-				</a>
-				</div>
-			</div>
-			
-			<!-- MAIN MENU -->
-			<div id="main_menu">
-			<ul>
-				<li>
-					<a href="./index.html">Home</a>
-					<ul>
-						<li><a href="./index2.html">Dark Style</a></li>
-						<li><a href="./index3.html">Light Column Variations</a></li>
-						<li><a href="./index4.html">Dark Column Variations</a></li>
-					</ul>
+    </script>
+    <style type="text/css">      
+      #map_canvas { height: 100% }
+    </style>
 
-				</li>
-				<li>
-					<a href="./about.html">About</a>
-					<ul>
-						<li><a href="./style_settings.html">Template Style Settings</a></li>
-						<li>
-							<a href="./conception.html">Standard Conception</a>
-							<ul>
-								<li><a href="./structure.html">Template Structure</a></li>
-								<li><a href="./validity.html">Valid HTML &amp; CSS</a></li>
-							</ul>
-						</li>
-						<li><a href="./solution.html">Universal Solution</a></li>
-						<li><a href="./combinations.html">Color Combinations &amp; Codes</a></li>
-					</ul>
-				</li>
-				<li><a href="./portfolio.html">Portfolio</a></li>
-				<li><a href="./blog.html">Blog</a></li>
-				<li><a href="./gallery.html">Gallery</a></li>
-				<li class="current_page_item"><a href="./contact.html">Contact</a></li>
-			</ul>
-			</div><!-- /#main_menu -->
-		</div>
-			
-		<div class="page_top">
-			<div class="slider">
-				<div class="boxes">
-				<div class="container clear">
-				<div class="inner">
-					<div class="box box_3-1 white">
-						<div class="box_top"></div>
-						<div class="box_customfull">
-							<div class="box_customfull_inner">
-								<img src="./images/tmp/home.jpg" class="full" alt="" />
-								<div class="rule"></div>
-							</div>
-							<div class="box_custombck2_inner">
-								<div class="box_custom_descr"><strong>The Residence</strong> Photo</div>
-							</div>
-						</div>
-						<div class="box_down"></div>
-					</div>
-					<div class="box box_3-2 white">
-						<div class="box_top"></div>
-						<div class="box_customfull">
-							<div class="box_customfull_inner">
-								<img src="./images/tmp/map.jpg" class="full" alt="" />
-								<div class="rule"></div>
-							</div>
-							<div class="box_custombck2_inner">
-								<div class="box_custom_descr"><strong>Find us</strong> on the map</div>
-							</div>
-						</div>
-						<div class="box_down"></div>
-					</div>
-				</div>
-				</div>
-				</div>
-			</div>
-			<div class="breadcrumb">
-				<div id="breadcrumb">
-					<ul>
-					<li><a href="./index.html">Home</a><span class="sep">»</span></li>
-					<li>Contact</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-			
-		<div class="page">
-		<div class="page_inside clear">
-			
-			<div class="subpage clear">
-				
-				<!-- ****** SIDEBAR ****** -->
-				<div id="sidebar">
-				
-					<div class="sidebox">
-						<div class="box_top"></div>
-						<div class="sideinner sidesearch">
-							<form method="post" action="" class="clear">
-								<div class="text"><input type="text" name="" /></div><!-- /.text -->
-								<div class="submit"><input type="submit" value="Search" /></div><!-- /.submit -->
-								<div class="advanced"><a href="">advanced <br />search</a></div><!-- /.advnced -->
-							</form>
-						</div>
-						<div class="box_down"></div>
-					</div>
-					
-					<div class="sidebox">
-						<div class="box_top"></div>
-						<div class="sideinner sidecontact">
-							<a href=""><img src="./images/envelope.png" alt="" class="mailicon" /></a>
-							<h2>Residence Contacts</h2>
-							<ul>
-								<li>Street &nbsp; Number of our Office</li>
-								<li>City, District, State</li>
-								<li>Country</li>
-								<li>&nbsp;</li>
-								<li><strong>phone:</strong> 999-99-9999999</li>
-								<li><strong>e-mail:</strong> <a href="">our.office@company.com</a></li>
-							</ul>
-						</div>
-						<div class="box_down"></div>
-					</div>
-					
-					<div class="sidebox">
-						<div class="box_top"></div>
-						<div class="sideinner sideservice">
-							<h2>Service Places</h2>
-							<ul class="list">
-								<li class="clear">
-									<div class="fl"><strong>CA:</strong> Toronto, Street, phone number</div><!-- /.fl -->
-									<div class="fr"><a title="" href="#"><img alt="" src="./images/mail.png" class="icon" /></a></div><!-- /.fr -->
-								</li>
-								<li class="clear">
-									<div class="fl"><strong>US:</strong> New York, Street, phone number</div><!-- /.fl -->
-									<div class="fr"><a title="" href="#"><img alt="" src="./images/mail.png" class="icon" /></a></div><!-- /.fr -->
-								</li>
-								<li class="clear">
-									<div class="fl"><strong>DE:</strong> Berlin, Street, phone number</div><!-- /.fl -->
-									<div class="fr"><a title="" href="#"><img alt="" src="./images/mail.png" class="icon" /></a></div><!-- /.fr -->
-								</li>
-								<li class="clear">
-									<div class="fl"><strong>UK:</strong> London, Street, phone number</div><!-- /.fl -->
-									<div class="fr"><a title="" href="#"><img alt="" src="./images/mail.png" class="icon" /></a></div><!-- /.fr -->
-								</li>
-							</ul>
-						</div>
-						<div class="box_down"></div>
-					</div>
-					
-					<div class="sidebox">
-						<div class="box_top"></div>
-						<div class="sideinner custom">
-							<div class="aligncenter">
-								<h2><a href="#">Custom Html Box</a></h2>
-								<p><small>Lorem ipsum dolor sit amet consectetur <br /><strong>Vivamus velit  porta vitae dapibus lacinia eget urna.</strong></small></p>
-							</div>
-							<div class="iconbar">
-								<div class="icon_wrap">
-								<ul>
-								<li><a href="#"><img src="./images/tmp/icon1.png" class="icon48" alt="" /></a></li>
-								<li><a href="#"><img src="./images/tmp/icon2.png" class="icon48" alt="" /></a></li>
-								<li><a href="#"><img src="./images/tmp/icon3.png" class="icon48" alt="" /></a></li>
-								<li><a href="#"><img src="./images/tmp/icon4.png" class="icon48" alt="" /></a></li>
-								</ul>
-								</div>
-							</div>
-						</div>
-						<div class="box_down"></div>
-					</div>
+</head>
+<body class="light">        
+    <!-- setting of light/dark main page box -->
+    <div class="back">
+        <div class="base">
+            <div id="header">
+                <div id="logo">
+                    <div class="picture">
+                        <a href="./index.html" title="">
+                            <img src="./images/logo.png" alt="Logo" />
+                        </a>
+                    </div>
+                    <div class="text">
+                        <a href="./index.html" title=""><span class="title">Hotel Villa Bruna</span> <span
+                            class="subtitle">Your destination on the Croatian coast</span> </a>
+                    </div>
+                </div>
+                <!-- MAIN MENU -->
+                <div id="main_menu">
+                    <ul>
+                        <li class="current_page_item"><a href="./index.html">Home</a></li>
+                        <li><a href="./reserve_now.html">Reservations</a>
+                            <ul>
+                                <li><a href="./reserve_now.html">Reserve Now</a></li>
+                                <li><a href="./reserve_group.html">Group Reservations</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Accomodations</a>
+                            <ul>
+                                <li><a href="./rooms.html">Rooms</a></li>
+                                <li><a href="./apartments.html">Apartments</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./location.html">Location</a>
+                            <ul>
+                                <li><a href="./rabac.html">Rabac</a></li>
+                                <li><a href="./labin.html">Labin</a></li>
+                                <li><a href="./map.html">Map &amp; Directions</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./about.html">About</a>
+                            <ul>
+                                <li><a href="./reviews.html">Reviews</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./photos.html">Photos</a>
+                            <ul>
+                                <li><a href="./videos.html">Videos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./contact.html">Contact</a>
+                            <ul>
+                                <li><a href="./newsletter.html">Newsletter</a></li>
+                                <li><a href="./faq.html">FAQs</a></li>
+                                <li><a href="./follow_us.html">Follow Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /#main_menu -->
+            </div>
+            <div class="page_top">
+                <div class="slider">
+                    <div class="boxes">
+                        <div class="container clear">
+                            <div class="inner">                                
+                                <div class="box box_1-1 white">
+                                    <div class="box_top">
+                                    </div>
+                                    <div class="box_customfull">
+                                        <div class="box_customfull_inner">
+                                            <a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia" target="_blank">
+                                                <!--<img src="http://maps.google.com/maps/api/staticmap?center=Losinjska+26,%20Rabac,+Croatia&zoom=9&size=982x264&maptype=roadmap&sensor=false&markers=size:mid|color:blue|Losinjska+26,%20Rabac,+Croatia" class="full" alt="Location" /></a>-->
+                                                <img src="images/map.png" class="full" alt="Location" /></a>
+                                            <div class="rule">
+                                            </div>
+                                        </div>
+                                        <div class="box_custombck2_inner">
+                                            <div class="box_custom_descr">
+                                                <strong>Find us</strong> on the map</div>
+                                        </div>
+                                    </div>
+                                    <div class="box_down">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="page">
+                <div class="page_inside clear">
+                    <div class="subpage clear">
+                        <!-- ****** SIDEBAR ****** -->
+                        <div id="sidebar">
+                            <div class="sidebox">
+                                <div class="box_top">
+                                </div>
+                                <div class="sideinner sidecontact">
+                                    <a href="">
+                                        <img src="./images/envelope.png" alt="" class="mailicon" /></a>
+                                    <h2>
+                                        Contact Info</h2>
+                                    <ul>
+                                        <li>Lošinjska 26</li>
+                                        <li>Rabac, Croatia</li>
+                                        <li>&nbsp;</li>
+                                        <li><strong>E-mail:</strong><a href="">OurEmail@OurEmail.com</a></li>
+                                    </ul>
+                                </div>
+                                <div class="box_down">
+                                </div>
+                            </div>
+                            <div class="sidebox">
+                                <div class="box_top">
+                                </div>
+                                <div class="sideinner sideservice">
+                                    <h2>
+                                        Service Places</h2>
+                                    <ul class="list">
+                                        <li class="clear">
+                                            <div class="fl">
+                                                <strong>US:</strong> Washington, DC, 1-800-XXX-XXXX</div>
+                                            <!-- /.fl -->
+                                            <div class="fr">
+                                                <a title="" href="#">
+                                                    <img alt="" src="./images/mail.png" class="icon" /></a></div>
+                                            <!-- /.fr -->
+                                        </li>
+                                        <li class="clear">
+                                            <div class="fl">
+                                                <strong>HR:</strong> Rabac, Croatia, ++385 52 872 153</div>
+                                            <!-- /.fl -->
+                                            <div class="fr">
+                                                <a title="" href="#">
+                                                    <img alt="" src="./images/mail.png" class="icon" /></a></div>
+                                            <!-- /.fr -->
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="box_down">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of sidebar -->
+                        <!-- MAIN -->
+                        <div id="main" class="clear">
+                            <h1>
+                                <strong>CONTACT</strong></h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit
+                                rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget
+                                massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit
+                                mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue
+                                est, et feugiat turpis elit egestas enim.</p>
+                            <div id="contact">
+                                <div class="rule">
+                                </div>
+                                <form id="contact_form" action="lib/mail/contact.php" method="post">
+                                <div class="clear">
+                                    <label for="name">
+                                        Your Name</label>
+                                    <input type="text" name="form[name]" id="name" class="input required" />
+                                </div>
+                                <!-- /.clear -->
+                                <div class="clear">
+                                    <label for="subject" class="required">
+                                        Subject</label>
+                                    <input type="text" name="form[subject]" id="subject" class="input required" />
+                                </div>
+                                <!-- /.clear -->
+                                <div class="clear">
+                                    <label for="mail" class="required">
+                                        E-mail</label>
+                                    <input type="text" name="form[mail]" id="mail" class="input required email" />
+                                </div>
+                                <!-- /.clear -->
+                                <div class="clear">
+                                    <label for="message" class="required">
+                                        Message</label>
+                                    <textarea name="form[message]" id="message" cols="40" rows="6"></textarea>
+                                </div>                                
+                                <div class="clear">
+                                    <label class="empty required">
+                                        Agreement</label>
+                                    <input type="checkbox" id="agreement" class="checkbox" />
+                                    <label for="agreement" class="right">
+                                        I agree with the terms of use of this Contact Form</label>
+                                </div>
+                                <div class="rule">
+                                </div>
+                                <div class="confirm clear">
+                                    <input type="submit" value="Submit" class="submit" />
+                                    <div class="terms">
+                                        <small><a href="#" class="terms">Terms of use</a></small>
+                                    </div>
+                                </div>
+                                <!-- /.confirm -->
+                                </form>
+                                <div class="rule">
+                                </div>
+                            </div>
+                            <p>
+                                Aenean et quam orci, quis imperdiet tellus. Quisque convallis mauris et nunc semper
+                                vitae luctus lorem condimentum. Vestibulum ut egestas nibh. Donec volutpat tempus
+                                ultrices. Nam tempus dui vel mauris vehicula ultricies. Nam consequat massa quis
+                                arcu tristique.</p>
+                        </div>
+                        <!-- end of main -->
+                    </div>                   
+                </div>
+            </div>
+            <div class="page_down">
+            </div>
+            <div id="footer" class="clear">
+                <div class="copy">
+                    <p>
+                        <a href="../../../www.ait.sk">&copy; 2011 rabaccroatia.com</a>
+                        <br />
+                        Lo&#353;injska 26, Rabac – Croatia (<a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia"
+                            target="_blank">Google map</a>)<br />
+                        Phone: ++385 52 872 153<br />
+                        Reservations: 1-800-XXX-XXXX<br />
+                        Email: <a href="mailto:OurEmail@OurEmail">OurEmail@OurEmail</a>
+                    </p>
+                </div>
+                <div class="links">
+                    <li><a href="./index.html">Home</a><span class="sep">|</span></li>
+                    <li><a href="./reserve_now.html">Reservations</a><span class="sep">|</span></li>
+                    <li><a href="apartments.html">Accomodations</a><span class="sep">|</span></li>
+                    <li><a href="./location.html">Location</a><span class="sep">|</span></li>
+                    <li><a href="./about.html">About</a><span class="sep">|</span></li>
+                    <li><a href="./photos.html">Photos</a><span class="sep">|</span></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/jquery.validate.js"></script>
+    <script type="text/javascript" src="./js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="./js/jquery.nivo.js"></script>
+    <script type="text/javascript" src="./js/cufon.js"></script>
+    <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript">
 
-				</div><!-- end of sidebar -->
-				
-				<!-- MAIN -->
-				<div id="main" class="clear">
-			
-					<h1><strong>CONTACT</strong> Form Page</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue est, et feugiat turpis elit egestas enim.</p>
-					
-					<div id="contact">
-						<div class="rule"></div>
-						<form id="contact_form" action="lib/mail/contact.php" method="post">
-							<div class="clear">
-								<label for="name">Your Name</label>
-								<input type="text" name="form[name]" id="name" class="input required" />
-							</div><!-- /.clear -->
-									
-							<div class="clear">
-								<label for="subject" class="required">Subject</label>
-								<input type="text" name="form[subject]" id="subject" class="input required" />
-							</div><!-- /.clear -->
-																							
-							<div class="clear">
-								<label for="mail" class="required">E-mail</label>
-								<input type="text" name="form[mail]" id="mail" class="input required email" />
-							</div><!-- /.clear -->
-												
-							<div class="clear">
-								<label for="message" class="required">Message</label>
-								<textarea name="form[message]" id="message" cols="40" rows="6"></textarea>
-							</div>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12958851-6']);
+        _gaq.push(['_trackPageview']);
 
-							<div class="clear">
-								<label for="select">Category</label>
-								<select id="select" class="select">
-									<option>Unspecified</option>
-									<option>Category</option>
-								</select>
-							</div>
-												
-							<div class="clear">
-								<label class="empty required">Agreement</label>
-								<input type="checkbox" id="agreement" class="checkbox" /> <label for="agreement" class="right">I agree with the terms of use of this Contact Form</label>
-							</div>
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
-							<div class="rule"></div>
-									
-							<div class="confirm clear">
-								<input type="submit" value="Submit" class="submit" />
-								<div class="terms">
-									<small><a href="#" class="terms">Terms of use</a></small>
-								</div>
-							</div><!-- /.confirm -->
-						</form>
-						<div class="rule"></div>
-					</div>
-					
-					<p>Aenean et quam orci, quis imperdiet tellus. Quisque convallis mauris et nunc semper vitae luctus lorem condimentum. Vestibulum ut egestas nibh. Donec volutpat tempus ultrices. Nam tempus dui vel mauris vehicula ultricies. Nam consequat massa quis arcu tristique.</p>
-
-				</div><!-- end of main -->
-			</div>
-			
-			<!-- DOWN BOXES -->	
-			<div class="boxes">
-			<div class="container clear">
-			<div class="inner">
-				<div class="box box_1-1 black">
-					<div class="box_top"></div>
-					<div id="content_links">
-						<div class="cols clear">
-
-							<div class="col-widget">
-							<div class="wrap">
-								<h2>Our References</h2>		
-								<ul>
-									<li><a href="#" title="">Nam consequat massa</a></li>
-									<li><a href="#" title="">Quisque convallis</a></li>
-									<li><a href="#" title="">Pellentesque habitant</a></li>
-									<li><a href="#" title="">Vivamus sollicitudin lacinia quam</a></li>
-									<li><a href="#" title="" class="last">Suspendisse sagittis</a></li>
-								</ul>
-							</div>
-							</div>
-
-							<div class="col-widget">
-							<div class="wrap">
-								<h2>Recent Links</h2>
-								<ul>
-									<li><a href="#" title="">Quisque convallis mauris et</a></li>
-									<li><a href="#" title="">Donec volutpat tempus ultrices</a></li>
-									<li><a href="#" title="">Etiam eu malesuada</a></li>
-									<li><a href="#" title="" class="last">Nam tempus</a></li>
-								</ul>
-							</div>
-							</div>
-							
-							<div class="col-widget">
-							<div class="wrap">
-								<h2>Our Partners</h2>
-								<ul>
-									<li><a href="#" title="">Mauris et nunc semper</a></li>
-									<li><a href="#" title="">Sollicitudin</a></li>					
-									<li><a href="#" title="">Lacinia quam pharetra</a></li>
-									<li><a href="#" title="">Lorem ipsum</a></li>
-								</ul>
-							</div>
-							</div>
-							
-							<div class="col-widget custom">
-							<div class="wrap">
-								<h2>Custom HTML Box</h2>
-								<p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</small></p>
-								<small><a href="#" class="bold">read more</a></small>
-							</div>
-							</div>					
-						</div>
-					</div>
-					<div class="box_down"></div>
-				</div>
-			</div>
-			</div>
-			</div>
-			<!-- end of down boxes -->
-		</div>
-		</div>
-			
-		<div class="page_down"></div>
-			
-		<div id="footer" class="clear">
-			<div class="copy">
-				<p><a href="../../../www.ait.sk">&copy; 2010 AIT</a> : you can remove this title</p>
-			</div>
-			<div class="links">
-				<ul> 
-				<li><a href="./index.html">Home</a><span class="sep">|</span></li>
-				<li><a href="./about.html">About</a><span class="sep">|</span></li>
-				<li><a href="./portfolio.html">Portfolio</a><span class="sep">|</span></li>
-				<li><a href="./blog.html">Blog</a><span class="sep">|</span></li>
-				<li><a href="./contact.html">Contact</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/jquery.validate.js"></script>
-<script type="text/javascript" src="./js/jquery.fancybox.js"></script>
-<script type="text/javascript" src="./js/jquery.nivo.js"></script>
-<script type="text/javascript" src="./js/cufon.js"></script>
-<script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
-<script type="text/javascript" src="./js/script.js"></script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-12958851-6']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+    </script>
 </body>
 </html>
