@@ -1,0 +1,16 @@
+GoDaddy
+username: rabaccroatia
+password: sdg62m@v
+
+GoDaddy FTP
+username: rabaccroatia
+password: sdg62m@vA
+
+Yahoo
+username: rabacistra
+password: m7gjo@hs
+
+Gmail
+username: rabaccroatia
+password: sdg62m@v
+
