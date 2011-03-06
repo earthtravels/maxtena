@@ -11,7 +11,7 @@ $(document).ready(function () {
 	// Slider
 	$('#slider .descriptions .description:first').show(); 
 	$('#slider .slides').nivoSlider({
-		effect:						'fade',
+	    effect:                     'fade',
 		slices:						15,
 		animSpeed:					500,
 		pauseTime: 					4000,
