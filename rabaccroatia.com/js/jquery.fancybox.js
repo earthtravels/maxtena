@@ -1044,7 +1044,7 @@
 		overlayColor		:	'#000',
 
 		titleShow			:	true,
-		titlePosition		:	'outside',	// 'outside', 'inside' or 'over'
+		titlePosition		:	'inside',	// 'outside', 'inside' or 'over'
 		titleFormat			:	null,
 
 		transitionIn		:	'fade',	// 'elastic', 'fade' or 'none'

@@ -673,6 +673,13 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 .box .gallery1 a		{ }
 .box .gallery1 img		{ display: block; float: left;  width: 68px; height: 68px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
 
+
+.box .gallery2 		{ margin-right: -20px; margin-left: 35px;}
+.box .gallery2_inner		{ width: 100%; display: none }
+.box .gallery2 a		{ }
+.box .gallery2 img		{ display: block; float: left;  width: 68px; height: 68px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
+
+
 .box .gallery .first img		{ display: block; float: left;  width: 250px; height: 250px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
 .box .gallery .second img		{ display: block; float: left;  width: 112px; height: 112px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
 
