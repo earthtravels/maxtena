@@ -92,7 +92,6 @@ body.dark		{ color: #A0A0A0; }
 .light #box th		{ background: url('../images/light_line.png') bottom left repeat-x; color: #333333;}
 .light #box td		{ background: url('../images/light_line.png') bottom left repeat-x; }
 
-
 .dark #main table	{ background: url('../images/dark_boldline.png') top left repeat-x; }
 .dark #main th		{ background: url('../images/dark_line.png') bottom left repeat-x;  color: #FFFFFF;}
 .dark #main td		{ background: url('../images/dark_line.png') bottom left repeat-x; }
@@ -668,6 +667,8 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 .box .gallery a		{ }
 .box .gallery img		{ display: block; float: left;  width: 68px; height: 68px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
 
+.box .room_gallery img		{ display: block; float: left;  width: 150px; margin-right: 12px; margin-bottom: 12px; padding: 2px 2px 3px 2px; background: url('../images/light_picture.png') bottom left repeat-x; }
+
 .box .gallery1 		{ margin-right: -20px; margin-left: 35px;}
 .box .gallery1_inner		{ width: 100%; }
 .box .gallery1 a		{ }
@@ -745,6 +746,7 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 #book .confirm	{ padding-top: 10px; padding-left: 100px; }
 #book .submit	{ display: block; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 11px; font-weight: bold; padding: 2px 10px 2px 10px; background: url('../images/bck_95-25.png'); cursor: pointer; }
 .light #book .submit	{ color: #333333; }
+.light .submit	{ color: #333333; }
 .dark #book .submit	{ color: #FFFFFF; }
 #book .terms		{ float: right; padding-top: 2px; }
 
