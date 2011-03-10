@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" />
     <link rel="stylesheet" href="./css/nivo-slider.css" type="text/css" />
     <link rel="stylesheet" href="./css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./css/date.css" type="text/css" />
+    <link rel="stylesheet" href="./css/datePicker.css" type="text/css" />
     <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 <![endif]-->
@@ -152,13 +154,15 @@
                                             <div class="clear">
                                                 <label for="name">
                                                     Check In Date</label>
-                                                <input type="text" name="form[check_in_date]" id="check_in_date" class="input required" />
+                                                <!--<input type="text" name="form[check_in_date]" id="check_in_date" class="input required" />-->
+                                                    <input name="check_in" id="start-date" readonly="readonly" class="date-pick input" />
                                             </div>
                                             <!-- /.clear -->
                                             <div class="clear">
                                                 <label for="subject">
                                                     Check Out Date</label>
-                                                <input type="text" name="form[check_in_date]" id="check_out_date" class="input required" />
+                                                <input name="check_out" id="end-date" readonly="readonly" class="date-pick input" />
+                                                <!--<input type="text" name="form[check_out_date]" id="check_out_date" class="input required" />-->
                                             </div>
                                             <!-- /.clear -->
                                             <div class="clear">
@@ -294,18 +298,14 @@
     </div>
 
     <script type="text/javascript" src="./js/jquery.js"></script>
-
     <script type="text/javascript" src="./js/jquery.validate.js"></script>
-
     <script type="text/javascript" src="./js/jquery.fancybox.js"></script>
-
     <script type="text/javascript" src="./js/jquery.nivo.js"></script>
-
     <script type="text/javascript" src="./js/cufon.js"></script>
-
     <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
-
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/jquery.datePicker.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>    
 
     <script type="text/javascript">
 
@@ -318,6 +318,34 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
+        Date.firstDayOfWeek = 0;
+        Date.format = 'mm/dd/yyyy';
+
+        $(function () {
+
+            $('.date-pick').datePicker()
+            $('#start-date').bind(
+					'dpClosed',
+					function (e, selectedDates) {
+					    var d = selectedDates[0];
+					    if (d) {
+					        d = new Date(d);
+					        $('#end-date').dpSetStartDate(d.addDays(1).asString());
+					    }
+					}
+				);
+            $('#end-date').bind(
+					'dpClosed',
+					function (e, selectedDates) {
+					    var d = selectedDates[0];
+					    if (d) {
+					        d = new Date(d);
+					        $('#start-date').dpSetEndDate(d.addDays(-1).asString());
+					    }
+					}
+				);
+        });
 
     </script>
 
