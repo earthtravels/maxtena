@@ -39,8 +39,7 @@
                     <ul>
                         <li class="current_page_item"><a href="./index.html">Home</a></li>
                         <li><a href="./reserve_now.html">Reservations</a>
-                            <ul>
-                                <li><a href="./reserve_now.html">Reserve Now</a></li>
+                            <ul>                                
                                 <li><a href="./reserve_group.html">Group Reservations</a></li>
                             </ul>
                         </li>
@@ -53,15 +52,10 @@
                         <li><a href="./location.html">Location</a>
                             <ul>
                                 <li><a href="./rabac.html">Rabac</a></li>
-                                <li><a href="./labin.html">Labin</a></li>
-                                <li><a href="./map.html">Map &amp; Directions</a></li>
+                                <li><a href="./labin.html">Labin</a></li>                                
                             </ul>
                         </li>
-                        <li><a href="./about.html">About</a>
-                            <ul>
-                                <li><a href="./reviews.html">Reviews</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="./about.html">About</a></li>
                         <li><a href="./photos.html">Photos</a>
                             <ul>
                                 <li><a href="./videos.html">Videos</a></li>
@@ -69,7 +63,7 @@
                         </li>
                         <li><a href="./contact.html">Contact</a>
                             <ul>
-                                <li><a href="./newsletter.html">Newsletter</a></li>
+                                <li><a href="./map.html">Map &amp; Directions</a></li>
                                 <li><a href="./faq.html">FAQs</a></li>
                                 <li><a href="./follow_us.html">Follow Us</a></li>
                             </ul>
@@ -123,24 +117,7 @@
                     <div class="boxes lines_x1x1x">
                         <div class="container clear">
                             <div class="inner">
-                                <div class="box box_3-1">
-                                    <div class="box_top">
-                                    </div>
-                                    <div class="icon clear">
-                                        <!--a href="#"><img src="./images/tmp/icon1_64.png" alt="" /></a-->
-                                        <h2>
-                                            Affordable Prices <span>Subtitle about our affordable prices goes here.</span>
-                                        </h2>
-                                    </div>
-                                    <p>
-                                        Text about our affordable prices goes here. Text about our affordable prices goes
-                                        here. Text about our affordable prices goes here. Text about our affordable prices
-                                        goes here. Text about our affordable prices goes here. Text about our affordable
-                                        prices goes here.</p>
-                                    <div class="box_down">
-                                    </div>
-                                </div>
-                                <div class="box box_3-1 gray">
+                                <div class="box box_3-1  gray">
                                     <div class="box_top">
                                     </div>
                                     <div class="icon clear">
@@ -181,6 +158,7 @@
                                                 <label for="select">
                                                     Children</label>
                                                 <select id="children" class="select">
+                                                    <option>None</option>
                                                     <option>1</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -198,24 +176,31 @@
                                             </form>
                                         </div>
                                         <!--/div-->
-                                    </div>
+                                    </div>                                    
                                     <div class="box_down">
                                     </div>
                                 </div>
                                 <div class="box box_3-1">
                                     <div class="box_top">
                                     </div>
-                                    <div class="icon clear">
-                                        <!--a href="#"><img src="./images/tmp/icon3_64.png" alt="" /></a-->
+                                    <div class="icon clear">                                        
                                         <h2>
-                                            Stunning Views <span>Subtitle about our stunning views goes here.</span>
+                                            Affordable Prices <span>Subtitle about our affordable prices goes here.</span>
                                         </h2>
                                     </div>
                                     <p>
-                                        Text about our stunning views goes here. Text about our stunning views goes here.
-                                        Text about our stunning views goes here. Text about our stunning views goes here.
-                                        Text about our stunning views goes here. Text about our stunning views goes here.
-                                    </p>
+                                        Text about our affordable prices goes here. Text about our affordable prices goes
+                                        here. Text about our affordable prices goes here. Text about our affordable prices
+                                        goes here. Text about our affordable prices goes here. Text about our affordable
+                                        prices goes here.</p>                                    
+                                    <div class="box_down">
+                                    </div>
+                                </div>
+                                <div class="box box_3-1">
+                                    <div class="box_top">
+                                    </div>
+                                    <!--<object width="290" height="260" id="_player" name="_player" data="http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf" type="application/x-shockwave-flash"><param name="autoPlay" value="false" /><param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="flashvars" value='config={"clip":{"url":"http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv"},"autoPlay":"false","autoBuffering":"true"}' /></object>-->
+                                    <div style="width:290px;height:260px;" id="player"></div>
                                     <div class="box_down">
                                     </div>
                                 </div>
@@ -227,15 +212,49 @@
                     <div class="boxes lines_x0x0x">
                         <div class="container clear">
                             <div class="inner">
-                                <div class="box box_3-1 white">
+                                <div class="box box_3-1 black">
                                     <div class="box_top">
                                     </div>
-                                    <div class="icon clear">
-                                        <h2>
-                                            <a href="promotions.html">Our Name Promotions</a><span>Great deals every day.</span></h2>
-                                        <p>
-                                            Promotion text. Promotion text.Promotion text. Promotion text. Promotion text. Promotion
-                                            text. Promotion text. Promotion text.</p>
+                                    <div style="font-size: 100%; vertical-align: baseline; line-height: 1; color: #3f3f38;">
+                                        <div>
+                                            <div>
+                                                <h2>
+                                                    Subscribe to Our Newsletter</h2>
+                                                <form action="http://list-manage.com/subscribe/post" id="subscribe-form" method="post"
+                                                name="contact_form" style="padding-top: 10px;">
+                                                <div>
+                                                    <input style="margin-top: -2px; width: 240px; background: none repeat scroll 0% 0% rgb(250, 250, 250);
+                                                        color: rgb(101, 100, 90); padding: 5px 10px; float: left; vertical-align: middle;
+                                                        font: 99% arial,helvetica,clean,sans-serif; border: 1px solid rgb(221, 221, 221);
+                                                        -moz-border-radius: 5px 5px 5px 5px;" id="email" name="email" tabindex="2" type="text" />
+                                                </div>
+                                                <div style="padding-right: 15px; width: 110px; padding-top: 35px;">
+                                                    <input style="font-weight: 400; text-align: center; text-indent: 0; -moz-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;
+                                                        background-color: #3f3f38; border-bottom: 1px solid #4d4d44; border-top: 1px solid #4d4d44;
+                                                        cursor: pointer; vertical-align: middle; font: 99% arial,helvetica,clean,sans-serif;
+                                                        float: left; margin-top: 0px !important; font-size: 13px; display: block; color: white !important;
+                                                        text-decoration: none !important; position: relative; -webkit-transition: opacity .2s;
+                                                        -moz-transition: opacity .2s; -o-transition: opacity .2s; -webkit-border-radius: 5px;
+                                                        -moz-border-radius: 5px; padding: 4px 0 4px; letter-spacing: 0.9px; background-image: url(images/btn_overlay.png);
+                                                        background-position: 0 50%; background-repeat: repeat-x; width: 100%; border: 0;
+                                                        -webkit-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;" name="submit" type="submit"
+                                                        value="Subscribe" />
+                                                </div>
+                                                <p style="padding: 0; color: #787975; line-height: 1.4em; float: right;">
+                                                    <strong style="padding-left: 15px; margin: 0; padding: 0; border: 0; outline: 0;
+                                                        font-size: 100%; vertical-align: baseline; background: transparent; margin-top: 5px !important;
+                                                        float: left;">Follow Us</strong> <a href="http://www.twitter.com/mailchimp"
+                                                            title="MailChimp on Twitter" style="margin: 0; padding: 0; border: 0; font-size: 100%;
+                                                            vertical-align: baseline; background: transparent; color: inherit; text-decoration: none;">
+                                                            <img alt="" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
+                                                    <a href="http://www.facebook.com/mailchimp" title="rabaccratia on Facebook">
+                                                        <img alt="Facebook Icon" src="images/icon_facebook.png" style="margin: 0 0 0 10px;
+                                                            padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline;
+                                                            background: transparent; float: left;" /></a>
+                                                </p>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="box_down">
                                     </div>
@@ -305,7 +324,9 @@
     <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
     <script type="text/javascript" src="./js/jquery.datePicker.js"></script>
-    <script type="text/javascript" src="./js/date.js"></script>    
+    <script type="text/javascript" src="./js/date.js"></script>        
+    <script type="text/javascript" src="./js/flowplayer-3.2.6.min.js"></script>
+
 
     <script type="text/javascript">
 
@@ -345,7 +366,21 @@
 					    }
 					}
 				);
+	});
+	 
+
+    </script>
+
+    <script type="text/javascript">
+
+        flowplayer("player", "videos/flowplayer-3.1.5.swf", {
+            clip: {
+                url: "videos/gorilla.flv",
+                autoPlay: false
+            }
         });
+
+      
 
     </script>
 
