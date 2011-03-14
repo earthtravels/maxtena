@@ -1,7 +1,10 @@
 
 #location_submenu{
-	width:90%;
+	width:100%;
 	margin:25px auto;
+	padding-left: 170px;
+	padding-right: 170px;
+	padding-bottom: 10px;
 }
 #location_submenu ul{
 	list-style:none;
@@ -14,9 +17,9 @@
 	background:#979797 url(../images/menu_bg.gif) repeat-x;
 	border:2px solid #939393;
 	margin:0 1px;
-	padding:15px 15px 15px 15px;
+	padding:15px 5px 15px 5px;
 	display:block;
-	float:left;
+	float:left;;
 	color:#fff;
 	text-transform:uppercase;
 	text-decoration:none;
@@ -44,7 +47,7 @@
 	background:#bcbcbc url(images/menu_hover.gif) repeat-x;
 	border:2px solid #aeaeae;
 	margin:0 1px;
-	padding:15px 15px 15px 15px;
+	padding:15px 5px 15px 5px;
 	display:block;
 	float:left;
 	color:#fff;
