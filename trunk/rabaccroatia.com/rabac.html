@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" />
     <link rel="stylesheet" href="./css/nivo-slider.css" type="text/css" />
     <link rel="stylesheet" href="./css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./css/submenu.css" type="text/css" />
     <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 <![endif]-->
@@ -43,17 +44,22 @@
                             class="subtitle">Your destination on the Croatian coast</span> </a>
                     </div>
                 </div>
+                <div style="float: right; padding-right: 5px; padding-top: 5px;">
+					<a href="#"><img src="images/flag_united_kingdom.png" width="32px" /></a>&nbsp;
+					<a href="#"><img src="images/flag_croatia.png" width="32px" /></a>&nbsp;
+					<a href="#"><img src="images/flag_germany.png" width="32px" /></a>&nbsp;
+					<a href="#"><img src="images/flag_italy.png" width="32px" /></a>
+				</div>               
                 <!-- MAIN MENU -->
                 <div id="main_menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./reserve_now.html">Reservations</a>
-                            <ul>
-                                <li><a href="./reserve_now.html">Reserve Now</a></li>
+                        <li class="current_page_item"><a href="./index.html">Home</a></li>
+                        <li><a href="./reservations.html">Reservations</a>
+                            <ul>                                
                                 <li><a href="./reserve_group.html">Group Reservations</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Accomodations</a>
+                        <li><a href="#">Accommodations</a>
                             <ul>
                                 <li><a href="./rooms.html">Rooms</a></li>
                                 <li><a href="./apartments.html">Apartments</a></li>
@@ -62,23 +68,18 @@
                         <li><a href="./location.html">Location</a>
                             <ul>
                                 <li><a href="./rabac.html">Rabac</a></li>
-                                <li><a href="./labin.html">Labin</a></li>
-                                <li><a href="./map.html">Map &amp; Directions</a></li>
+                                <li><a href="./labin.html">Labin</a></li>                                
                             </ul>
                         </li>
-                        <li><a href="./about.html">About</a>
-                            <ul>
-                                <li><a href="./reviews.html">Reviews</a></li>
-                            </ul>
-                        </li>
-                        <li class="current_page_item"><a href="./photos.html">Photos</a>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./photos.html">Photos</a>
                             <ul>
                                 <li><a href="./videos.html">Videos</a></li>
                             </ul>
                         </li>
                         <li><a href="./contact.html">Contact</a>
                             <ul>
-                                <li><a href="./newsletter.html">Newsletter</a></li>
+                                <li><a href="./map.html">Map &amp; Directions</a></li>
                                 <li><a href="./faq.html">FAQs</a></li>
                                 <li><a href="./follow_us.html">Follow Us</a></li>
                             </ul>
@@ -90,37 +91,33 @@
             <div class="page_top">                
             </div>
             <div class="page">
-                <div class="page_inside clear">                                                            
-                    <div class="boxes lines_x0x0x">
-                        <div class="container clear">
-                            <div class="inner">
-                                <div class="box box_1-1 white">
-                                    <div class="box_top">
-                                    </div>                                    
-                                    <div id="location_submenu" class="clear" style="margin-right: 170px; padding-bottom: -15px;">                                        
-                                        <div class="links">
-                                            <li><a href="./index.html">Restaurants</a><span class="sep">|</span></li>
-                                            <li><a href="./reserve_now.html">Excursions</a><span class="sep">|</span></li>
-                                            <li><a href="./accomodations.html">Events</a><span class="sep">|</span></li>
-                                            <li><a href="./location.html">Beaches</a><span class="sep">|</span></li>
-                                            <li><a href="./about.html">Shopping</a><span class="sep">|</span></li>                                            
-                                            <li><a href="./contact.html">Nightlife</a></li>
-                                        </div>
-                                    </div>                                      
-                                    <div class="box_down">
-                                    </div>
-                                </div>                                                                      
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divider">
-                    </div>
+                <div class="page_inside clear">                                                                                              
                     <div class="boxes lines_x0x0x">
                         <div class="container clear">
                             <div class="inner">
                                 <div class="box box_1-1 white">
                                     <div class="box_top">
                                     </div>
+                                    <table width="100%">
+                                        <tr>
+                                            <td>                                               
+                                                <div id="location_submenu">                                 
+                                                    <div class="links">
+	                                                    <ul>
+		                                                    <li class="current">Restaurants</li>
+		                                                    <li><a href="#">Excursions</a></li>		
+		                                                    <li><a href="#">Events</a></li>
+		                                                    <li><a href="#">Beaches</a></li>		
+		                                                    <li><a href="#">Shopping Us</a></li>
+                                                            <li><a href="#">Nightlife</a></li>
+	                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <br />
                                     <h2><a href="#"><strong>Restaurants</strong></a></h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. 
                                     Nam eget massa vel velit viverra pretium vel elementum purus. 
@@ -157,24 +154,57 @@
             </div>
             <div id="footer" class="clear">
                 <div class="copy">
-                    <p>
-                        <a href="../../../www.ait.sk">&copy; 2011 rabaccroatia.com</a>
-                        <br />
-                        Lo&#353;injska 26, Rabac – Croatia (<a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia" target="_blank">Google map</a>)<br />
-                        Phone:  ++385 52 872 153<br />
-                        Reservations: 1-800-XXX-XXXX<br />
-                        Email: <a href="mailto:OurEmail@OurEmail">OurEmail@OurEmail</a>
-                    </p>
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 430px;">
+                                Lo&#353;injska 26, Rabac – Croatia (<a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia"
+                                    target="_blank">Directions</a>)
+                            </td>
+                            <td>
+                                Phone: ++385 52 872 153
+                            </td>
+                            <td style="text-align: right;">
+                                Email: <a href="mailto:OurEmail@OurEmail">OurEmail@OurEmail</a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="links">
-                    <li><a href="./index.html">Home</a><span class="sep">|</span></li>
-                    <li><a href="./reserve_now.html">Reservations</a><span class="sep">|</span></li>
-                    <li><a href="./accomodations.html">Accomodations</a><span class="sep">|</span></li>
-                    <li><a href="./location.html">Location</a><span class="sep">|</span></li>
-                    <li><a href="./about.html">About</a><span class="sep">|</span></li>
-                    <li><a href="./photos.html">Photos</a><span class="sep">|</span></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                <div class="links" style="padding-top: 10px;">
+                    <table width="100%">
+                        <tr>
+                            <td style="text-align: center;">
+                                <a href="./index.html">Home</a><span class="sep">|</span> <a href="./reservations.html">
+                                    Reservations</a><span class="sep">|</span> <a href="apartments.html">Accomodations</a><span
+                                        class="sep">|</span> <a href="./location.html">Location</a><span class="sep">|</span>
+                                <a href="./about.html">About</a><span class="sep">|</span> <a href="./photos.html">Photos</a><span
+                                    class="sep">|</span> <a href="./contact.html">Contact</a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+                <div class="copy" style="padding-top: 10px;">
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 50%; vertical-align: middle; text-align: right;">
+                                Follow Us
+                            </td>
+                             <td align="left">
+                                <a href="#"><img alt="Twitter Icon" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
+                                          <a href="#"><img alt="Facebook Icon" style="margin: 0 0 0 10px;" src="images/icon_facebook.png"/></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="copy" style="padding-top: 10px;">
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 50%; text-align: center;">
+                                <a href="#">&copy; 2011 All Right Reserved. RabacCroatia.com</a>
+                            </td>                            
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

@@ -135,7 +135,7 @@ body.dark		{ color: #A0A0A0; }
 
 /*** MAIN MENU ------------------------------------------------------------------ ***/
 
-#header #main_menu 				{ position: absolute; right: 18px; top: 31px; z-index: 1; }
+#header #main_menu 				{ position: absolute; right: 18px; top: 31px; z-index: 1; padding-top: 15px; }
 #header #main_menu a 				{ color: #627075; display: block; font-size: 11px; line-height: 30px; font-weight: bold; margin: 0px; padding: 0px 15px 0px 15px; text-decoration: none; text-transform: uppercase; }
 #header #main_menu a:hover 			{ color: #FFFFFF; }
 #header #main_menu li 				{ display: block; float: left; white-space: nowrap; position: relative; }
@@ -410,6 +410,8 @@ small			{ display: block; font-size: 11px; line-height: 14px; }
 
 .divider		{clear: both; width: 100%; height: 25px;}
 
+.divider_small		{clear: both; width: 100%; height: 5px;}
+
 .box_custombck		{ }
 .box_custombck_inner	{ width: 100%; margin-left: -10px; margin-right: -10px; padding: 0px 10px 0px 10px; background: url('../images/box_custombck.png') top left repeat-x; }
 .box_custombck2_inner	{ width: 100%; margin-left: -10px; margin-right: -10px; padding: 0px 10px 0px 10px; background: url('../images/bck_95-25.png'); }
@@ -426,6 +428,8 @@ small			{ display: block; font-size: 11px; line-height: 14px; }
 /*********************************/
 
 #sidebar			{ width: 280px; float: right; margin-right: -10px; }
+
+#sidebar_left			{ width: 280px; float: left; margin-left: -10px; }
 
 .sidebox			{ width: 240px; padding: 0px 20px 0px 20px; margin-bottom: 24px; position: relative; }
 .sidebox .box_top		{ width: 280px; height: 9px; position: absolute; top: -9px; left: auto; margin-left: -20px; }
@@ -763,17 +767,11 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 #footer 		{ color: #a0a0a0; font-size: 11px; padding: 10px 26px 40px 26px;}
 #footer a 		{ color: #FFFFFF; text-decoration: none; }
 #footer a:hover		{ color: #FFFFFF; text-decoration: underline; }
-#footer .copy		{ color: #B9D2DD; float: left; }
+#footer .copy		{ color: #B9D2DD; }
 #footer .copy a		{ font-weight: bold; }
-#footer .links		{ color: #A0A0A0; float: right; }
-#footer .links li 	{ display: block; float: left; }
+#footer .links		{ color: #A0A0A0; }
+#footer .links li 	{ display: block; }
 #footer .links .sep	{ padding: 0px 7px; }
 
-#location_submenu 		{ color: #a0a0a0; font-size: 16px; padding: 10px 26px 40px 26px;}
-#location_submenu a 		{ color: #627075; text-decoration: none; }
-#location_submenu a:hover		{ color: #8A9498; text-decoration: underline; }
-#location_submenu .links		{ color: #627075; float: right; }
-#location_submenu .links li 	{ display: block; float: left; }
-#location_submenu .links .sep	{ padding: 0px 7px; }
 
 
