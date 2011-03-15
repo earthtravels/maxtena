@@ -79,34 +79,7 @@
                 </div>
                 <!-- /#main_menu -->
             </div>
-            <div class="page_top">
-                <div class="slider">
-                    <div class="boxes">
-                        <div class="container clear">
-                            <div class="inner">                                
-                                <div class="box box_1-1 white">
-                                    <div class="box_top">
-                                    </div>
-                                    <div class="box_customfull">
-                                        <div class="box_customfull_inner">
-                                            <a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia" target="_blank">
-                                                <!--<img src="http://maps.google.com/maps/api/staticmap?center=Losinjska+26,%20Rabac,+Croatia&zoom=9&size=982x264&maptype=roadmap&sensor=false&markers=size:mid|color:blue|Losinjska+26,%20Rabac,+Croatia" class="full" alt="Location" /></a>-->
-                                                <img src="images/map.png" class="full" alt="Location" /></a>
-                                            <div class="rule">
-                                            </div>
-                                        </div>
-                                        <div class="box_custombck2_inner">
-                                            <div class="box_custom_descr">
-                                                <strong>Find us</strong> on the map</div>
-                                        </div>
-                                    </div>
-                                    <div class="box_down">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>               
+            <div class="page_top">                               
             </div>
             <div class="page">
                 <div class="page_inside clear">
@@ -116,99 +89,160 @@
                             <div class="sidebox">
                                 <div class="box_top">
                                 </div>
-                                <div class="sideinner sidecontact">
-                                    <a href="">
-                                        <img src="./images/envelope.png" alt="" class="mailicon" /></a>
-                                    <h2>
-                                        Contact Info</h2>
-                                    <ul>
-                                        <li>Lošinjska 26</li>
-                                        <li>Rabac, Croatia</li>
-                                        <li>&nbsp;</li>
-                                        <li><strong>E-mail:</strong><a href="">OurEmail@OurEmail.com</a></li>
-                                    </ul>
+                                <div class="sideinner sidecontact" id="discount_code">                                    
+                                    <h2>Discount Coupon<span style="font-size: 12px; display: block; font-weight: bold; padding-top: 2px;">Enter any discount codes you may have.</span></h2>                                     
+                                        <form id="discount_code_form" action="#" method="post">
+                                            <div class="clear">
+                                                <label for="coupon">Coupon Code</label>
+                                                <input type="text" name="form[coupon]" id="coupon" class="input" />
+                                            </div>
+                                            <div class="confirm clear" id="discount">
+                                                <input type="submit" value="Apply" class="submit" />                                                
+                                            </div>                                                                                
+                                        </form>                                                                                                       
                                 </div>
                                 <div class="box_down">
                                 </div>
-                            </div>
-                            <div class="sidebox">
-                                <div class="box_top">
-                                </div>
-                                <div class="sideinner sideservice">
-                                    <h2>
-                                        Service Places</h2>
-                                    <ul class="list">
-                                        <li class="clear">
-                                            <div class="fl">
-                                                <strong>US:</strong> Washington, DC, 1-800-XXX-XXXX</div>
-                                            <!-- /.fl -->
-                                            <div class="fr">
-                                                <a title="" href="#">
-                                                    <img alt="" src="./images/mail.png" class="icon" /></a></div>
-                                            <!-- /.fr -->
-                                        </li>
-                                        <li class="clear">
-                                            <div class="fl">
-                                                <strong>HR:</strong> Rabac, Croatia, ++385 52 872 153</div>
-                                            <!-- /.fl -->
-                                            <div class="fr">
-                                                <a title="" href="#">
-                                                    <img alt="" src="./images/mail.png" class="icon" /></a></div>
-                                            <!-- /.fr -->
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="box_down">
-                                </div>
-                            </div>
+                            </div>                           
                         </div>
                         <!-- end of sidebar -->
                         <!-- MAIN -->
                         <div id="main" class="clear">
-                            <h1>
-                                <strong>CONTACT</strong></h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit
-                                rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget
-                                massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit
-                                mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue
-                                est, et feugiat turpis elit egestas enim.</p>
+                            <h1 style="padding-bottom: -10px;"><strong>Booking Details</strong></h1>
+                            <table>
+                                <tr>
+                                    <th style="text-align: right;">
+                                        Check In Date
+                                    </th>
+                                    <th  style="text-align: right;">
+                                        Check Out Date
+                                    </th>
+                                    <th  style="text-align: right;">
+                                        Total Nights
+                                    </th>                                   
+                                </tr>
+                                <tr>
+                                    <td  style="text-align: right;">
+                                        03/14/2011
+                                    </td>
+                                    <td  style="text-align: right;">
+                                        03/16/2011
+                                    </td>
+                                    <td  style="text-align: right;">
+                                        2
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <th  style="text-align: right;">
+                                        Accomodation Number
+                                    </th>
+                                    <th  style="text-align: right;">
+                                        Accomodation Type
+                                    </th>
+                                    <th  style="text-align: right;">
+                                        Total Occupants
+                                    </th>                                   
+                                </tr>
+                                <tr>
+                                    <td  style="text-align: right;">
+                                        100C
+                                    </td>
+                                    <td  style="text-align: right;">
+                                        Garden View Apartment
+                                    </td>
+                                    <td  style="text-align: right;">
+                                        6
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                     <th colspan="2" style="text-align: right;">
+                                        Subtotal
+                                    </th>
+                                    <td style="text-align: right;">
+                                        $875
+                                    </td>
+                                </tr>
+                                <tr>
+                                     <td colspan="2" style="text-align: right;">
+                                        Extra Bed
+                                    </td>
+                                    <td style="text-align: right;">
+                                        $25
+                                    </td>
+                                </tr>
+                                <tr>
+                                     <td colspan="2" style="text-align: right;">
+                                        Discount (10%)
+                                    </td>
+                                    <td style="text-align: right;">
+                                        (-$90)
+                                    </td>
+                                </tr>
+                                <tr>
+                                     <th colspan="2" style="text-align: right;">
+                                        Grand Total
+                                    </th>
+                                    <td style="text-align: right;">
+                                        $810
+                                    </td>
+                                </tr>
+                            </table>                            
+                            
+                            <h1><strong>Payment Details</strong></h1>
                             <div id="contact">
-                                <div class="rule">
+                                <form id="booking_form" action="#" method="post">
+                                <div class="clear">
+                                    <label for="name" class="required">
+                                        First Name</label>
+                                    <input type="text" name="form[first_name]" id="first_name" class="input" />
                                 </div>
-                                <form id="contact_form" action="lib/mail/contact.php" method="post">
                                 <div class="clear">
                                     <label for="name">
-                                        Your Name</label>
-                                    <input type="text" name="form[name]" id="name" class="input required" />
+                                        Middle Name</label>
+                                    <input type="text" name="form[middle_name]" id="middle_name" class="input" />
                                 </div>
-                                <!-- /.clear -->
                                 <div class="clear">
-                                    <label for="subject" class="required">
-                                        Subject</label>
-                                    <input type="text" name="form[subject]" id="subject" class="input required" />
+                                    <label for="name" class="required">
+                                        Last Name</label>
+                                    <input type="text" name="form[last_name]" id="last_name" class="input" />
                                 </div>
-                                <!-- /.clear -->
                                 <div class="clear">
-                                    <label for="mail" class="required">
-                                        E-mail</label>
-                                    <input type="text" name="form[mail]" id="mail" class="input required email" />
+                                    <label for="name" class="required">
+                                        Street Address</label>
+                                    <input type="text" name="form[street_address]" id="street_address" class="input" />
                                 </div>
-                                <!-- /.clear -->
                                 <div class="clear">
-                                    <label for="message" class="required">
-                                        Message</label>
-                                    <textarea name="form[message]" id="message" cols="40" rows="6"></textarea>
-                                </div>                                
+                                    <label for="name" class="required">
+                                        City</label class="required">
+                                    <input type="text" name="form[city]" id="city" class="input" />
+                                </div>
+                                <div class="clear">
+                                    <label for="name" class="required">
+                                        State/Province</label>
+                                    <input type="text" name="form[state]" id="state" class="input" />
+                                </div>
+                                <div class="clear">
+                                    <label for="name" class="required">
+                                        Country</label>
+                                    <input type="text" name="form[country]" id="country" class="input" />
+                                </div>
+                                <div class="clear">
+                                    <label for="name" class="required">
+                                        Phone Number</label>
+                                    <input type="text" name="form[phone]" id="phone" class="input" />
+                                </div>
+                                <div class="clear">
+                                    <label for="name" class="required">
+                                        Email</label>
+                                    <input type="text" name="form[email]" id="email" class="input" />
+                                </div>
                                 <div class="clear">
                                     <label class="empty required">
                                         Agreement</label>
                                     <input type="checkbox" id="agreement" class="checkbox" />
                                     <label for="agreement" class="right">
-                                        I agree with the terms of use of this Contact Form</label>
-                                </div>
-                                <div class="rule">
-                                </div>
+                                        I agree with the terms and conditions</label>
+                                </div>                               
                                 <div class="confirm clear">
                                     <input type="submit" value="Submit" class="submit" />
                                     <div class="terms">
@@ -219,12 +253,7 @@
                                 </form>
                                 <div class="rule">
                                 </div>
-                            </div>
-                            <p>
-                                Aenean et quam orci, quis imperdiet tellus. Quisque convallis mauris et nunc semper
-                                vitae luctus lorem condimentum. Vestibulum ut egestas nibh. Donec volutpat tempus
-                                ultrices. Nam tempus dui vel mauris vehicula ultricies. Nam consequat massa quis
-                                arcu tristique.</p>
+                            </div>                            
                         </div>
                         <!-- end of main -->
                     </div>                   
@@ -284,6 +313,7 @@
                         </tr>
                     </table>
                 </div>
+
             </div>
         </div>
     </div>

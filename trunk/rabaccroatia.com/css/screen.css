@@ -203,6 +203,7 @@ body.dark		{ color: #A0A0A0; }
 .subpage		{ width: 100%; padding-bottom: 40px; }
 #main			{ width: 620px; float: left; }
 #main.fullwidth		{ width: 100%; }
+#main.fullwidth_pad		{ width: 890px; padding-left: 15px; padding-right: 15px; }
 
 .breadcrumb		{ }
 #breadcrumb		{ font-size: 11px; line-height: 14px; padding: 0px 36px 0px 36px; }
@@ -749,9 +750,27 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 #book select		{ color: #333333;  display: block; width: 105px; height: auto; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 12px; padding: 2px; }
 #book .confirm	{ padding-top: 10px; padding-left: 100px; }
 #book .submit	{ display: block; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 11px; font-weight: bold; padding: 2px 10px 2px 10px; background: url('../images/bck_95-25.png'); cursor: pointer; color: #333333; }
+
+#discount_code form		{ padding-bottom: 5px; }
+#discount_code form .rule	{ margin-top: 15px; padding: 0px !important; }
+#discount_code .clear		{ padding-bottom: 5px; }
+#discount_code label		{ display: block; width: 100px; line-height: 24px; float: left; cursor: pointer; }
+#discount_code label.right	{ width: auto; }
+#discount_code label.empty	{ cursor: auto; }
+#discount_code label.required	{ background: url('../images/arrow_red.gif') 137px 7px no-repeat; }
+#discount_code input		{ color: #333333; }
+#discount_code .input		{ display: block; width: 132px; height: 18px; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 12px; padding: 2px; }
+#discount_code .checkbox	{ display: block; float: left; position: relative; top: 2px; left: -4px; }
+#discount_code textarea	{ color: #333333;  display: block; width: 100px; height: 100px; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 12px; padding: 2px; margin: 0px;}
+#discount_code select		{ color: #333333;  display: block; width: 105px; height: auto; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 12px; padding: 2px; }
+#discount_code .confirm	{ padding-top: 10px; padding-left: 100px; }
+#discount_code .submit	{ display: block; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 11px; font-weight: bold; padding: 2px 10px 2px 10px; background: url('../images/bck_95-25.png'); cursor: pointer; color: #333333; }
+
 .light #book .submit	{ color: #333333; }
 
 .light .submit	{ color: #333333; }
+#discount .submit	{ display: block; float: left; border: 1px solid #A0A0A0; font-family: arial; font-size: 11px; font-weight: bold; padding: 2px 10px 2px 10px; background: url('../images/bck_95-25.png'); cursor: pointer; color: #333333; }
+
 .dark #book .submit	{ color: #FFFFFF; }
 #book .terms		{ float: right; padding-top: 2px; }
 
@@ -772,6 +791,7 @@ ul.list ul li		{ line-height: 16px; padding-top: 2px; padding-bottom: 2px; backg
 #footer .links		{ color: #A0A0A0; }
 #footer .links li 	{ display: block; }
 #footer .links .sep	{ padding: 0px 7px; }
+
 
 
 
