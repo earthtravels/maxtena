@@ -413,6 +413,8 @@ small			{ display: block; font-size: 11px; line-height: 14px; }
 
 .divider_small		{clear: both; width: 100%; height: 5px;}
 
+.divider_med		{clear: both; width: 100%; height: 15px;}
+
 .box_custombck		{ }
 .box_custombck_inner	{ width: 100%; margin-left: -10px; margin-right: -10px; padding: 0px 10px 0px 10px; background: url('../images/box_custombck.png') top left repeat-x; }
 .box_custombck2_inner	{ width: 100%; margin-left: -10px; margin-right: -10px; padding: 0px 10px 0px 10px; background: url('../images/bck_95-25.png'); }
