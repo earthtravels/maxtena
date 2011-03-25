@@ -1,5 +1,5 @@
 <?php
-function outputMenuItem($parentId, $pad, $langauge_selected)
+function outputMenuItem($parentId, $pad, $language_selected)
 {
 	$sql_parent=mysql_query("select * from bsi_site_contents where parent_id=".$parentId." and status='Y' order by ord");
 	$rowCount=mysql_num_rows($sql_parent);
@@ -10,8 +10,8 @@ function outputMenuItem($parentId, $pad, $langauge_selected)
 	  	while($row=mysql_fetch_assoc($sql_parent))
 		{
 			
-			echo $pad . '    <li><a href="' . $row['url'] . '">' . $row['title_'.$langauge_selected] . '</a>' . "\n";
-			outputMenuItem($row['id'], $pad . "    ", $langauge_selected);		
+			echo $pad . '    <li><a href="' . $row['url'] . '">' . $row['title_'.$language_selected] . '</a>' . "\n";
+			outputMenuItem($row['id'], $pad . "    ", $language_selected);		
 			echo $pad . "</li>\n";
 		}
 		echo $pad . "</ul>\n";
@@ -82,7 +82,7 @@ function outputMenuItem($parentId, $pad, $langauge_selected)
 				</div> 
 				<div id="main_menu">								               
 					<?php
-						outputMenuItem(0, "                ", $langauge_selected)					
+						outputMenuItem(0, "                ", $language_selected)					
 					?>
 				</div>                
                 <!-- /#main_menu -->

@@ -31,6 +31,7 @@ include("includes/conf.class.php");
     <script type="text/javascript" src="js/jquery.nivo.js"></script>
     <script type="text/javascript" src="js/cufon.js"></script>    
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
     <script type="text/javascript" src="js/jquery.datePicker.js"></script>
     <script type="text/javascript" src="js/date.js"></script>        
     <script type="text/javascript" src="js/flowplayer-3.2.6.min.js"></script>
@@ -68,17 +69,17 @@ include("includes/conf.class.php");
     Date.firstDayOfWeek = 0;
     Date.format = '<?=$bsiCore->config['conf_dateformat']?>';
 
-    <?php if($langauge_selected=='hr'){ ?>	
+    <?php if($language_selected=='hr'){ ?>	
 	    Date.dayNames = ['Nedelja', 'Ponedjeljak', 'Utorak', 'Srijeda', '&#268;etvtak', 'Petak', 'Subota'];
 	    Date.abbrDayNames = ['Ned', 'Pon', 'Uto', 'Sri', '&#268;et', 'Pet', 'Sub'];
 	    Date.monthNames = ['Sije&#269;anj', 'Velja&#269;a', 'O&#382;ujak', 'Travanj', 'Svibanj', 'Lipanj', 'Srpanj', 'Kolovoz', 'Rujan', 'Listopad', 'Studeni', 'Prosinac'];
 	    Date.abbrMonthNames = ['Sij', 'Vel', 'O&#382;u', 'Tra', 'Svi', 'Lip', 'Srp', 'Kol', 'Ruj', 'Lis', 'Stu', 'Pro'];
-    <?php } elseif($langauge_selected=='de') { ?>
+    <?php } elseif($language_selected=='de') { ?>
 	    Date.dayNames = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 	    Date.abbrDayNames = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
 	    Date.monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
 	    Date.abbrMonthNames = ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-    <?php } elseif($langauge_selected=='it') { ?>  
+    <?php } elseif($language_selected=='it') { ?>  
 	    Date.dayNames = ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'];
 	    Date.abbrDayNames = ['Dom.', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];    
 	    Date.monthNames = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -300,15 +301,15 @@ include("includes/conf.class.php");
 											$sql_latest_news=mysql_query("select * from news_posts order by date_posted DESC LIMIT 1");
 											$row=mysql_fetch_assoc($sql_latest_news)
 										?>
-                                            <img src="images/<?= $row['image_small'] ?>" alt="<?= $row['title_' . $langauge_selected] ?>" />
+                                            <img src="images/<?= $row['image_small'] ?>" alt="<?= $row['title_' . $language_selected] ?>" />
                                             <div class="post_thumb_top">
                                             </div>
                                             <div class="post_thumb_down">
                                             </div>
                                         </div>
                                         
-										<h2><a href="<?= "news.php?id=" . $row['id'] ?>"><?= $row['title_' . $langauge_selected] ?></a></h2>
-										<?= substr($row['contents_' . $langauge_selected], 0, 450) . " ..." ?>                                                                                                                      
+										<h2><a href="<?= "news.php?id=" . $row['id'] ?>"><?= $row['title_' . $language_selected] ?></a></h2>
+										<?= substr($row['contents_' . $language_selected], 0, 450) . " ..." ?>                                                                                                                      
                                     </div>
                                     <div class="post_links clear">
                                         <span class="more"><a href="<?= "news.php?id=" . $row['id'] ?>" class="bold"><?= HOME_BOX_NEWS_READ_MORE ?></a></span> <span class="date">
