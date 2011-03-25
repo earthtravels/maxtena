@@ -64,7 +64,23 @@ define('HOME_BOX_BOTTOM_LEFT_BUTTON_SUBSCRIBE', 'Subscribe');
 define('HOME_BOX_BOTTOM_LEFT_BUTTON_FOLLOW_US', 'Follow Us');
 define('HOME_BOX_BOTTOM_LEFT_FOOTER', 'Sign up for email specials and promotions.');
 
+
 define('HOME_BOX_NEWS_READ_MORE', 'Read More');
+
+
+
+//*********************************************************************************
+// NEWS
+//*********************************************************************************
+define('NEWS_CATEGORIES', 'Categories');
+define('NEWS_ARCHIVE', 'Archive');
+define('NEWS_NEWS', 'NEWS');
+define('NEWS_POSTED_ON', 'Posted on');
+define('NEWS_POSTED_IN', 'Posted in');
+define('NEWS_POSTED_BY', 'by');
+ 
+
+
 
 
 

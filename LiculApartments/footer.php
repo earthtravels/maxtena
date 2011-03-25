@@ -27,7 +27,7 @@
 										
 									echo $separator;						
 							?>									
-									<a href="<?= $row['url'] ?>"><?= $row['title_'.$langauge_selected] ?></a>								
+									<a href="<?= $row['url'] ?>"><?= $row['title_'.$language_selected] ?></a>								
 								 
 							<?php
 									$separator = '<span class="sep">|</span>';
