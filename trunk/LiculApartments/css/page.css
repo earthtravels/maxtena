@@ -1,0 +1,25 @@
+
+
+.date_txt_box{
+	text-align: center;
+	background-color: white;
+	border: 1px solid;
+	border-color: #abadb3 #dbdfe6 #e3e9ef #e2e3ea;
+	padding: 2px;
+	vertical-align: bottom;
+	width: 90px;
+	height: 14px;
+}
+
+
+.picker {
+	cursor: pointer;
+	width: 13px;
+	height: 12px;
+	display: inline-block;
+	background: url('../img/calendar.gif') no-repeat;
+	margin-left: -19px;
+	margin-top: 4px;
+	position: absolute;
+	display: inline;
+}

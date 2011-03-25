@@ -1,0 +1,304 @@
+/*** ----------------------------------------- ***/
+/*** COLORS! (for easy updating!) ------------ ***/
+
+body { background:#18191B url('../graphics/body_bg.gif') repeat-x }
+a { color:#517307 }
+a:hover { color:#67920D }
+
+#navigation { border-bottom:3px solid #FFF }
+#navigation a:hover { background:#E2F3BE; color:#67920D }
+
+.sf-menu ul { border:2px solid #67920D }
+
+.sf-menu a { border-left:1px solid #FFFFD2; border-right:1px solid #A4CF47 }
+.sf-menu ul a { border-bottom:1px solid #A4CF47; border-top:1px solid #FFFFD2 }
+
+.sf-menu ul a.top { border-top:none }
+.sf-menu ul a.bottom { border-bottom:none }
+
+.sf-menu ul a:hover { background:#336A93 !important; color:#FFF !important; border-bottom-color:#1C4563; border-top-color:#84B1D3 }
+
+/* visited pseudo selector so IE6 applies text colour*/
+.sf-menu a,
+.sf-menu a:visited  { color:#517307 }
+
+.sf-menu li li { background:#E2F3BE }
+.sf-menu li li li { background:#E2F3BE }
+
+.sf-menu li:hover,
+.sf-menu li.sfHover,
+.sf-menu a:focus,
+.sf-menu a:hover,
+.sf-menu a:active { background:#E2F3BE }
+
+.sf-menu ul li:hover,
+.sf-menu ul li.sfHover a.item,
+.sf-menu ul a:focus,
+.sf-menu ul a:hover,
+.sf-menu ul a:active { background:#336A93; color:#FFFFFF !important; border-bottom-color:#1C4563; border-top-color:#84B1D3 }
+
+#slider-content { position:relative; z-index:100; border-bottom:1px solid #000 }
+
+.blue-block { color:#FFF; border-top:1px solid #000 }
+.blue-block a { color:#C7E687 }
+.blue-block a:hover { color:#fff }
+
+#main-content { background:#DBD1B9; border:2px solid #f3ece3 }
+
+#header .contact-info { color:#d3e6f3 }
+#header .contact-info small em { color:#FFF }
+#header .contact-info a { color:#C7E687 }
+#header .contact-info a:hover { color:#d3e6f3 }
+
+.jFlowSelected { color:#FFF !important }
+
+.gallery-block { background:#DBD1B9; border:2px solid #f3ece3 }
+.gallery-block li a { border:1px solid #000 }
+.gallery-block li a:hover { border:1px solid #FFF }
+
+#main-content .left { background:#F3F0E8; border-right:1px solid #FFF }
+#main-content .left1 { background:#F3F0E8; border-right:1px solid #FFF }
+#main-content .right { border-left:1px solid #A7947A; background:#C7B998 }
+	
+#main-content ul { color:#534C42 }
+#main-content .right ul { color:#23201B !important }
+
+#main-content h2 { color:#4B3D1B; border-bottom:1px solid #4B3D1B }
+#main-content h3 { color:#4B3D1B }
+
+#main-content p { color:#534C42 }
+#main-content .right p { color:#23201B !important }
+#main-content p.intro-text { color:#23201B }
+
+#main-content a { color:#2E546F }
+.portfolio-entry { border-top:1px solid #DBD1B9 }
+
+.textbox { border:1px solid #C7B998; color:#888 }
+.textbox4 { border:1px solid #FFCC33; color:#888 }
+.textarea { border:1px solid #C7B998; color:#888 }
+.button { background:#336A93; color:#FFF; border:2px solid #0E3B65 }
+.button2 { background:#336A93; color:#FFF; border:2px solid #0E3B65 }
+
+#footer { border-left:1px solid #325772; border-right:1px solid #325772; color:#FFF; border-top:1px solid #000; background:#0F3149 }
+#footer a { color:#E2F3BE }
+#footer a:hover { color:#FFF }
+
+/*** ----------------------------------------- ***/
+/*** END COLORS ------------------------------ ***/
+
+
+
+
+
+/* --------------------------------------------- */
+/* Main Styles --------------------------------- */
+
+body { font-family:Georgia, "Times New Roman", Times, serif; margin:0; padding:0 }
+	
+a:active, a:focus { outline:none }
+a { text-decoration:none }
+a:hover { text-decoration:underline }
+	
+#content { width:980px; margin:0 auto }
+.clear { clear:both; display:block }
+
+img { border:none }
+	
+.img-left { float:left; margin:0 20px 15px 0; position:relative; top:5px }
+.img-right { float:right; margin:0 0 15px 20px; position:relative; top:5px }
+	
+	
+/* --------------------------------------------- */
+/* Header/Logo --------------------------------- */
+	
+#header { position:relative; width:980px; height:126px; background:url('../graphics/header_bg.jpg') no-repeat }
+#header h1 { width:289px; height:75px; margin:0; padding:0; position:absolute; top:29px; left:29px }
+#header h1 a { text-indent:-2000px; display:block; background:url('../graphics/logo.gif') no-repeat; width:289px; height:75px }
+
+#header .contact-info { text-align:right; font-size:22px; width:650px; height:50px; position:absolute; right:13px; bottom:20px }
+#header .contact-info em { font-family:Arial, Helvetica, sans-serif; font-style:normal }
+#header .contact-info small { display:block; margin:0; padding:0; font-size:16px }
+
+#header .contact-info a { text-decoration:underline }
+#header .contact-info a:hover { text-decoration:none }
+
+/* --------------------------------------------- */
+/* Navigation ---------------------------------- */
+
+#navigation { font-family:Arial, Helvetica, sans-serif; position:relative; z-index:2000; font-size:16px; font-weight:bold; width:980px; height:51px; background:url('../graphics/nav_bg.gif') no-repeat }
+
+#navigation a.first { border-left:none }
+#navigation a.last { border-right:none }
+
+#navigation a:hover { text-decoration:none }
+	
+	
+	/* SUPERFISH STYLESHEET ---------------------------------- */
+	/*** DO NOT DELETE OR EDIT THE FOLLOWING (Unless you know what you're doing of course!) ***/
+	.sf-menu, .sf-menu * { margin:0; padding:0; list-style:none }
+	.sf-menu { line-height:1.0 }
+	.sf-menu ul { position:absolute; top:-999em; width:12em }
+	.sf-menu ul li { width:100% }
+	
+	/* fixes IE7 'sticky bug' */
+	.sf-menu li:hover { visibility:inherit }
+	
+	.sf-menu li { float:left; position:relative }
+	.sf-menu a { display:block; position:relative }
+	
+	.sf-menu li:hover ul,
+	.sf-menu li.sfHover ul { left:0; top:2.4em; /* match top ul list item height */ z-index:99 }
+	
+	ul.sf-menu li:hover li ul,
+	ul.sf-menu li.sfHover li ul { top:-999em }
+	
+	ul.sf-menu li li:hover ul,
+	ul.sf-menu li li.sfHover ul { left:12em; top:-0.1em }
+	
+	ul.sf-menu li li:hover li ul,
+	ul.sf-menu li li.sfHover li ul { top:-999em }
+	
+	ul.sf-menu li li li:hover ul,
+	ul.sf-menu li li li.sfHover ul { left:12em; top:-0.1em }
+	/*** ---------------------------------------------------------------------------------- ***/
+	
+	/* Dropdown Styling */
+	.sf-menu { margin:0 }
+	.sf-menu a { text-transform:uppercase; font-size:16px; padding:11px 20px 11px 20px; text-decoration:none }
+	.sf-menu ul a { background:none; cursor:pointer; text-transform:none; border-left:none; border-right:none; font-size:14px; padding:10px 10px 10px 10px; text-decoration:none }
+	
+	.sf-menu li:hover, .sf-menu li.sfHover,
+	.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active { outline:0 }
+
+	.sf-menu a.sf-with-ul { padding-right: 2.25em; min-width: 1px; /* trigger IE7 hasLayout so spans position accurately */ }
+	.sf-sub-indicator { position:absolute; display:block; right:.75em; top:1.05em; /* IE6 only */ width:10px; height:10px; text-indent:-999em; overflow:hidden; background:url('../graphics/arrows.gif') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */ }
+	a > .sf-sub-indicator {  /* give all except IE6 the correct values */ top:.8em; background-position: 0 -100px; /* use translucent arrow for modern browsers*/ }
+	
+	a:focus > .sf-sub-indicator,
+	a:hover > .sf-sub-indicator,
+	a:active > .sf-sub-indicator,
+	li:hover > a > .sf-sub-indicator,
+	li.sfHover > a > .sf-sub-indicator { background-position: -10px -100px }
+	
+	.sf-menu ul .sf-sub-indicator { background-position: -10px 0 }
+	.sf-menu ul a > .sf-sub-indicator { background-position: 0 0 }
+	
+	.sf-menu ul a:focus > .sf-sub-indicator,
+	.sf-menu ul a:hover > .sf-sub-indicator,
+	.sf-menu ul a:active > .sf-sub-indicator,
+	.sf-menu ul li:hover > a > .sf-sub-indicator,
+	.sf-menu ul li.sfHover > a > .sf-sub-indicator { background-position: -10px 0 }
+
+
+/* --------------------------------------------- */
+/* Slider Area (JFLOW) ------------------------- */	
+
+#slider-content { width:980px; height:377px; position:relative; z-index:100; border-bottom:1px solid #000 }
+
+#myController { display:none }
+#mySlides img { display:block; margin:0 }
+.blue-block { display:block !important; text-align:center; padding:15px 0 0 0; font-size:25px; font-family:Georgia, "Times New Roman", Times, serif; display:block; width:980px; height:48px; background:url('../graphics/blue_bar_bg.gif') repeat-x }
+.blue-block a { text-decoration:underline }
+.blue-block a:hover { text-decoration:none }
+
+.blue-block.small { font-size:18px !important; padding-top:18px !important; height:45px !important }
+
+.jFlowPrev, .jFlowNext { cursor:pointer; display:block; width:73px; height:63px; text-indent:-5000px; position:absolute }
+
+.jFlowPrev { bottom:0; left:0; background:url('../graphics/button_left.gif') no-repeat }
+.jFlowNext { bottom:0; right:0; background:url('../graphics/button_right.gif') no-repeat }
+
+.jFlowControl { cursor:pointer }
+.jFlowSelected { text-decoration:none !important }
+
+.gallery .jFlowPrev { top:0 !important; left:0 }
+.gallery .jFlowNext { top:0 !important; right:0 }
+.gallery { border-bottom:none; height:561px !important }
+
+.gallery-block {
+	width:948px;
+	height:468px;
+	padding:14px;
+	border-bottom:none }
+	
+.gallery-block ul { list-style:none; margin:0 0 12px 0; padding:0; width:948px; height:146px; display:block }
+.gallery-block ul.bottom { margin:0 }
+.gallery-block li { display:block; margin:0 12px 0 0; padding:0; width:148px; height:146px; float:left }
+.gallery-block li.last { margin:0 }
+
+.gallery-block li a { display:block; width:146px; height:144px }
+.gallery-block li img { display:block; width:146px; height:144px; margin:0 }
+
+
+/* --------------------------------------------- */
+/* Main Homepage Content ----------------------- */
+
+#main-content {
+	width:936px;
+	padding:20px;
+	border-bottom:none }
+	
+#main-content.subpage { border-top:none }
+	
+#main-content .left {
+	width:655px;
+	margin:0;
+	padding:15px;
+	float:left }
+#main-content .left1 {
+	width:906px;
+	margin:0;
+	padding:15px;
+	float:left }
+	
+#main-content .right {
+	width:219px;
+	margin:0;
+	padding:15px;
+	float:left }
+	
+#main-content ul { margin:0 0 0 15px; padding:0 0 0 10px; line-height:22px; font-size:14px }
+
+#main-content h2 { font-size:25px; font-weight:normal; margin:0; padding:0 0 5px 0; font-family:Georgia, "Times New Roman", Times, serif }
+#main-content h2 strong, #main-content h2 b { letter-spacing:-1px }
+
+#main-content h3 { font-size:24px; font-weight:normal; margin:0; padding:5px 0 0 0; font-family:Georgia, "Times New Roman", Times, serif }
+
+#main-content p { padding:0; margin:15px 0; font-size:14px; line-height:24px }
+
+#main-content p.intro-text { margin:15px 0 20px 0; font-size:16px; font-weight:bold; line-height:26px }
+
+
+/* --------------------------------------------- */
+/* Portfolio Page ------------------------------ */
+
+.portfolio-entry { clear:both; padding:5px 0 0 0; margin:8px 0 0 0 }
+
+
+/* --------------------------------------------- */
+/* Contact Form -------------------------------- */
+
+form { margin:0; padding:0 }
+label { display:block; float:left; width:250px; margin:0 0 10px 0 }
+.textbox { display:block; padding:5px; float:left; width:200px; margin:0 0 0px 0; font-family:Georgia, "Times New Roman", Times, serif; font-size:14px }
+
+.textbox3 { display:block; padding:5px; float:left; width:80px; margin:0 0 0px 0; font-family:Georgia, "Times New Roman", Times, serif; font-size:14px }
+
+.textbox4 { display:block; padding:2px;  width:80px; margin:0 0 0px 0; font-family:Georgia, "Times New Roman", Times, serif; font-size:14px }
+
+.textarea { display:block; float:left; width:250px; height:100px; padding:8px; font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; margin:0 0 0px 0 }
+.button { font-weight:bold; padding:5px 8px; font-family:Arial, Helvetica, sans-serif; font-size:14px; text-transform:uppercase; width:180px; display:block; clear:both; margin:0px 0 0 0; position:relative; left:0px }
+
+.button2 { font-weight:bold; padding:5px 8px; font-family:Arial, Helvetica, sans-serif; font-size:14px; text-transform:uppercase; width:auto; display:block; clear:both; margin:0px 0 0 0; position:relative; left:0px }
+
+/* --------------------------------------------- */
+/* Footer ----------------------- */
+
+#footer { position:relative; font-size:14px; width:938px; margin:0 auto; padding:20px }
+#footer a { text-decoration:underline }
+#footer a:hover { text-decoration:none }
+#footer span { position:absolute; right:20px; top:20px }
+.body_bold{font-family:Arial, Helvetica, sans-serif;
+font-size:16px; font-weight:bold; color:#000099;}
+.body_price{font-family:Arial, Helvetica, sans-serif;
+font-size:16px; font-weight:bold;}

@@ -1,0 +1,105 @@
+
+
+/*#content {
+  padding-top: 15px;
+}*/
+
+/* Signup form */
+
+#signupform table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+
+#signupform .label {
+  padding-top: 2px;
+  padding-right: 8px;
+  vertical-align: top;
+  text-align: right;
+  width: 125px;
+  white-space: nowrap;
+}
+
+#signupform .field {
+  padding-bottom: 0px;
+  white-space: nowrap;
+}
+
+#signupform .status {
+  padding-top: 2px;
+  padding-left: 8px;
+  vertical-align:bottom;
+  width:auto;
+  white-space: nowrap;
+  font-size:12px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-style:italic;
+  }
+
+#signupform .textfield {
+  width: 150px;
+}
+
+#signupform label.error {
+  background:url("../graphics/unchecked.gif") no-repeat 0px 0px;
+  padding-left: 16px;
+  padding-bottom: 2px;
+  color: #EA5200;
+}
+
+#signupform label.checked {
+  background:url("../graphics/checked.gif") no-repeat 0px 0px;
+}
+
+#signupform .success_msg {
+  font-weight: bold;
+  color: #0060BF;
+  margin-left: 19px;
+}
+
+#signupform #dateformatStatus, #signupform #termsStatus {
+  margin-left: 6px;
+}
+
+#signupform #dateformat_eu {
+ vertical-align: middle;
+}
+
+#signupform #ldateformat_eu {
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+#signupform #dateformat_am {
+  vertical-align: middle;
+}
+
+#signupform #ldateformat_am {
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+#signupform #tos_status {
+  float: left;
+}
+
+#signupform #terms {
+  vertical-align: middle;
+  float: left;
+  display: block;
+  margin-right: 5px;
+}
+
+#signupform #tos {
+  font-weight: normal;
+  vertical-align: middle;
+  float: left;
+  display: block;
+  width:auto;
+  white-space: normal;
+}
+
+#signupform #lsignupsubmit {
+  visibility: hidden;
+}
