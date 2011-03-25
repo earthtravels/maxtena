@@ -1,0 +1,45 @@
+/* <style> */
+
+/* ----- Required ----------------------------------------------------------- */
+
+div.vert_menu
+{
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+div.horz_menu a { display: block; float: left; }
+div.vert_menu a { display: block; float: none; }
+
+
+/* ----- Sample 1 ----------------------------------------------------------- */
+
+div.sample1 div.vert_menu { border-bottom: 1px solid black; }
+
+div.sample1 div.horz_menu a,
+div.sample1 div.vert_menu a
+{
+  
+  padding: 1px 0px 1px 0px;
+  background:#ededec;
+  
+
+  width:inherit;
+  padding:2px;
+  text-decoration: none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  color: #333333;
+}
+
+div.sample1 div.horz_menu a { margin-right:  -1px; width:auto; }
+div.sample1 div.vert_menu a { margin-bottom: -1px; width:170px;  border:  1px solid #9999CC; }
+
+div.sample1 div.horz_menu a:hover,
+div.sample1 div.vert_menu a:hover,
+div.sample1 div.horz_menu a.active,
+div.sample1 div.vert_menu a.active { color:#990000  }
+
+
