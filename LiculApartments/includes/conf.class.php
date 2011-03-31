@@ -17,6 +17,7 @@ class bsiHotelCore
 	{
 		$this->getBSIConfig ();
 		$this->getUserDateFormat ();
+		date_default_timezone_set ($this->config['conf_hotel_timezone']);
 	}
 	
 	private function getBSIConfig()

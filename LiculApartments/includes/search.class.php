@@ -12,9 +12,10 @@ class bsiSearch
     public $checkOutDate = '';	
 	public $mysqlCheckInDate = '';
     public $mysqlCheckOutDate = '';
+    public $adultsPerRoom = 0;
 	public $guestsPerRoom = 0;
 	public $childPerRoom = 0;
-	public $extrabedPerRoom = false;
+	public $extrabedPerRoom = false;	
 				
 	public $nightCount = 0;	
 	public $fullDateRange;
@@ -23,7 +24,8 @@ class bsiSearch
 	public $searchCode = "SUCCESS";
 	const SEARCH_CODE = "SUCCESS";
 	
-	function bsiSearch() {				
+	function bsiSearch() {
+			
 		$this->setRequestParams();
 		$this->getNightCount();
 		$this->checkSearchEngine();		
@@ -42,10 +44,12 @@ class bsiSearch
 		$this->setMyParamValue($this->checkInDate, $bsiCore->ClearInput($tmpVar), NULL, true);
 		$tmpVar = isset($_POST['check_out'])? $_POST['check_out'] : NULL;
 		$this->setMyParamValue($this->checkOutDate, $bsiCore->ClearInput($tmpVar), NULL, true);
-		$tmpVar = isset($_POST['capacity'])? $_POST['capacity'] : 0;
+		$tmpVar = isset($_POST['adults'])? $_POST['adults'] : 0;
 		$this->setMyParamValue($this->guestsPerRoom, $bsiCore->ClearInput($tmpVar), 0, true);
-		$tmpVar = isset($_POST['childcount'])? $_POST['childcount'] : 0;
+		$this->setMyParamValue($this->adultsPerRoom, $bsiCore->ClearInput($tmpVar), 0, true);
+		$tmpVar = isset($_POST['children'])? $_POST['children'] : 0;
 		$this->setMyParamValue($this->childPerRoom, $bsiCore->ClearInput($tmpVar), 0, false);
+		$this->guestsPerRoom = $this->adultsPerRoom + $this->childPerRoom;
 		$tmpVar = isset($_POST['extrabed'])? true : false;
 		$this->setMyParamValue($this->extrabedPerRoom, $tmpVar, false, false);				
 		$this->mysqlCheckInDate = $bsiCore->getMySqlDate($this->checkInDate);	
@@ -144,7 +148,7 @@ class bsiSearch
 	}	
 	
 	private function loadMultiCapacity() {			
-		$sql = mysql_query("SELECT * FROM bsi_capacity WHERE capacity = ".$this->guestsPerRoom);
+		$sql = mysql_query("SELECT * FROM bsi_capacity WHERE capacity >= ".$this->guestsPerRoom);
 		while($currentrow = mysql_fetch_assoc($sql)){			
 			$this->multiCapacity[$currentrow["id"]] = array('capval'=>$currentrow["capacity"],'captitle'=>$currentrow["title"]);
 		}		
@@ -162,7 +166,7 @@ class bsiSearch
 	}	
 	
 	
-	public function getAvailableRooms($roomTypeId, $roomTypeName, $capcityid){
+	public function getAvailableRooms($roomTypeId, $roomTypeName, $capcityid, $language_selected){
 		/**
 		 * Global Ref: conf.class.php
 		 **/
@@ -186,10 +190,10 @@ class bsiSearch
 		
 		
 		$searchsql = "		
-		SELECT rm.room_ID, rm.room_no
+		SELECT rm.room_ID, rm.room_no, rm.room_name, rm.room_desc_" . $language_selected . ", rm.room_images
 		  FROM bsi_room rm
 		 WHERE rm.roomtype_id = ".$roomTypeId."
-			   AND rm.capacity_id = ".$capcityid."".$extraSearchParam."
+			   AND rm.capacity_id = ".$capcityid."
 			   AND rm.room_id NOT IN
 					  (SELECT resv.room_id
 						 FROM bsi_reservation resv, bsi_bookings boks
@@ -200,6 +204,21 @@ class bsiSearch
 							   OR (DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY) BETWEEN boks.start_date AND DATE_SUB(boks.end_date, INTERVAL 1 DAY))
 							   OR (boks.start_date BETWEEN '".$this->mysqlCheckInDate."' AND DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY))
 							   OR (DATE_SUB(boks.end_date, INTERVAL 1 DAY) BETWEEN '".$this->mysqlCheckInDate."' AND DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY))))";
+//		$searchsql = "		
+//		SELECT rm.room_ID, rm.room_no, rm.room_name, rm.room_desc_" . $language_selected . ", rm.room_images, capacity
+//		  FROM bsi_room rm
+//		 WHERE rm.roomtype_id = ".$roomTypeId."
+//			   AND rm.capacity <= " . $this->guestsPerRoom . "
+//			   AND rm.room_id NOT IN
+//					  (SELECT resv.room_id
+//						 FROM bsi_reservation resv, bsi_bookings boks
+//						WHERE     boks.is_deleted = FALSE
+//							  AND resv.bookings_id = boks.booking_id
+//							  AND resv.room_type_id = ".$roomTypeId."
+//							  AND (('".$this->mysqlCheckInDate."' BETWEEN boks.start_date AND DATE_SUB(boks.end_date, INTERVAL 1 DAY))
+//							   OR (DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY) BETWEEN boks.start_date AND DATE_SUB(boks.end_date, INTERVAL 1 DAY))
+//							   OR (boks.start_date BETWEEN '".$this->mysqlCheckInDate."' AND DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY))
+//							   OR (DATE_SUB(boks.end_date, INTERVAL 1 DAY) BETWEEN '".$this->mysqlCheckInDate."' AND DATE_SUB('".$this->mysqlCheckOutDate."', INTERVAL 1 DAY))))";
         
         
                  
@@ -213,7 +232,7 @@ class bsiSearch
 		$searchresult['availablerooms'] = array();
 		while($currentrow = mysql_fetch_assoc($sql)){				
 			$dropdown_html.= '<option value="'.$tmpctr.'">'.$tmpctr.'</option>';
-			array_push($searchresult['availablerooms'], array('roomid'=>$currentrow["room_ID"], 'roomno'=>$currentrow["room_no"]));
+			array_push($searchresult['availablerooms'], array('roomid'=>$currentrow["room_ID"], 'roomno'=>$currentrow["room_no"], 'roomname'=>$currentrow["room_name"], 'roomdesc'=>$currentrow["room_desc_" . $language_selected], 'roomimages'=>$currentrow["room_images"]));
 			$tmpctr++;
 		}
 		
@@ -261,7 +280,7 @@ class bsiSearch
 				$calculated_extraprice = $calculated_extraprice + ($custom_price_plan["nights"] * $custom_price_plan["extraprice"]);				
 				$total_price_amount = $total_price_amount + $calculated_price;
 				$night_count_at_customprice = $night_count_at_customprice + $custom_price_plan["nights"];
-				$price_details_html.= '<tr><td align="right">'.$custom_price_plan["nights"].' '.SEARCH_NIGHTS.'</td><td align="center"> x </td><td align="right">'.$currency_symbol.number_format($custom_price_plan["price"], 2 , '.', ',').'</td><td align="center"> = <td align="right">'.$currency_symbol.number_format($calculated_price,  2 , '.', ','). '</td></tr>';					
+				$price_details_html.= $custom_price_plan["nights"].' '.SEARCH_NIGHTS.' x '.$currency_symbol.number_format($custom_price_plan["price"], 2 , '.', ',');					
 				
 				array_push($searchresult['prices'], array('night'=>$custom_price_plan["nights"], 'price'=>$custom_price_plan["price"], 'extraprice'=>$custom_price_plan["extraprice"]));
 			}
@@ -272,7 +291,7 @@ class bsiSearch
 					$calculated_price = $night_count_at_defaultprice * $default_price_plan["price"];
 					$calculated_extraprice = $calculated_extraprice + ($night_count_at_defaultprice * $default_price_plan["extraprice"]);					
 					$total_price_amount = $total_price_amount + $calculated_price;
-					$price_details_html .= '<tr><td align="right">'.$night_count_at_defaultprice.' '.SEARCH_NIGHTS.'</td><td align="center"> x </td><td align="right">'.$currency_symbol.number_format($default_price_plan["price"], 2 , '.', ',').'</td><td align="center"> = <td align="right">'.$currency_symbol.number_format($calculated_price, 2 , '.', ','). '</td></tr>';									
+					$price_details_html .= $night_count_at_defaultprice.' '.SEARCH_NIGHTS.' x '.$currency_symbol.number_format($default_price_plan["price"], 2 , '.', ',');									
 					
 					array_push($searchresult['prices'], array('night'=>$night_count_at_defaultprice, 'price'=>$default_price_plan["price"], 'extraprice'=>$default_price_plan["extraprice"]));
 				}
@@ -290,5 +309,6 @@ class bsiSearch
 		'totalprice' => $total_price_amount,
 		'extraprice' => $calculated_extraprice);
 	}
+	
 }
 ?>

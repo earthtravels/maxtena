@@ -78,6 +78,18 @@ define('NEWS_NEWS', 'NEWS');
 define('NEWS_POSTED_ON', 'Posted on');
 define('NEWS_POSTED_IN', 'Posted in');
 define('NEWS_POSTED_BY', 'by');
+define('NEWS_NO_NEWS_MESSAGE', 'There are no news posts at this time. Please check back later.');
+define('NEWS_NO_NEWS_WITH_CRITERIA', 'There are no news posts that match your criteria.');
+define('NEWS_PREVIOUS', 'Previous');
+define('NEWS_NEXT', 'Next');
+
+
+//*********************************************************************************
+// Booking Search
+//*********************************************************************************
+define('BOOKING_SEARCH_CRITERIA', 'Search Criteria');
+
+
  
 
 
