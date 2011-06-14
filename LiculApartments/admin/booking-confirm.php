@@ -16,7 +16,7 @@ include ("header.php");
 </style>
 
 <tr>
-  <td height="400" valign="middle" align="center"><h2><em><strong>Your Booking Confirmaed</strong></em></h2>
+  <td height="400" valign="middle" align="center"><h2><em><strong>Booking Complete!</strong></em></h2>
     <br />
     <br /></td>
 </tr>

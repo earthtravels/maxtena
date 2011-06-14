@@ -1,22 +1,25 @@
 <?php
+include_once ("includes/SystemConfiguration.class.php");
 session_start();
-include("includes/db.conn.php");
 include("includes/language.php");
-include("includes/conf.class.php");
+
+
+global $systemConfiguration;
+global $logger;
+
 
 $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="<?=$bsiCore->config['conf_hotel_sitedesc']?>" />
-	<meta name="keywords" content="<?=$bsiCore->config['conf_hotel_sitekeywords']?>" />
+<head>    
+    <meta name="description" content="<?=$systemConfiguration->getSiteDescription()?>" />
+	<meta name="keywords" content="<?=$systemConfiguration->getSiteKeywords()?>" />
 	<meta http-equiv="Content-Type" content="text/html;charset=<?=CHARSET?>" />    
     <meta name="robots" content="ALL,FOLLOW" />    
     <meta http-equiv="imagetoolbar" content="no" />
-    <title><?=$bsiCore->config['conf_hotel_sitetitle']?></title>
+    <title><?=$systemConfiguration->getSiteTitle()?></title>
     <link rel="stylesheet" href="css/reset.css" type="text/css" />
     <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" />
     <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" />
@@ -48,9 +51,9 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
                                 <div class="box_top">
                                 </div>
                                 <div class="sideinner sidesearch">
-                                    <form method="post" action="<?=  $this_script ?>" class="clear">
+                                    <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>" class="clear">
                                     <div class="text">
-                                        <input type="text" name="keyword" />
+                                        <input type="text" name="keywords" />
                                     </div>                                    
                                     <div class="submit">
                                         <input type="submit" value="Search" />
@@ -66,13 +69,13 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
                                 <div class="sideinner submenu">
                                     <h2><?= NEWS_CATEGORIES ?></h2>
                                     <?php
-										$sql_categories=mysql_query("select distinct category_" . $language_selected . " as category from bsi_news_posts order by category_" . $language_selected . " LIMIT 15");
-										echo "<ul>\n";
-										while($cat=mysql_fetch_assoc($sql_categories))
-										{																	
-											echo '<li class="page_item"><a href="'. $this_script . '?lang=' . $language_selected . '&cat=' . urlencode($cat['category']) . '">' . $cat['category'] . '</a></li>';
-										}
-										echo "</ul>\n";
+                                    	$newsCategories = NewsCategory::fetchFromDbAllUsed($language_selected);
+                                    	echo "<ul>\n";
+                                    	foreach ($newsCategories as $newsCategory) 
+                                    	{
+                                    		echo '<li class="page_item"><a href="'. $this_script . '?category_id=' . $newsCategory->id . '">' . $newsCategory->title->getText($language_selected) . '</a></li>';
+                                    	}
+                                    	echo "</ul>\n";										
 									?>                                    
                                 </div>
                                 <div class="box_down">
@@ -83,14 +86,22 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
                                 </div>
                                 <div class="sideinner submenu">
                                     <h2><?= NEWS_ARCHIVE ?></h2>                                    
-                                    	<?php										
-										$sql_categories=mysql_query("select distinct date_format(date_posted, '%Y') as cat_year, date_format(date_posted, '%m') as cat_month from bsi_news_posts order by date_format(date_posted, '%Y-%m') LIMIT 15");
+                                    	<?php	
+                                    	$sql = "SELECT DISTINCT date_format(date_posted, '%Y') as cat_year, date_format(date_posted, '%m') as cat_month FROM bsi_news_posts ORDER BY date_format(date_posted, '%Y-%m') DESC LIMIT 15"; 									
+										$query=mysql_query($sql);
+										if (!$query)
+										{
+											$logger->LogError("Error: " . mysql_errno() . ". Error message: " . mysql_error());
+											$logger->LogError("SQL: $sql");
+											die('Error: ' . mysql_error());
+										}
 										echo "<ul>\n";																				
-										while($cat=mysql_fetch_assoc($sql_categories))
+										while($cat = mysql_fetch_assoc($query))
 										{											
 	                                    	//TODO: Output month names in correct language
-											$monthName = strftime("%B", strtotime('2011-' . $cat['cat_month'] . '-01'));
-											echo '<li class="page_item"><a href="'. $this_script . '?lang=' . $language_selected . '&year=' . $cat['cat_year'] . '&month=' . $cat['cat_month'] . '">' . $monthName . ' ' . $cat['cat_year'] . '</a></li>';
+											//$monthName = strftime("%B", strtotime('2011-' . $cat['cat_month'] . '-01'));
+											$monthName = LocalizedCalendar::getMonthName($language_selected, $cat['cat_month']);
+											echo '<li class="page_item"><a href="'. $this_script . '?year=' . $cat['cat_year'] . '&month=' . $cat['cat_month'] . '">' . $monthName . ' ' . $cat['cat_year'] . '</a></li>';
 										}
 										echo "</ul>\n";
 										?>
@@ -105,88 +116,41 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
                             <h1><strong><?= NEWS_NEWS ?></strong></h1>
                             <?php
                             	// Fetch all posts that match supplied criteria (if any)
-                            	$sql_posts="select * from bsi_news_posts ";
-                            	$message = NEWS_NO_NEWS_MESSAGE;
-                            	if (isset($_GET['cat']))
-                            	{
-                            		$sql_posts = $sql_posts . " WHERE (category_en = '" . mysql_escape_string(urldecode($_GET['cat'])) . "' OR category_hr = '" . mysql_escape_string(urldecode($_GET['cat'])) . "' OR category_de = '" . mysql_escape_string(urldecode($_GET['cat'])) . "' OR category_it = '" . mysql_escape_string(urldecode($_GET['cat'])) . "')";
-                            		$message = NEWS_NO_NEWS_WITH_CRITERIA;                                        		
-                            	}
-                            	else if (isset($_GET['year']) && is_numeric($_GET['year']) && isset($_GET['month']) && is_numeric($_GET['month']))
-                            	{
-                            		$sql_posts = $sql_posts . " WHERE  CAST(DATE_FORMAT(date_posted, '%Y') as UNSIGNED) = " . $_GET['year'] . " AND CAST(DATE_FORMAT(date_posted,'%m') as UNSIGNED) = " . $_GET['month'];
-                            		$message = NEWS_NO_NEWS_WITH_CRITERIA;                                        		
-                            	}
-                            	else if (isset($_POST['keyword']))
-                            	{
-                            		$sql_posts = $sql_posts . " WHERE  (contents_en LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR contents_hr LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR contents_de LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR contents_it LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR title_en LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR title_hr LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR title_de LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%' OR title_it LIKE '%" . mysql_escape_string(urldecode($_POST['keyword'])) . "%')";
-                            		$message = NEWS_NO_NEWS_WITH_CRITERIA;                                        		
-                            	}
-                            	else if (isset($_GET['id']) && is_numeric($_GET['id']))
-                            	{
-                            		$sql_posts = $sql_posts . " WHERE  id = " . $_GET['id'];
-                            		$message = NEWS_NO_NEWS_WITH_CRITERIA;                                        		
-                            	}                            	
-                            	$sql_posts = $sql_posts . " order by date_posted DESC ";
-                            	
-								// Pagination                            	
-                            	$page=1;
-                            	if (isset($_GET['page']) && is_numeric($_GET['page']))
-                            	{
-                            		$page=$_GET['page'];                                        		
-                            	}
-                            	
-                            	// TODO: Move to admin panel as a setting
-                            	$postsPerPage = 5;
-                            	
-                            	$sql_posts_prepared = mysql_query($sql_posts);  
-                            	$rows = mysql_num_rows($sql_posts_prepared);
+                            	$searchCriteria = NewsSearchCriteria::fetchFromParameters($_GET);
+                            	$newsPosts = $searchCriteria->runSearch();                            
                             
                             	// If no news posts are found, output default message
-                            	if ($rows == 0)
+                            	if (sizeof($newsPosts) == 0)
                             	{
                             ?>
 	                            	<div class="post blog_multi">		                                
 		                                <div class="post-text">
-		                                    <p><?= $message ?></p>
+		                                    <p><?= NEWS_NO_NEWS_WITH_CRITERIA ?></p>
 		                                </div>		                                
 		                            </div>
                             <?php 
                             	}
                             	else
-                            	{           
-                            		// Validate page numbers                 
-								 	$lastPage = ceil($rows/$postsPerPage);
-								 	if ($page < 1) 
-								 	{
-								 		$page = 1;
-								 	}								
-								 	elseif ($page > $lastPage)								
-								 	{								
-										$page = $lastPage;								
-								 	} 
-								 	
-								 	$sql_posts = $sql_posts . ' LIMIT ' . ($page - 1) * $postsPerPage . ',' .$postsPerPage;
-								 	$sql_posts_prepared_paginated = mysql_query($sql_posts);                            	
-	                            	while($posts=mysql_fetch_assoc($sql_posts_prepared_paginated))
-									{									
+                            	{                            		
+	                            	foreach ($newsPosts as $newsPost) 
+	                            	{	   
+	                            		$newsCategory = $newsPost->getCategory();                         										
 							?>										
 			                            <div class="post blog_multi">
 			                                <div class="post-header">
-			                                    <h2><a href="#"><?= $posts['title_' . $language_selected] ?></a></h2>
-			                                    <small><?= NEWS_POSTED_ON ?> <?= $posts['date_posted'] ?> <?= NEWS_POSTED_BY ?> <?= $posts['poster_name'] ?></small>
+			                                    <h2><a href="#"><?= $newsPost->title->getText($language_selected) ?></a></h2>
+			                                    <small><?= NEWS_POSTED_ON ?> <?= $newsPost->postedDate->format("m/d/Y") ?> <?= NEWS_POSTED_BY ?> <?= $newsPost->posterName ?></small>
 			                                </div>
 			                                <div class="post-image">
-			                                    <img src="images/<?= $posts['image_large'] ?>" alt="" />
+			                                    <img src="images/<?= $newsPost->imageLarge ?>" alt="" />
 			                                </div>
 			                                <div class="post-text">
-			                                    <?= $posts['contents_' . $language_selected] ?>
-			                                </div>
-			                                <!-- /.post-text -->
+			                                    <?= $newsPost->contents->getText($language_selected) ?>
+			                                </div>			                                
 			                                <div class="rule">
 			                                </div>	                                
 			                                <div class="post-info">
-			                                    <small><?= NEWS_POSTED_IN ?> <a rel="category tag" title="" href="<?= $this_script . '?lang=' . $language_selected .'&cat=' . urlencode($posts['category_' . $language_selected]) ?>"><?= $posts['category_' . $language_selected] ?></a></small>
+			                                    <small><?= NEWS_POSTED_IN ?> <a rel="category tag" title="" href="<?= $_SERVER['PHP_SELF'] . '?category_id=' . $newsPost->categoryId ?>"><?= $newsCategory->title->getText($language_selected) ?></a></small>
 			                                </div>
 			                                <!-- /.post-info -->
 			                                <div class="rule">
@@ -198,23 +162,23 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
                             	
                             	// Generate valid page numbers, previous and next links
                             	// TODO: Apply some nice CSS to the page number links 
-                            	if ($lastPage > 1)
+                            	if ($searchCriteria->totalPages > 1)
                             	{
-                            		$queryString = preg_replace("/\&?page=[0-9]+/", "", $_SERVER['QUERY_STRING']);
-                            		if ($page == 1)
+                            		$queryString = preg_replace("/&?page=[0-9]+/", "", $_SERVER['QUERY_STRING']);
+                            		if ($searchCriteria->page == 1)
                             		{
                             			echo NEWS_PREVIOUS . "&nbsp;";                            			
                             		}
                             		else
                             		{
-                            			echo '<a href="' . $this_script . '?' . $queryString . '&page=' . ($page - 1) . '">' . NEWS_PREVIOUS . '</a>&nbsp;';                            			
+                            			echo '<a href="' . $_SERVER['PHP_SELF'] . '?' . $queryString . '&page=' . ($searchCriteria->page - 1) . '">' . NEWS_PREVIOUS . '</a>&nbsp;';                            			
                             		}
                             		
-	                            	for ($i = 1; $i <= $lastPage; $i++) 
+	                            	for ($i = 1; $i <= $searchCriteria->totalPages; $i++) 
 	                            	{
-	                            		if ($i == $page)
+	                            		if ($i == $searchCriteria->page)
 	                            		{
-	                            			echo $page . "&nbsp;";
+	                            			echo $i . "&nbsp;";
 	                            		}
 	                            		else 
 	                            		{
@@ -222,13 +186,13 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 	                            		}	                            		
 	                            	}
 	                            	
-                            		if ($page == $lastPage)
+                            		if ($searchCriteria->page == $searchCriteria->totalPages)
                             		{
                             			echo NEWS_NEXT . "&nbsp;";                            			
                             		}
                             		else
                             		{
-                            			echo '<a href="' . $this_script . '?' . $queryString . '&page=' . ($page + 1) . '">' . NEWS_NEXT . '</a>&nbsp;';                            			
+                            			echo '<a href="' . $_SERVER['PHP_SELF'] . '?' . $queryString . '&page=' . ($searchCriteria->page + 1) . '">' . NEWS_NEXT . '</a>&nbsp;';                            			
                             		}
                             	}
                             ?>                                                                              

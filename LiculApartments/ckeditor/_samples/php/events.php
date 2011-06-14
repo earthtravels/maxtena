@@ -95,8 +95,8 @@ $CKEditor->clearEventHandlers();
 			</p>
 <?php
 // Configuration that will be used only by the second editor.
-$config['width'] = '600';
-$config['toolbar'] = 'Basic';
+$details['width'] = '600';
+$details['toolbar'] = 'Basic';
 
 // Add some global event handlers (for all editors).
 CKEditorHideLinkTargetTab($CKEditor);
@@ -109,7 +109,7 @@ $events['instanceReady'] = 'function (evt) {
 }';
 
 // Create second instance.
-$CKEditor->editor("editor2", $initialValue, $config, $events);
+$CKEditor->editor("editor2", $initialValue, $details, $events);
 ?>
 			<p>
 				<input type="submit" value="Submit"/>

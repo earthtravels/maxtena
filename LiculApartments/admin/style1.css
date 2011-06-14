@@ -42,4 +42,15 @@ div.sample1 div.vert_menu a:hover,
 div.sample1 div.horz_menu a.active,
 div.sample1 div.vert_menu a.active { color:#990000  }
 
-
+a:link {
+	text-decoration:none;
+	font-color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 2;
+	}      /* unvisited link */
+a:visited {
+	text-decoration:none;
+	font-color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 2;
+	} 

@@ -165,3 +165,90 @@ color:#FFFFFF;
 text-decoration:none;
 font-family:Arial, Helvetica, sans-serif;
 }
+
+a:link {
+	text-decoration:none;
+	font-color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 2;
+	}      /* unvisited link */
+a:visited {
+	text-decoration:none;
+	font-color: #990000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 2;
+	} 
+
+/********************************/
+/* ---------- PAGINATION ---------- */
+/********************************/
+.paginate{border:0; margin:0; padding:0; }
+
+
+#pagination-digg li
+{
+        border:0;
+        margin:0;
+        padding:0;
+        font-size:11px;
+        list-style:none;
+        display:inline;
+        margin-right:2px;
+}
+
+#pagination-digg a
+{        
+        border:solid 1px #727a7f; /* Box around page number*/
+        margin-right:2px;
+}
+
+#pagination-digg .spacer a
+{
+        font-weight:bold;
+        border:none;
+        margin-right:2px;
+}
+
+#pagination-digg .previous-off,
+#pagination-digg .next-off {
+
+border:solid 1px;
+color:#bac0c4; /* Color around diabled page links */
+display: inline;
+/*display:block;
+float:left;*/
+font-weight:bold;
+margin-right:2px;
+padding:3px 4px;
+}
+#pagination-digg .next a,
+#pagination-digg .previous a {
+
+font-weight:bold;
+
+}
+#pagination-digg .active{
+
+background:#727a7f;
+color:#FFFFFF;
+font-weight:bold;
+display: inline;
+/*display:block;
+float:left;*/
+padding:4px 6px;
+}
+#pagination-digg a:link,
+#pagination-digg a:visited
+{        
+        color:#727a7f;
+        display: inline;
+        /*display:block;
+        float:left;*/
+        padding:3px 6px;
+        text-decoration:none;
+}
+#pagination-digg a:hover
+{
+        border:solid 1px #000000;
+}
+	

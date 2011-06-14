@@ -1,7 +1,12 @@
 <?
 session_start();
+
+//include_once ("../includes/SystemConfiguration.class.php");
+
+
 // Sends the user to the login-page if not logged in
-if(!session_is_registered('password')) :
+if(!isset($_SESSION['password']))
+{
    header('Location: index.php?msg=requires_login');
-endif;
+}
 ?>
