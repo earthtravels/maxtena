@@ -1,66 +1,121 @@
 <?php
-error_reporting(0);
+// TODO: Uncomment
 include ("access.php");
+include_once ("../includes/SystemConfiguration.class.php");
 include ("header.php");
-include("../includes/conf.class.php");
-$content_id=$bsiCore->ClearInput($_REQUEST['id']);
-if(isset($_REQUEST['act'])){
-    // contents..........
-   	if(isset($_POST['contents_en']))
-	$contents_en = htmlentities(($_POST['contents_en']));
-	else
-	$contents_en = "";
-	
-	if(isset($_POST['contents_es']))
-	$contents_es = htmlentities(($_POST['contents_es']));
-	else
-	$contents_es = "";
-	
-	if(isset($_POST['contents_de']))
-	$contents_de = htmlentities(($_POST['contents_de']));
-	else
-	$contents_de = "";
-	
-	if(isset($_POST['contents_fr']))
-	$contents_fr = htmlentities(($_POST['contents_fr']));
-	else
-	$contents_fr = "";
-	// contents..........
-$c_update=mysql_query("update bsi_contents set contents_en ='".$contents_en."', contents_es ='".$contents_es."', contents_de ='".$contents_de."', contents_fr ='".$contents_fr."' where id=".$content_id);
-}
-$content_details=mysql_fetch_assoc(mysql_query("select * from bsi_contents where id=".$content_id));
 
+global $systemConfiguration;
+global $logger;
+
+$errors = array();
+$message = "";
+$content = new Content();
+ if(isset($_POST['SBMT_REG']))
+{
+	$content = Content::fetchFromParameters($_POST);
+	if (!$content->save())
+	{
+		foreach ($content->errors as $error) 
+		{
+			$errors[] = $error;
+		}
+	}	
+	else
+	{
+		$message = "Values were updated successfully!";
+	}
+}
+else if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id']))
+{
+	$id = intval($_REQUEST['id']);
+	$content = Content::fetchFromDbForId($id);
+}
+
+
+$defaultLanguage = Language::fetchDefaultLangauge();
+
+$light="#666666"; 
 ?>
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 </td>
-  </tr> 
-  <tr>
-    <td  valign="top" align="left"><br />
-    <form action="<?=$_SERVER['PHP_SELF']?>?id=<?=$content_id?>&act=1" method="post" enctype="multipart/form-data">
-        <table cellpadding="5" cellspacing="0" border="0" width="900" >
-        <tr><td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;"><?=$content_details['cont_title']?></td></tr>
-        <tr><td >
-        <?php
-		$sql_lang_content=mysql_query("select * from  bsi_language where status=true order by lang_order");
-		while($row_lang_content=mysql_fetch_assoc($sql_lang_content)){
-		?>
-         <b><?=$row_lang_content['language']?></b> <img src="../graphics/language_icons/<?=$row_lang_content['lang_code']?>.png" border="0"  title="<?=$row_lang_content['language']?>" alt="<?=$row_lang_content['language']?>"  align="absmiddle"/><br />
-        <textarea class="ckeditor"  name="contents_<?=$row_lang_content['lang_code']?>"   ><?=$content_details['contents_'.$row_lang_content['lang_code']]?></textarea>
-        <?php } ?>
-</td></tr>
-<tr><td align="center"><input type="submit" value="UPDATE CONTENT" /></td></tr>
-<?php
-if ($c_update) {
+</tr>
+
+<tr>
+  <td height="400" valign="top">
+  <?php
+
+if (sizeof($errors) > 0)
+{
+	echo '			<table width="100%">' . "\n";
+	foreach ($errors as $error) 
+	{
+		echo '				<tr><td class="TitleBlue11pt" style="color: red; font-weight: bold;">' . htmlentities($error) . '</td></tr>' . "\n";
+	}
+	echo '			</table>' . "\n";
+}
+else if ($message != "")
+{
+	echo '			<table width="100%">' . "\n";
+	echo '				<tr><td class="TitleBlue11pt" align="center" style="color: green; font-weight: bold;">' . htmlentities($message) . '</td></tr>' . "\n";
+	echo '			</table>' . "\n";
+}
 ?>
-<tr><td style="font-family:Arial, Helvetica, sans-serif;  font-size:14px; color:#009900; font-weight:bold;">Content is updated!!</td></tr>
-<?php } ?>
-        </table>
-      </form>
-    </td>
-  </tr>
-  <?php include("footer.php"); ?>
+	<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
+	    <table width="99%" border="0" align="center" cellspacing="1" cellpadding="4" bgcolor="#666666" style="border:solid 1px;">                                    
+	        <input type="hidden" name="id" value="<?= $content->id ?>" />
+	        <input type="hidden" name="cont_title" value="<?= $content->title ?>" />                                   	
+	        <tr bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td  valign="top" width="20%">
+	                Status 
+	            </td>
+	            <td align="left">
+	                <input type="radio" name="status" value='Y' <?= $content->isVisible ? ' checked="checked"' : '' ?>/>
+	                Visible
+	                <input type="radio" name="status" value='N' <?= $content->isVisible ? '' : ' checked="checked"' ?>/>
+	                Hidden
+	            </td>
+	        </tr>                                      		
+	        <tr bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td  valign="top" width="20%">
+	                Content Title 
+	            </td>
+	            <td align="left">
+	                <?= $content->title ?>
+	            </td>
+	        </tr>
+	        <tr bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td valign="top" colspan="2" align="left">
+	                Content
+	            </td>
+	        </tr>
+	        <tr  bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td colspan="2" height="400">
+	                <?php
+				        $languages = Language::fetchAllFromDbActive();	                                        	
+				        foreach ($languages as $language) 
+				        {	                                        		
+				    ?>
+				            <br />
+				            <b><?= $language->languageName ?></b> <img src="../graphics/language_icons/<?=$language->languageCode?>.png" border="0"  title="<?=$language->languageName?>" alt="<?=$language->languageName?>"  align="absmiddle"/><br />
+				            <br />
+	                        <textarea  class="ckeditor" name="contents_<?=$language->languageCode?>"  ><?=htmlentities($content->contents->getText($language->languageCode))?></textarea>
+				    <?php 
+				        }										
+			        ?>                                        
+	            </td>
+	        </tr>                                    
+	</table>
+	<table width="100%">
+	<tr  bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td height="20" align="center">
+	                <input type="image" value="1" src="images/button_save.png"  name='SBMT_REG' >
+	            </td>
+	        </tr>
+	</table>
+	</form>
+  </td>
+</tr>
+<?php include("footer.php"); ?>
 </table>
-
-
-</body>
-</html>
+<br />
+</body></html>

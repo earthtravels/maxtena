@@ -1,19 +1,30 @@
 <?php
-function outputMenuItem($parentId, $pad, $language_selected)
+global $systemConfiguration;
+global $logger;
+$logger->LogInfo(__FILE__);
+
+function outputMenuItemRecurse($parentId, $pad, $language_selected)
 {
-	$sql_parent=mysql_query("select * from bsi_site_contents where parent_id=".$parentId." and status='Y' order by ord");
-	$rowCount=mysql_num_rows($sql_parent);
-    
-	if ($rowCount > 0)
+	global $logger;
+	$logger->LogDebug("Getting menu items for parent: $parentId ...");
+	$pages = PageContents::fetchFromDbActiveForParent($parentId);	   
+	if (sizeof($pages) > 0)
 	{
-		echo $pad . "<ul>\n";	
-	  	while($row=mysql_fetch_assoc($sql_parent))
+		$logger->LogDebug("Found matches.");
+		echo $pad . "<ul>\n";
+		foreach ($pages as $page) 
 		{
-			
-			echo $pad . '    <li><a href="' . $row['url'] . '">' . $row['title_'.$language_selected] . '</a>' . "\n";
-			outputMenuItem($row['id'], $pad . "    ", $language_selected);		
+			if (!($page instanceof PageContents))
+			{
+				continue;	
+			}
+			$title = $page->title->getText($language_selected);
+			$logger->LogDebug("	Title=$title");
+			$logger->LogDebug("	URL=" . $page->getUrl());
+			echo $pad . '    <li><a href="' . $page->getUrl() . '">' . $page->title->getText($language_selected) . '</a>' . "\n";
+			outputMenuItemRecurse($page->id, $pad . "	", $language_selected);		
 			echo $pad . "</li>\n";
-		}
+		}  	
 		echo $pad . "</ul>\n";
 	}
 } 
@@ -27,65 +38,41 @@ function outputMenuItem($parentId, $pad, $language_selected)
                     </div>
                     <div class="text">
                         <a href="index.php" title="">
-                        	<span class="title"><?=$bsiCore->config['conf_hotel_sitetitle']?></span> 
+                        	<span class="title"><?= $systemConfiguration->getSiteTitle() ?></span> 
                         	<span class="subtitle"><?=HEADER_SLOGAN?></span> </a>
                     </div>
                 </div>
                 <div style="float: right; padding-right: 5px; padding-top: 5px;">
 				<?php
-				$sql_lang = mysql_query ("select * from bsi_language where status=true order by `default` desc, lang_order");
-				if (mysql_num_rows ($sql_lang) > 1)
-				{
-					while ($row_lang = mysql_fetch_assoc ($sql_lang))
+					$logger->LogDebug("Getting languages ...");
+					$langauges = Language::fetchAllFromDbActive();
+					if ($langauges == null)
 					{
-						if (isset ($_POST['allowlang']))
-						{
-							?>
-							<a href="index.php?lang=<?=$row_lang['lang_code']?>"
-							   title="<?=$row_lang['language']?>">
-							   <img src="images/<?=$row_lang['lang_code']?>.png"
-							   		title="<?=$row_lang['language']?>" alt="<?=$row_lang['language']?>" />
-							</a>&nbsp;
-				<?php
-						}
-						else
-						{
-							if (strpos ($_SERVER['REQUEST_URI'], 'lang=') > 0)
-								$get_url = substr ($_SERVER['REQUEST_URI'], 0, - 8);
-							else
-								$get_url = $_SERVER['REQUEST_URI'];
-							
-							if (strpos ($get_url, '?') > 1)
-							{
-								?>
-								<a href="index.php?lang=<?=$row_lang['lang_code']?>"
-								   title="<?=$row_lang['language']?>">
-								   <img src="images/<?=$row_lang['lang_code']?>.png"
-								   		title="<?=$row_lang['language']?>" alt="<?=$row_lang['language']?>" />
-								</a>&nbsp;
-				        <?php
-							}
-							else
-							{
-								?>
-								<a href="<?=$get_url?>?lang=<?=$row_lang['lang_code']?>"
-								   title="<?=$row_lang['language']?>">
-								   <img src="images/<?=$row_lang['lang_code']?>.png"
-								   		title="<?=$row_lang['language']?>" alt="<?=$row_lang['language']?>" />
-								</a>&nbsp;								      
-				<?php
-							}
-						}
+						die (Language::$staticErrors);
 					}
-				} 
+					
+					foreach ($langauges as $language) 
+					{
+						if (!($language instanceof Language))
+						{
+							continue;
+						}
+						
+				?>
+						<a href="index.php?lang=<?= $language->languageCode ?>"
+						   title="<?=$language->languageName?>">
+						   <img src="images/<?=$language->languageCode?>.png"
+						   		title="<?=$language->languageName?>" alt="<?=$language->languageName?>" />
+						</a>&nbsp;
+				<?php
+					}
 				?>					
 				</div> 
 				<div id="main_menu">								               
 					<?php
-						outputMenuItem(0, "                ", $language_selected)					
+						$logger->LogDebug("Output menu itmes ...");
+						outputMenuItemRecurse(0, "                ", $language_selected)					
 					?>
 				</div>                
                 <!-- /#main_menu -->
             </div>
-            
-			

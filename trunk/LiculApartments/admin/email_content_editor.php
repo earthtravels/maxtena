@@ -1,42 +1,133 @@
 <?php
+// TODO: Uncomment
 include ("access.php");
+include_once ("../includes/SystemConfiguration.class.php");
 include ("header.php");
-include("../includes/conf.class.php");
-if(isset($_REQUEST['id']))
-$content_id=$bsiCore->ClearInput($_REQUEST['id']);
 
-$c_update=0;
-if(isset($_POST['submit1'])){
-$c_update=mysql_query("update bsi_email_contents set email_subject='".$bsiCore->ClearInput($_POST['email_subj'])."', email_text='".htmlentities($_POST['contents'])."' where id=".$content_id);
+global $systemConfiguration;
+global $logger;
+
+$errors = array();
+$message = "";
+
+$emailContents = new EmailContents();
+if(isset($_POST['SBMT_REG']))
+{
+	$logger->LogInfo("Form was submitted.");
+	$emailContents = EmailContents::fetchFromParameters($_POST);
+	if (!$emailContents->save())
+	{
+		$logger->LogError("Email contents failed to save.");
+		foreach ($emailContents->errors as $error) 
+		{
+			$logger->LogError($error);
+			$errors[] = $error;
+		}
+	}	
+	else
+	{
+		$message = "Values were updated successfully!";
+	}
 }
-$content_details=mysql_fetch_assoc(mysql_query("select * from bsi_email_contents where id=".$content_id));
+else if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id']))
+{
+	$logger->LogInfo("Form was called with id: " .  $_REQUEST['id']);
+	$id = intval($_REQUEST['id']);
+	$emailContents = EmailContents::fetchFromDb($id);
+}
 
+
+$defaultLanguage = Language::fetchDefaultLangauge();
+$languages = Language::fetchAllFromDbActive();
+ 
 ?>
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 </td>
-  </tr> 
-  <tr>
-    <td  valign="top" align="left"><br />
-    <form action="<?=$_SERVER['PHP_SELF']?>?id=<?=$content_id?>" method="post" enctype="multipart/form-data">
-        <table cellpadding="5" cellspacing="0" border="0" width="900"  class="bodytext">
-       
-        <tr><td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;"><?=$content_details['email_name']?></td></tr>
-         <tr><td>Email Subject: <input type="text" name="email_subj" size="100" value="<?=$content_details['email_subject']?>" /></td></tr>
-        <tr><td >Email Content:<br /><textarea class="ckeditor"  name="contents"  ><?=$content_details['email_text']?></textarea>
-</td></tr>
-<tr><td align="center"><input type="submit" value="UPDATE CONTENT" name="submit1" /></td></tr>
-<?php
-if ($c_update) {
+</tr>
+
+<tr>
+  <td height="400" valign="top">
+  <?php
+
+if (sizeof($errors) > 0)
+{
+	echo '			<table width="100%">' . "\n";
+	foreach ($errors as $error) 
+	{
+		echo '				<tr><td class="TitleBlue11pt" style="color: red; font-weight: bold;">' . htmlentities($error) . '</td></tr>' . "\n";
+	}
+	echo '			</table>' . "\n";
+}
+else if ($message != "")
+{
+	echo '			<table width="100%">' . "\n";
+	echo '				<tr><td class="TitleBlue11pt" align="center" style="color: green; font-weight: bold;">' . htmlentities($message) . '</td></tr>' . "\n";
+	echo '			</table>' . "\n";
+}
 ?>
-<tr><td style="font-family:Arial, Helvetica, sans-serif;  font-size:14px; color:#009900; font-weight:bold;">Content is updated!!</td></tr>
-<?php } ?>
-        </table>
-      </form>
-    </td>
-  </tr>
-  <?php include("footer.php"); ?>
+	<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
+	    <table width="99%" border="0" align="center" cellspacing="1" cellpadding="4" bgcolor="#666666" style="border:solid 1px;">                                    
+	        <input type="hidden" name="id" value="<?= $emailContents->id ?>" />
+	        <input type="hidden" name="email_code" value="<?= $emailContents->emailCode ?>" />
+	        <?php		        	                                        	
+		        foreach ($languages as $language) 
+		        {	                                        		
+		    ?>
+		    		<tr  bgcolor="#ffffff" class="TitleBlue11pt">
+		    			<td valign="middle" align="left" width="30%">
+		    				<img src="../graphics/language_icons/<?=$language->languageCode?>.png" border="0"  title="<?=$language->languageName?>" alt="<?=$language->languageName?>" /> <?= $language->languageName ?> Email Subject
+		            	</td>
+		            	<td align="left" valign="middle">
+		            		<input type="text" name="email_subject_<?= $language->languageCode ?>" value="<?= htmlentities($emailContents->emailSubject->getText($language->languageCode)) ?>" size="100"/>
+	            		</td>
+		            </tr>                       
+		    <?php 
+		        }										
+	        ?>	       
+	        <tr  bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td colspan="2">
+	            	Email Contents
+	            	<p style="font-size: x-small;">Following tokens are available for use in email content:
+	            	<ul style="font-size: x-small;">
+	            	<?php
+	            		$emailPersonalizer = new EmailPersonalizer(null);
+	            		foreach ($emailPersonalizer->terms as $term) 
+	            		{
+	            			echo '<li style="font-size: x-small;">' . $term . "</li>";
+	            		} 
+	            	?>	            		
+	            	</ul>
+	            	</p>
+            	</td>
+            </tr>	            
+	        <tr  bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td colspan="2" height="400">
+	                <?php				   
+	                	reset($languages);     	                                        	
+				        foreach ($languages as $language) 
+				        {	                                        		
+				    ?>
+				            <br />
+				            <b><?= $language->languageName ?></b> <img src="../graphics/language_icons/<?=$language->languageCode?>.png" border="0"  title="<?=$language->languageName?>" alt="<?=$language->languageName?>"  align="middle"/><br />
+				            <br />	                        
+	                        <textarea  class="ckeditor" name="email_text_<?=$language->languageCode?>"  ><?=htmlentities($emailContents->emailText->getText($language->languageCode))?></textarea>
+				    <?php 
+				        }										
+			        ?>                                        
+	            </td>
+	        </tr>                                    
+	</table>
+	<table width="100%">
+	<tr  bgcolor="#ffffff" class="TitleBlue11pt">
+	            <td height="20" align="center">
+	                <input type="image" value="1" src="images/button_save.png"  name='SBMT_REG' >
+	            </td>
+	        </tr>
+	</table>
+	</form>
+  </td>
+</tr>
+<?php include("footer.php"); ?>
 </table>
-
-
-</body>
-</html>
+<br />
+</body></html>

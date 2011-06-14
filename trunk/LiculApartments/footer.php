@@ -1,13 +1,19 @@
+<?php
+global $systemConfiguration;
+global $logger;
+global $language_selected;
+$logger->LogInfo(__FILE__);
+?>
 			<div id="footer" class="clear">
                 <div class="copy">
                     <table width="100%">
                         <tr>
                             <td style="width: 430px;">
-                                <?= $bsiCore->config['conf_hotel_streetaddr'] . ", " . $bsiCore->config['conf_hotel_city'] ." &#45; " . $bsiCore->config['conf_hotel_country']?> 
+                                <?= $systemConfiguration->getHotelDetails()->getHotelAddress() . ", " . $systemConfiguration->getHotelDetails()->getHotelCity() ." &#45; " . $systemConfiguration->getHotelDetails()->getHotelCountry() ?> 
                                 (<a href="http://maps.google.com/?q=Lošinjska%2026,%20Labin,%20Croatia" target="_blank"><?=FOOTER_DIRECTIONS?></a>)
                             </td>
                             <td>
-                                <?= FOOTER_PHONE ?>: <?= $bsiCore->config['conf_hotel_phone'] ?>
+                                <?= FOOTER_PHONE ?>: <?= $systemConfiguration->getHotelDetails()->getHotelPhone() ?>
                             </td>
                             <td style="text-align: right;">
                                 <a href="contact.php"><?= FOOTER_CONTACT_US ?></a>
@@ -20,18 +26,22 @@
                         <tr>
                             <td style="text-align: center;">
                             <?php
-                            	$sql_parent=mysql_query("select * from bsi_site_contents where parent_id=0 and status='Y' order by ord");
-                            	$separator="";
-								while($row=mysql_fetch_assoc($sql_parent))
+	                            $pages = PageContents::fetchFromDbActiveForParent(0);
+								if ($pages == null)
 								{
-										
-									echo $separator;						
-							?>									
-									<a href="<?= $row['url'] ?>"><?= $row['title_'.$language_selected] ?></a>								
-								 
-							<?php
-									$separator = '<span class="sep">|</span>';
-								}								 
+									die (PageContents::$staticErrors);
+								}    
+								$separator="";
+								foreach ($pages as $page) 
+								{
+									if (!($page instanceof PageContents))
+									{
+										continue;	
+									}
+									echo $separator;
+									echo '<a href="' . $page->getUrl() . '">' . $page->title->getText($language_selected) . '</a>' . "\n";
+									$separator = '<span class="sep">|</span>';										
+								}                            						 
                             ?>                               
                             </td>
                         </tr>
@@ -44,9 +54,9 @@
                                 <?= FOOTER_FOLLOW_US ?>
                             </td>
                              <td align="left">
-                                <a href="http://www.twitter.com"><img alt="Twitter Icon" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
-                                <a href="http://www.facebook.com/pages/Villas-Rabac"><img alt="Facebook Icon" style="margin: 0 0 0 10px;" src="images/icon_facebook.png"/></a>
-                                <a href="http://therabac.tumblr.com"><img alt="Tumblir Icon" style="margin: 0 0 0 10px;" src="images/icon_tumblir.png"/></a>
+                                <a href="http://www.twitter.com" target="_blank"><img alt="Twitter Icon" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
+                                <a href="http://www.facebook.com/pages/Villas-Rabac" target="_blank"><img alt="Facebook Icon" style="margin: 0 0 0 10px;" src="images/icon_facebook.png"/></a>
+                                <a href="http://therabac.tumblr.com" target="_blank"><img alt="Tumblir Icon" style="margin: 0 0 0 10px;" src="images/icon_tumblir.png"/></a>
                             </td>
                         </tr>
                     </table>

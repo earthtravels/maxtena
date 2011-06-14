@@ -133,7 +133,41 @@ class paypal_class {
       $this->fields["$field"] = $value;
    }
 
-   function submit_paypal_post() {
+//   function submit_paypal_post() {
+// 
+//      // this function actually generates an entire HTML page consisting of
+//      // a form with hidden elements which is submitted to paypal via the 
+//      // BODY element's onLoad attribute.  We do this so that you can validate
+//      // any POST vars from you custom form before submitting to paypal.  So 
+//      // basically, you'll have your own form which is submitted to your script
+//      // to validate the data, which in turn calls this function to create
+//      // another hidden form and submit to paypal.
+// 
+//      // The user will briefly see a message on the screen that reads:
+//      // "Please wait, your order is being processed..." and then immediately
+//      // is redirected to paypal.
+//
+//      echo "<html>\n";
+//      echo "<head><title>Processing Payment...</title></head>\n";
+//      echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
+//      echo "<center><h2>Please wait, your order is being processed and you";
+//      echo " will be redirected to the paypal website.</h2></center>\n";
+//      echo "<form method=\"post\" name=\"paypal_form\" ";
+//      echo "action=\"".$this->paypal_url."\">\n";
+//
+//      foreach ($this->fields as $name => $value) {
+//         echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
+//      }
+//      echo "<center><br/><br/>If you are not automatically redirected to ";
+//      echo "paypal within 5 seconds...<br/><br/>\n";
+//      echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+//      
+//      echo "</form>\n";
+//      echo "</body></html>\n";
+//    
+//   }
+
+	function submit_paypal_post() {
  
       // this function actually generates an entire HTML page consisting of
       // a form with hidden elements which is submitted to paypal via the 
@@ -146,24 +180,69 @@ class paypal_class {
       // The user will briefly see a message on the screen that reads:
       // "Please wait, your order is being processed..." and then immediately
       // is redirected to paypal.
-
-      echo "<html>\n";
-      echo "<head><title>Processing Payment...</title></head>\n";
-      echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
-      echo "<center><h2>Please wait, your order is being processed and you";
-      echo " will be redirected to the paypal website.</h2></center>\n";
-      echo "<form method=\"post\" name=\"paypal_form\" ";
-      echo "action=\"".$this->paypal_url."\">\n";
-
-      foreach ($this->fields as $name => $value) {
-         echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
-      }
-      echo "<center><br/><br/>If you are not automatically redirected to ";
-      echo "paypal within 5 seconds...<br/><br/>\n";
-      echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+		global $systemConfiguration;
+		global $logger;
+		echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' ."\n";
+		echo '<html xmlns="http://www.w3.org/1999/xhtml">' ."\n";
+		echo '<head>' ."\n";
+		echo '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />' ."\n";
+		echo '  <meta name="description" content="' . $systemConfiguration->getSiteDescription() . '" />' ."\n";
+		echo '	<meta name="keywords" content="' . $systemConfiguration->getSiteKeywords() . '" />' ."\n";
+		echo '	<meta http-equiv="Content-Type" content="text/html;charset=' . CHARSET . '" />' ."\n";
+		echo '	<meta name="robots" content="ALL,FOLLOW" />' ."\n";
+		echo '  <meta http-equiv="imagetoolbar" content="no" />' ."\n";
+		echo '  <title>' .  $systemConfiguration->getSiteTitle()  . '</title>' ."\n";
+		echo '  <link rel="stylesheet" href="css/reset.css" type="text/css" />' ."\n";
+		echo '  <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" />' ."\n";
+		echo '  <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" />' ."\n";
+		echo '  <link rel="stylesheet" href="css/screen.css" type="text/css" />' ."\n";
+		echo '  <link rel="stylesheet" href="css/date.css" type="text/css" />' ."\n";
+		echo '  <link rel="stylesheet" href="css/datePicker.css" type="text/css" />' ."\n";
+		echo '  <!--[if IE 7]>' ."\n";
+		echo '		<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />' ."\n";
+		echo '	<![endif]-->' ."\n";
+		echo '	<script type="text/javascript" src="js/geometr231_hv_bt_400.font.js"></script>' ."\n";		
+		echo '</head>' ."\n";
+		echo "<body class=\"light\">\n";
+		//echo '<body class="light"> ' ."\n";
+		echo '    <div class="back">' ."\n";
+		echo '        <div class="base">' ."\n";
+		include ("header.php");
+		echo '            <div class="page_top">' ."\n";
+		echo '            </div>' ."\n";
+		echo '            <div class="page">' ."\n";
+		echo '                <div class="page_inside clear">' ."\n";                    
+		echo '                <center>' ."\n";
+		echo '                <h1 align="center"><strong>' . PAYPAL_REDIRECT_TITLE . '</strong></h1>' ."\n";
+		echo '                    <br />' ."\n";
+		echo '                    <p>' . PAYPAL_REDIRECT_TEXT . '</p>' ."\n";
+		echo "						<form id=\"paypal_form\" method=\"post\" name=\"paypal_form\" action=\"".$this->paypal_url."\">\n";
+		foreach ($this->fields as $name => $value) 
+		{
+			echo "							<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
+		}
+		echo "								<br/><br/><p>" . PAYPAL_REDIRECT_INSTRUCTION . "</p><br/><br/>\n";
+		echo "								<input type=\"submit\" value=\"" . PAYPAL_REDIRECT_BUTTON . "\" />";		     
+		echo '						</form>' ."\n";                    
+		echo '					</div>' ."\n";
+		echo '                </center>' ."\n";
+		echo '                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>' ."\n";
+		echo '                </div>' ."\n";				
+		echo '            <div class="page_down">' ."\n";
+		echo '            </div>' ."\n";
+		include("footer.php");
+		echo '        </div>' ."\n";
+		echo '    </div>' ."\n";
+		echo '</body>' ."\n";
+		echo '	<script type="text/javascript">' ."\n";
+		echo '		function myfunc () {' ."\n";
+		echo '			var frm = document.getElementById("paypal_form");' ."\n";
+		echo '			frm.submit();' ."\n";
+		echo '		}' ."\n";
+		echo '		window.onload = myfunc;' ."\n";
+		echo '	</script>' ."\n";
+		echo '</html>' ."\n";
       
-      echo "</form>\n";
-      echo "</body></html>\n";
     
    }
    

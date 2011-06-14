@@ -39,41 +39,41 @@ $(document).ready(function () {
 		slideshowEnd: 				function(){} //Triggers after all slides have been shown
 	});
 	
-	// Validate contact form
-	$('#contact_form').validate();
-		
-	// AJAX contact form
-	$('form#contact_form').submit(function() {
-		if ($('label.error:visible').length !== 0) {
-			return false;
-		}
-		
-		var s = $(this).serialize();
-		
-		if (($(this).attr('action') === '') || ($(this).attr('action')==='#')) 
-			action = '?'; 
-		else 
-			action = $(this).attr('action');
-
-		$.ajax({
-			type: $(this).attr('method'),
-			data: s,
-			url: action,
-			success: function(result) {
-				if (result == '1') {
-					alert('E-mail sent');
-					$('form#contact_form')[0].reset();
-				}
-				else { 
-					alert('E-mail can not be sent!');
-				}
-				
-				return false;
-			}
-		});	
-
-		return false;
-	});
+//	// Validate contact form
+//	$('#contact_form').validate();
+//		
+//	// AJAX contact form
+//	$('form#contact_form').submit(function() {
+//		if ($('label.error:visible').length !== 0) {
+//			return false;
+//		}
+//		
+//		var s = $(this).serialize();
+//		
+//		if (($(this).attr('action') === '') || ($(this).attr('action')==='#')) 
+//			action = '?'; 
+//		else 
+//			action = $(this).attr('action');
+//
+//		$.ajax({
+//			type: $(this).attr('method'),
+//			data: s,
+//			url: action,
+//			success: function(result) {
+//				if (result == '1') {
+//					alert('E-mail sent');
+//					$('form#contact_form')[0].reset();
+//				}
+//				else { 
+//					alert('E-mail can not be sent!');
+//				}
+//				
+//				return false;
+//			}
+//		});	
+//
+//		return false;
+//	});
 	
 	$('.slider .slides img').css({'visibility': 'visible'});	
 });

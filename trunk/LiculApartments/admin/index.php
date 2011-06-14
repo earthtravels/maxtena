@@ -36,7 +36,7 @@
   </tr>
   <tr>
     <td width="25" align="right" class="Titlewhite10pt" height="30" valign="middle">&nbsp;</td>
-    <td width="85" align="left" class="Titlewhite10pt" valign="middle">Email ID</td>
+    <td width="85" align="left" class="Titlewhite10pt" valign="middle">User Name</td>
     <td width="25">&nbsp;</td>
     <td width="202"  align="left" class="Titlewhite10pt" height="30" valign="middle"><input type="text" name="username" size="30" style="height:18px;" /></td>
   </tr>

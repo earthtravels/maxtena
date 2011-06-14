@@ -17,7 +17,7 @@ include ("header.php");
   </style>
   
   <tr>
-    <td height="400" valign="middle" align="center"><span class="style1">Welcome to BSI Admin Panel</span></td>
+    <td height="400" valign="middle" align="center"><span class="style1">Welcome to the Admin Panel</span></td>
   </tr>
   <?php include("footer.php"); ?>
 </table>

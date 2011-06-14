@@ -1,60 +1,71 @@
-<?php 
-session_start();
-include("includes/db.conn.php");
-include("includes/language.php");
-include("includes/conf.class.php");
+<?php
+include_once ("includes/SystemConfiguration.class.php");
+include ("includes/language.php");
+
+
+global $systemConfiguration;
+global $logger;
+$logger->LogInfo(__FILE__);
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=HTML_PARAMS?>" lang="<?=HTML_PARAMS?>">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><?=$bsiCore->config['conf_hotel_sitetitle']?></title> 
-    <meta name="description" content="<?=$bsiCore->config['conf_hotel_sitedesc']?>" />
-    <meta name="keywords" content="<?=$bsiCore->config['conf_hotel_sitekeywords']?>" />
-    <meta http-equiv="Content-Type" content="text/html;charset=<?=CHARSET?>" />
-    <meta name="robots" content="all" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    
-	<!-- Pull in the JQUERY library -->
-	<script type="text/javascript" src="scripts/jquery-1.2.6.min.js"></script>
-    
-    <!-- Pull in and set up the DROPDOWN functionality -->
-	<script type="text/javascript" src="scripts/hoverIntent.js"></script> 
-    <script type="text/javascript" src="scripts/superfish.js"></script> 
-     
-    <script type="text/javascript">      
-        $(document).ready(function(){ 
-            $("ul.sf-menu").superfish(); 
-        });      
-    </script>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="<?= $systemConfiguration->getSiteDescription() ?>" />
+	<meta name="keywords" content="<?=$systemConfiguration->getSiteKeywords()?>" />
+	<meta http-equiv="Content-Type" content="text/html;charset=<?=CHARSET?>" />    
+    <meta name="robots" content="ALL,FOLLOW" />    
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title><?= $systemConfiguration->getSiteTitle() ?></title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" />
+    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="css/date.css" type="text/css" />
+    <link rel="stylesheet" href="css/datePicker.css" type="text/css" />
+    <!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
+	<![endif]-->	
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.js"></script>
+    <script type="text/javascript" src="js/cufon.js"></script>    
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/geometr231_hv_bt_400.font.js"></script>
 </head>
-
-<body>
-
-<!-- Centers the page -->
-<div id="content">
-<?php include("header.php"); ?>    
-    
-    <div id="main-content" class="subpage">
-    	
-      	<div class="left1">
-			<h2><?=BOOKING_CONFIRM_TITLE?> </h2>
-			<br />		<br />		<br />			
-			<div align="center">
-			<?=BOOKING_CONFIRM_MSG?>
-			</div>
-            <br />		<br />		<br />		
-      	</div>
-        
-        
-        
-        <div class="clear"></div>
-        
+<body class="light">
+    <!-- setting of light/dark main page box -->
+    <div class="back">
+        <div class="base">
+        	<?php include ("header.php"); ?>            
+            <div class="page_top">                
+            </div>
+            <div class="page">
+                <div class="page_inside clear">                    
+                   					<?php
+                                    	$logger->LogInfo("Fetching content for id: 4 ...");
+                                    	$content = Content::fetchFromDbForId(4);
+                                    	if ($content == null)
+                                    	{
+                                    		$logger->LogError("Error fetching content with id: 4 from the database.");
+                                    		foreach (Content::$staticErrors as $error) 
+                                    		{
+                                    			$logger->LogError($error);
+                                    			die;
+                                    		}                                    		
+                                    	} 
+                                    	$logger->LogInfo("Content fetched successfully.");
+                                    	
+                                    	echo $content->contents->getText($language_selected);
+                                    ?>                                                       
+                </div>
+            </div>
+            <div class="page_down">
+            </div>
+            <?php include("footer.php"); ?>
+        </div>
     </div>
-    
-</div>
-<!-- END content -->
-
-<?php include("footer.php"); ?>
-
 </body>
 </html>

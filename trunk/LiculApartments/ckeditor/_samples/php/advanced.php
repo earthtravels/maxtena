@@ -64,15 +64,15 @@ echo $code;
 			</p>
 <?php
 // Configuration that will be used only by the second editor.
-$config['toolbar'] = array(
+$details['toolbar'] = array(
 	array( 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ),
 	array( 'Image', 'Link', 'Unlink', 'Anchor' )
 );
 
-$config['skin'] = 'v2';
+$details['skin'] = 'v2';
 
 // Create second instance.
-echo $CKEditor->editor("editor2", $initialValue, $config);
+echo $CKEditor->editor("editor2", $initialValue, $details);
 ?>
 			<p>
 				<input type="submit" value="Submit"/>
