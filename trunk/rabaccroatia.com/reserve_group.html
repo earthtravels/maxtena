@@ -15,17 +15,7 @@
     <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 <![endif]-->
-    <style type="text/css">
-    #fancybox-left-ico {
-     left: 20px;
-    }
-
-    #fancybox-right-ico {
-     right: 20px;
-     left: auto;
-    }
-
-    </style> 
+       </style> 
 </head>
 <body class="light">
     <!-- setting of light/dark main page box -->
@@ -88,120 +78,111 @@
             </div>
             <div class="page_top">                
             </div>
-            <div class="page">
-                <div class="page_inside clear">
-                    <h1><strong>GROUP RESERVATIONS</strong></h1>
-                    <br />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit
-                    rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget
-                    massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit
-                    mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue</p>
-                    <div class="divider">
-                    </div>
-                    <div class="gallery1">
-						<div class="gallery1_inner clear">								
-                            <center>
-								<a href="./images/tmp/template_blue-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_blue-sky_thumb.jpg" /></a>
-								<a href="./images/tmp/template_gold-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_gold-sky_thumb.jpg" /></a>
-								<a href="./images/tmp/template_lightblue-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_lightblue-sky_thumb.jpg" /></a>								        
-                                <a href="./images/tmp/template_blue-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_blue-sky_thumb.jpg" /></a>
-								<a href="./images/tmp/template_gold-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_gold-sky_thumb.jpg" /></a>
-								<a href="./images/tmp/template_lightblue-sky_large.jpg" rel="gallery-2" title="Image caption."><img alt="" src="./images/tmp/template_lightblue-sky_thumb.jpg" /></a>								                                       
-                            </center>
+            <div class="page">                
+				<div class="page_inside clear">
+                    <div class="subpage clear">                       
+                        <!-- MAIN -->
+                        <div id="main" class="clear fullwidth_pad">
+                            <h1><strong>GROUP RESERVATIONS INFORMATION</strong></h1>							
+							<p>The Rabac can accommodate groups of up to 45 people. This is perfect for groups wishing to stay together in one central location.  Discounted rates are available for groups reserving 5 or more apartments.</p>							
+							<p>Fill out our Group Reservations form below if you want to book multiple apartments, check availability, rates and policies, or confirm a block of apartments. Rates listed below are for group reservations only. We will contact you within 48 hours, or the next business day to confirm your reservation request.</p>
+							<p>Minimum of 5 Apartments (to receive discounted rates).</p>
+							<p><em>Rates and availability are not guaranteed until accommodations are booked.</em></p>                    					
+							<div class="divider">
+							</div>    
+							<h2><strong>2011 Group Rates</strong></h2>
+							<div class="divider_med">
+							</div> 
+							<div id="main" style="width: 100%;">
+							<table width="100%">
+								<tr>
+									<th>Group Size</th>
+									<th>Jan-Mar</th>
+									<th>Apr-Jun</th>
+									<th>Jun-Sep</th>
+									<th>Oct-Dec</th>
+								</tr>
+								<tr>
+									<td>0-10</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+								</tr>
+								<tr>
+									<td>11-20</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+								</tr>
+								<tr>
+									<td>21-30</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+									<td>$100</td>
+								</tr>
+							</table>
+							</div>
+							<div class="divider">
+							</div>    
+							<h2><strong>Request a Group Reservation</strong></h2>                    
+							<div class="divider_med">
+							</div> 
+							 <div id="contact">
+								<div class="rule">
+								</div>
+								<form id="contact_form" action="contact.php" method="post">
+								<div class="clear">
+									<label class="required" for="check_in">Check In</label>
+									<input type="text" name="form[check_in]" id="check_in" class="input" />
+								</div>
+								<div class="clear">
+									<label class="required" for="check_out">Check In</label>
+									<input type="text" name="form[check_out]" id="check_out" class="input" />
+								</div>
+								<div class="clear">
+									<label class="required" for="rooms"># of Rooms/Apartments</label>
+									<input type="text" name="form[rooms]" id="rooms" class="input" />
+								</div>
+								<div class="clear">
+									<label class="required" for="adults"># of Adults</label>
+									<input type="text" name="form[adults]" id="adults" class="input" />
+								</div>
+								<div class="clear">
+									<label class="required" for="children"># of Children</label>
+									<input type="text" name="form[children]" id="children" class="input" />
+								</div>
+								<div class="clear">
+									<label for="message">Comments:</label>
+									<textarea name="form[comment]" id="comment" cols="40" rows="6"></textarea>
+								</div>                        
+								<div class="rule">
+								</div>
+								<div class="confirm clear">
+								<div style="padding-right: 15px; width: 100px; padding-top: 0px;">
+										<input style="font-weight: 400; text-align: center; text-indent: 0; -moz-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;
+											background-color: #3f3f38; border-bottom: 1px solid #4d4d44; border-top: 1px solid #4d4d44;
+											cursor: pointer; vertical-align: middle; font: 99% arial,helvetica,clean,sans-serif;
+											float: left; margin-top: 0px !important; font-size: 13px; display: block; color: white !important;
+											text-decoration: none !important; position: relative; -webkit-transition: opacity .2s;
+											-moz-transition: opacity .2s; -o-transition: opacity .2s; -webkit-border-radius: 5px;
+											-moz-border-radius: 5px; padding: 4px 0 4px; letter-spacing: 0.9px; background-image: url(images/btn_overlay.png);
+											background-position: 0 50%; background-repeat: repeat-x; width: 100%; border: 0;
+											-webkit-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;" name="submit" type="submit"
+											value="Submit" />
+									</div>                           
+								</div>
+								<!-- /.confirm -->
+								</form>
+								<div class="rule">
+								</div>
+							</div>
 						</div>
-					</div>
-                    <div class="divider">
-                    </div>    
-                    <h2><strong>2011 Group Rates</strong></h2>
-                    <div class="divider_med">
-                    </div> 
-                    <div id="main" style="width: 100%;">
-                    <table width="100%">
-                        <tr>
-                            <th>Group Size</th>
-                            <th>Jan-Mar</th>
-                            <th>Apr-Jun</th>
-                            <th>Jun-Sep</th>
-                            <th>Oct-Dec</th>
-                        </tr>
-                        <tr>
-                            <td>0-10</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                        </tr>
-                        <tr>
-                            <td>11-20</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                        </tr>
-                        <tr>
-                            <td>21-30</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                            <td>$100</td>
-                        </tr>
-                    </table>
+                        <!-- end of main -->                       
                     </div>
-                    <div class="divider">
-                    </div>    
-                    <h2><strong>Request a Group Reservation</strong></h2>                    
-                    <div class="divider_med">
-                    </div> 
-                     <div id="contact">
-                        <div class="rule">
-                        </div>
-                        <form id="contact_form" action="lib/mail/contact.php" method="post">
-                        <div class="clear">
-                            <label class="required" for="check_in">Check In</label>
-                            <input type="text" name="form[check_in]" id="check_in" class="input" />
-                        </div>
-                        <div class="clear">
-                            <label class="required" for="check_out">Check In</label>
-                            <input type="text" name="form[check_out]" id="check_out" class="input" />
-                        </div>
-                        <div class="clear">
-                            <label class="required" for="rooms"># of Rooms</label>
-                            <input type="text" name="form[rooms]" id="rooms" class="input" />
-                        </div>
-                        <div class="clear">
-                            <label class="required" for="adults"># of Adults</label>
-                            <input type="text" name="form[adults]" id="adults" class="input" />
-                        </div>
-                        <div class="clear">
-                            <label class="required" for="children"># of Children</label>
-                            <input type="text" name="form[children]" id="children" class="input" />
-                        </div>
-                        <div class="clear">
-                            <label for="message">Comments:</label>
-                            <textarea name="form[comment]" id="comment" cols="40" rows="6"></textarea>
-                        </div>                        
-                        <div class="rule">
-                        </div>
-                        <div class="confirm clear">
-                        <div style="padding-right: 15px; width: 100px; padding-top: 0px;">
-                                <input style="font-weight: 400; text-align: center; text-indent: 0; -moz-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;
-                                    background-color: #3f3f38; border-bottom: 1px solid #4d4d44; border-top: 1px solid #4d4d44;
-                                    cursor: pointer; vertical-align: middle; font: 99% arial,helvetica,clean,sans-serif;
-                                    float: left; margin-top: 0px !important; font-size: 13px; display: block; color: white !important;
-                                    text-decoration: none !important; position: relative; -webkit-transition: opacity .2s;
-                                    -moz-transition: opacity .2s; -o-transition: opacity .2s; -webkit-border-radius: 5px;
-                                    -moz-border-radius: 5px; padding: 4px 0 4px; letter-spacing: 0.9px; background-image: url(images/btn_overlay.png);
-                                    background-position: 0 50%; background-repeat: repeat-x; width: 100%; border: 0;
-                                    -webkit-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;" name="submit" type="submit"
-                                    value="Submit" />
-                            </div>                           
-                        </div>
-                        <!-- /.confirm -->
-                        </form>
-                        <div class="rule">
-                        </div>
-                    </div>
-                </div>
+                </div>                                    
             </div>
             <div class="page_down">
             </div>

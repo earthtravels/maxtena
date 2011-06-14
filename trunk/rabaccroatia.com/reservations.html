@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" />
     <link rel="stylesheet" href="./css/nivo-slider.css" type="text/css" />
     <link rel="stylesheet" href="./css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./css/date.css" type="text/css" />
+    <link rel="stylesheet" href="./css/datePicker.css" type="text/css" />
     <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 <![endif]-->
@@ -21,7 +23,7 @@
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">
-             <div id="header">
+            <div id="header">
                 <div id="logo">
                     <div class="picture">
                         <a href="./index.html" title="">
@@ -34,17 +36,18 @@
                     </div>
                 </div>
                 <div style="float: right; padding-right: 5px; padding-top: 5px;">
-					<a href="#"><img src="images/flag_united_kingdom.png" width="32px" /></a>&nbsp;
-					<a href="#"><img src="images/flag_croatia.png" width="32px" /></a>&nbsp;
-					<a href="#"><img src="images/flag_germany.png" width="32px" /></a>&nbsp;
-					<a href="#"><img src="images/flag_italy.png" width="32px" /></a>
-				</div>               
+                    <a href="#">
+                        <img src="images/flag_united_kingdom.png" width="32px" /></a>&nbsp; <a href="#">
+                            <img src="images/flag_croatia.png" width="32px" /></a>&nbsp; <a href="#">
+                                <img src="images/flag_germany.png" width="32px" /></a>&nbsp; <a href="#">
+                                    <img src="images/flag_italy.png" width="32px" /></a>
+                </div>
                 <!-- MAIN MENU -->
                 <div id="main_menu">
                     <ul>
                         <li class="current_page_item"><a href="./index.html">Home</a></li>
                         <li><a href="./reservations.html">Reservations</a>
-                            <ul>                                
+                            <ul>
                                 <li><a href="./reserve_group.html">Group Reservations</a></li>
                             </ul>
                         </li>
@@ -57,7 +60,7 @@
                         <li><a href="#">Location</a>
                             <ul>
                                 <li><a href="./rabac_restaurants.html">Rabac</a></li>
-                                <li><a href="./labin_restaurants.html">Labin</a></li>                                
+                                <li><a href="./labin_restaurants.html">Labin</a></li>
                             </ul>
                         </li>
                         <li><a href="./about.html">About</a></li>
@@ -77,127 +80,138 @@
                 </div>
                 <!-- /#main_menu -->
             </div>
-            <div class="page_top">                
+            <div class="page_top">
             </div>
             <div class="page">
                 <div class="page_inside clear">
-                    <div class="subpage clear">                        
-                        <!-- ****** SIDEBAR ****** -->                        
-                        <div id="sidebar_left" style="padding-top: 23px;">                            
+                    <div class="subpage clear">
+                        <!-- ****** SIDEBAR ****** -->
+                        <div id="sidebar_left" style="padding-top: 23px;">
                             <div class="sidebox">
                                 <div class="box_top">
                                 </div>
                                 <div class="sideinner submenu">
-                                    <h2>Why Book Anywhere Else?</h2>
+                                    <h2>
+                                        Why Book Anywhere Else?</h2>
                                     <ul>
-                                        <li class="page_item"><a href="#" title="Uncategorized">Uncategorized</a></li>
-                                        <li class="page_item"><a href="#" title="About Simplicius">About Simplicius</a></li>
-                                        <li class="page_item"><a href="#" title="Universal Design">Universal Design</a></li>
-                                        <li class="page_item"><a href="#" title="Customise Simplicius">Customise Simplicius</a></li>
+                                        <li class="page_item"><a href="#" title="Stunning Views">Stunning Views</a></li>
+                                        <li class="page_item"><a href="#" title="Clean Rooms and Apartments">Clean Rooms and
+                                            Apartments</a></li>
+                                        <li class="page_item"><a href="#" title="Affordable Prices">Affordable Prices</a></li>
+                                        <li class="page_item"><a href="#" title="Free High Speed Internet">Free High Speed Internet</a></li>
                                     </ul>
                                 </div>
                                 <div class="box_down">
                                 </div>
-                            </div>                                                   
+                            </div>
                         </div>
                         <!-- end of sidebar -->
                         <!-- MAIN -->
                         <div id="main" class="clear" style="padding-left: 20px;">
-                            <h1><strong>RESERVATIONS</strong></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit
-                               rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget
-                               massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit
-                               mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue
-                               est, et feugiat turpis elit egestas enim.</p>
+                            <h1>
+                                <strong>THE RABAC RESERVATION</strong></h1>
+                            <p>
+                                The Rabac offers spacious self-catering apartments and rooms with very large terraces
+                                and stunning sea views. The apartments are located in the former fishing village
+                                of Rabac, known today as “the Pearl of Kvarner Bay.” The town of Rabac offers wonderful
+                                beaches, restaurants with local Istrian cuisine and various sporting activities.</p>
                             <div class="boxes lines_x0x0x">
                                 <div class="container clear">
-                            <div class="inner">                               
-                                <div class="box box_3-2 white">
-                                    <div class="box_top">
-                                    </div>
-                                    <div class="icon clear">
-                                        <!--a href="#"><img src="./images/tmp/icon2_64.png" alt="" /></a-->
-                                        <h2>
-                                            Reserve Now <span>Reserve your dream vacation now!</span>
-                                        </h2>                                        
-                                        <div id="book">
-                                            <form id="contact_form" action="#" method="post">
-                                            <div class="clear">
-                                                <label for="name">
-                                                    Check In Date</label>
-                                                <!--<input type="text" name="form[check_in_date]" id="check_in_date" class="input required" />-->
-                                                    <input name="check_in" id="start-date" readonly="readonly" class="date-pick input" style="width: 250px;" />
+                                    <div class="inner">
+                                        <div class="box box_3-2 white">
+                                            <div class="box_top">
                                             </div>
-                                            <!-- /.clear -->
-                                            <div class="clear">
-                                                <label for="subject">
-                                                    Check Out Date</label>
-                                                <input name="check_out" id="end-date" readonly="readonly" class="date-pick input"  style="width: 250px;" />
-                                                <!--<input type="text" name="form[check_out_date]" id="check_out_date" class="input required" />-->
+                                            <div class="icon clear">
+                                                <!--a href="#"><img src="./images/tmp/icon2_64.png" alt="" /></a-->
+                                                <h2>
+                                                    Reservations
+                                                </h2>
+                                                <div id="book">
+                                                    <form id="contact_form" action="booking-search.php" method="post">
+                                                    <div class="clear">
+                                                        <label for="name">
+                                                            Check In</label>
+                                                        <input name="check_in" id="check_in" readonly="readonly" class="date-pick input" />
+                                                    </div>
+                                                    <!-- /.clear -->
+                                                    <div class="clear">
+                                                        <label for="subject">
+                                                            Check Out</label>
+                                                        <input name="check_out" id="check_out" readonly="readonly" class="date-pick input" />
+                                                    </div>
+                                                    <!-- /.clear -->
+                                                    <div class="clear">
+                                                        <label for="select">
+                                                            Adults</label>
+                                                        <select id="adults" class="select" style="width: 107px;">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="clear">
+                                                        <label for="select">
+                                                            Children</label>
+                                                        <select id="children" class="select" style="width: 107px;">
+                                                            <option>0</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                        </select>
+                                                    </div>
+                                                    <div style="padding-left: 100px; width: 100px; padding-top: 15px; padding-bottom: 25px;">
+                                                        <input style="font-weight: 400; text-align: center; text-indent: 0; -moz-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;
+                                                            background-color: #3f3f38; border-bottom: 1px solid #4d4d44; border-top: 1px solid #4d4d44;
+                                                            cursor: pointer; vertical-align: middle; font: 99% arial,helvetica,clean,sans-serif;
+                                                            float: left; margin-top: 0px !important; font-size: 13px; display: block; color: white !important;
+                                                            text-decoration: none !important; position: relative; -webkit-transition: opacity .2s;
+                                                            -moz-transition: opacity .2s; -o-transition: opacity .2s; -webkit-border-radius: 5px;
+                                                            -moz-border-radius: 5px; padding: 4px 0 4px; letter-spacing: 0.9px; background-image: url(images/btn_overlay.png);
+                                                            background-position: 0 50%; background-repeat: repeat-x; width: 100%; border: 0;
+                                                            -webkit-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;" name="submit" type="submit"
+                                                            value="Go" />
+                                                    </div>
+                                                    <!-- /.confirm -->
+                                                    </form>
+                                                </div>
+                                                <!--/div-->
                                             </div>
-                                            <!-- /.clear -->
-                                            <div class="clear">
-                                                <label for="select">
-                                                    Adults</label>
-                                                <select id="adults" class="select"  style="width: 255px;">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                </select>
+                                            <div class="box_down">
                                             </div>
-                                            <div class="clear">
-                                                <label for="select">
-                                                    Children</label>
-                                                <select id="children" class="select"  style="width: 255px;">
-                                                    <option>None</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                </select>
-                                            </div>                                            
-                                            <div style="padding-left: 100px; width: 100px; padding-top: 15px; padding-bottom: 25px;">
-                                                <input style="font-weight: 400; text-align: center; text-indent: 0; -moz-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;
-                                                    background-color: #3f3f38; border-bottom: 1px solid #4d4d44; border-top: 1px solid #4d4d44;
-                                                    cursor: pointer; vertical-align: middle; font: 99% arial,helvetica,clean,sans-serif;
-                                                    float: left; margin-top: 0px !important; font-size: 13px; display: block; color: white !important;
-                                                    text-decoration: none !important; position: relative; -webkit-transition: opacity .2s;
-                                                    -moz-transition: opacity .2s; -o-transition: opacity .2s; -webkit-border-radius: 5px;
-                                                    -moz-border-radius: 5px; padding: 4px 0 4px; letter-spacing: 0.9px; background-image: url(images/btn_overlay.png);
-                                                    background-position: 0 50%; background-repeat: repeat-x; width: 100%; border: 0;
-                                                    -webkit-box-shadow: 0px 1px 0 #292925, 0px -1px 0 #292925;" name="submit" type="submit"
-                                                    value="Submit" />
-                                            </div>                                           
-                                            <!-- /.confirm -->
-                                            </form>
                                         </div>
-                                        <!--/div-->
-                                    </div>                                   
-                                    <div class="box_down">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                            </div>
-                            <h2><strong>Disclaimer</strong></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet blandit
-                               rutrum. Vivamus felis velit, porta vitae dapibus quis, lacinia eget urna. Nam eget
-                               massa vel velit viverra pretium vel elementum purus. Suspendisse sagittis blandit
-                               mauris ac dapibus. Pellentesque mollis, tellus non bibendum gravida, enim elit congue
-                               est, et feugiat turpis elit egestas enim.</p>                           
+                            <h2>
+                                <strong>Reservations and Policies</strong></h2>
+                            <p>
+                                You may cancel reservations up until seven days prior to your arrival date for a
+                                refund of your payment less a &euro;50.00 cancellation fee per reserved apartment.
+                                If you cancel your reservation or shorten your stay less than seven days prior to
+                                your arrival, you will be charged the full amount of the reservation, unless the
+                                apartment can be re-rented. You can cancel your reservation by email, telephone
+                                or through <a href="http://www.therabac.com">therabac.com</a>.</p>
+                            <ul>
+                                <li>Reservations can be made through our website or by calling us at ++385 52 872 153.</li>
+                                <li>Check-in time is between 2:00 p.m. and 8:00 p.m. Please call or email us if you
+                                    require an earlier or later check-in.</li>
+                                <li>Check-out time is 11 a.m.</li>
+                                <li>Two-night minimum stay required from May 1 through September 30.</li>
+                            </ul>
                         </div>
                         <!-- end of main -->
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="page_down">
             </div>
-             <div id="footer" class="clear">
+            <div id="footer" class="clear">
                 <div class="copy">
                     <table width="100%">
                         <tr>
@@ -233,9 +247,11 @@
                             <td style="width: 50%; vertical-align: middle; text-align: right;">
                                 Follow Us
                             </td>
-                             <td align="left">
-                                <a href="#"><img alt="Twitter Icon" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
-                                          <a href="#"><img alt="Facebook Icon" style="margin: 0 0 0 10px;" src="images/icon_facebook.png"/></a>
+                            <td align="left">
+                                <a href="#">
+                                    <img alt="Twitter Icon" style="margin: 0 0 0 10px;" src="images/icon_twitter.png" /></a>
+                                <a href="#">
+                                    <img alt="Facebook Icon" style="margin: 0 0 0 10px;" src="images/icon_facebook.png" /></a>
                             </td>
                         </tr>
                     </table>
@@ -245,11 +261,10 @@
                         <tr>
                             <td style="width: 50%; text-align: center;">
                                 <a href="#">&copy; 2011 All Right Reserved. RabacCroatia.com</a>
-                            </td>                            
+                            </td>
                         </tr>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
@@ -260,17 +275,35 @@
     <script type="text/javascript" src="./js/cufon.js"></script>
     <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/jquery.datePicker.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
     <script type="text/javascript">
+        Date.firstDayOfWeek = 0;
+        Date.format = 'mm/dd/yyyy';
+        $(function () {
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-12958851-6']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+            $('.date-pick').datePicker()
+            $('#check_in').bind(
+					'dpClosed',
+					function (e, selectedDates) {
+					    var d = selectedDates[0];
+					    if (d) {
+					        d = new Date(d);
+					        $('#check_out').dpSetStartDate(d.addDays(2).asString());
+					    }
+					}
+				);
+            $('#check_out').bind(
+					'dpClosed',
+					function (e, selectedDates) {
+					    var d = selectedDates[0];
+					    if (d) {
+					        d = new Date(d);
+					        $('#check_in').dpSetEndDate(d.addDays(-1).asString());
+					    }
+					}
+				);
+        });
 
     </script>
 </body>
