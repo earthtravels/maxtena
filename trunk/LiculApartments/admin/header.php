@@ -5,7 +5,7 @@ include_once ("../includes/db.conn.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Admin Panel</title>
+	<title>Rabac Admin Panel</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link href="style1.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="dhtml-menu.js"></script>

@@ -49,6 +49,7 @@ class SystemConfiguration
 	private static $hotelPhoneKey = "conf_hotel_phone";
 	private static $hotelEmailKey = "conf_hotel_email";
 	private static $hotelSiteKey = "conf_hotel_sitetitle";
+	private static $hotelLogoTitleKey = "conf_hotel_logo_title";
 	private static $hotelSiteDescriptionKey = "conf_hotel_sitedesc";
 	private static $hotelSiteKeywordsKey = "conf_hotel_sitekeywords";	
 	private static $minimumNightCountKey = "conf_min_night_booking";
@@ -244,6 +245,10 @@ class SystemConfiguration
 		if (isset($_POST[SystemConfiguration::$hotelSiteKey]))
 		{
 			$configObject->config[SystemConfiguration::$hotelSiteKey] = trim($_POST[SystemConfiguration::$hotelSiteKey]);
+		}
+		if (isset($_POST[SystemConfiguration::$hotelLogoTitleKey]))
+		{
+			$configObject->config[SystemConfiguration::$hotelLogoTitleKey] = trim($_POST[SystemConfiguration::$hotelLogoTitleKey]);
 		}
 		if (isset($_POST[SystemConfiguration::$hotelSiteDescriptionKey]))
 		{
@@ -531,6 +536,11 @@ class SystemConfiguration
         return $this->config[SystemConfiguration::$hotelSiteKey];
     }
     
+	public function getLogoTitle()
+    {
+        return $this->config[SystemConfiguration::$hotelLogoTitleKey];
+    }
+    
 	public function getSiteDescription()
     {
         return $this->config[SystemConfiguration::$hotelSiteDescriptionKey];
@@ -571,6 +581,7 @@ class SystemConfiguration
     	}    	
     	    	
 		$this->runUpdate(SystemConfiguration::$hotelSiteKey, $this->getSiteTitle());
+		$this->runUpdate(SystemConfiguration::$hotelLogoTitleKey, $this->getLogoTitle());
 		$this->runUpdate(SystemConfiguration::$hotelSiteDescriptionKey, $this->getSiteDescription());
 		$this->runUpdate(SystemConfiguration::$hotelSiteKeywordsKey, $this->getSiteKeywords());	
 		$this->runUpdate(SystemConfiguration::$minimumNightCountKey, $this->getMinimumNightCount());
