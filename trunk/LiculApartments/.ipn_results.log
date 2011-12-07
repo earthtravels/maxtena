@@ -1,0 +1,22 @@
+[05/03/2011 5:15 AM] - SUCCESS!
+IPN POST Vars from Paypal:
+mc_gross=808.50, invoice=10048, protection_eligibility=Eligible, address_status=confirmed, payer_id=UTETAXXFKHJU6, tax=0.00, address_street=432 pearlbush sq, payment_date=20:15:35 May 02, 2011 PDT, payment_status=Pending, charset=windows-1252, address_zip=20176, first_name=Kupac, address_country_code=US, address_name=Kupac Kupac, notify_version=3.1, custom=, payer_status=verified, business=beskoninja@yahoo.com, address_country=United States, address_city=Leesburg, quantity=1, verify_sign=AZx9f6h5OLrgWf3a1VZ8gi1G5d2DAtXWvUoA7kdPluOqkb5L2x6.V7u7, payer_email=beskoninja2@yahoo.com, txn_id=6WT76717H2125304X, payment_type=instant, last_name=Kupac, address_state=VA, receiver_email=beskoninja@yahoo.com, receiver_id=G522KA3W4RWJL, pending_reason=multi_currency, txn_type=web_accept, item_name=The Rabac, mc_currency=EUR, item_number=, residence_country=US, test_ipn=1, handling_amount=0.00, transaction_subject=The Rabac, payment_gross=, shipping=0.00, 
+IPN Response from Paypal Server:
+ HTTP/1.1 200 OK
+Date: Tue, 03 May 2011 03:15:40 GMT
+Server: Apache
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=ZLQ2C7vTesRzn17z56BMPhLxGqBbYRuGunmh5qzcdrHo-CApk1Z-w1j4Cbrw3-vBuAtl1xxpW8_ydSSBH0H2frYrASH1Osd7KgBTP-4i9Ehk1iT5_aH1xhe417PT2roeEu29xW%7cEMu2EGkq7O1EPz0pzZfKniS3fBE8T02PJvHUrgqnjoedCesl3SQVJtnwwdbxhGLBoB8cTW%7cutG2zVxGkxnPTtKSgtACYuofH0YfMI5AjeO7FUU7Ms6TwdL7JN-LmKz-qC1SW3IjC6CWMG%7c1304392540; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Fri, 30-Apr-2021 03:15:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Mon, 28-Apr-2031 03:15:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.191.196.11.21241130439254080; path=/; expires=Sun, 19-Mar-05 20:47:24 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8  
+VERIFIED
+0
+
+
+

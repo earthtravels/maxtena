@@ -29,7 +29,7 @@ if (!isset($_POST['roomId']) || !is_numeric($_POST['roomId']))
     header ("Location: booking-failure.php");
 }
 $selectedRoom = Room::fetchFromDb(intval($_POST['roomId']));
-if (is_null($selectedRoom) || is_null($bookingDetails->searchCriteria))
+if ($selectedRoom == null)
 {
 	$logger->LogError("No room for roomId: " . $_POST['roomId'] . " could be foudn in the database!");
     $_SESSION['errors'] = array (0 => BOOKING_FAILURE_INVALID_REQUEST);

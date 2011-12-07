@@ -16,7 +16,8 @@ if(isset($_POST['SBMT_REG']))
 {
 	$logger->LogInfo("Form has been submitted.");
 	$roomImage = RoomImage::fetchFromParameters($_POST, $_FILES);
-	if (!$roomImage->save())
+	$logger->LogInfo("Image retrieved.");
+	if (is_null($roomImage) || !$roomImage->save())
 	{
 		$logger->LogError("Error saving room image.");
 		foreach ($roomImage->errors as $error) 

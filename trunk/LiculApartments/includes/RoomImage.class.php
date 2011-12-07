@@ -17,6 +17,7 @@ class RoomImage
 	public static function fetchFromParameters($postParams, $fileParams=null) 
 	{
 		global $systemConfiguration;
+		global $logger;
         RoomImage::$staticErrors = array();
 		$roomImage = new RoomImage();
 		$roomImage->galleryImage = GalleryImage::fetchFromParameters($postParams, $fileParams);
@@ -24,6 +25,10 @@ class RoomImage
 		{
 			$roomImage->roomId = intval($postParams['room_id']);
 		}		
+		else if (is_null($roomImage->galleryImage))
+		{
+			$logger->LogError("Gallery image is null.");
+		}
 		return $roomImage;
 	}
 
@@ -91,7 +96,7 @@ class RoomImage
 				$this->setError($error);
 			}			
 		}
-		else if ($$this->galleryImage->id <= 0 && strlen(trim($this->galleryImage->thumbImageFileName)) == 0)
+		else if ($this->galleryImage->id <= 0 && strlen(trim($this->galleryImage->thumbImageFileName)) == 0)
 		{
 			$this->setError("Thumbnail image file name cannot be empty");
 		}
