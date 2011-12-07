@@ -350,9 +350,9 @@ $_SESSION['bookingDetails'] = $bookingDetailsSerialized;
                        			} 
                        		?>
                        				<tr>
-	                                     <th colspan="2" style="text-align: right;">
+	                                     <td colspan="2" style="text-align: right;">
 	                                        <?= BOOKING_DETAILS_GRAND_TOTAL ?>
-	                                    </th>
+	                                    </td>
 	                                    <td style="text-align: right;">
 	                                        <?= $systemConfiguration->formatCurrency($bookingDetails->priceDetails->grandTotal) ?>
 	                                    </td>
@@ -509,7 +509,12 @@ $_SESSION['bookingDetails'] = $bookingDetailsSerialized;
 		if(bookingForm.first_name.value.mytrim().length == 0){
 			alert('<?= BOOKING_DETAILS_FNAME_REQ ?>');
 			return false;
-		}		
+		}
+		
+		if(bookingForm.middle_name.value.mytrim().length == 0){
+			alert('<?= BOOKING_DETAILS_MNAME_REQ ?>');
+			return false;
+		}
 		
 		if(bookingForm.last_name.value.mytrim().length == 0){
 			alert('<?= BOOKING_DETAILS_LNAME_REQ ?>');

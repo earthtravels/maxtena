@@ -23,6 +23,7 @@ class GalleryImage
 	public static function fetchFromParameters($postParams, $fileParams=null, $uploadLocation="../images") 
 	{		
 		global $systemConfiguration;
+		global $logger;
         GalleryImage::$staticErrors = array();
 		$galleryImage = new GalleryImage();
 		if (isset($postParams['id']) && is_numeric($postParams['id']))
@@ -43,6 +44,7 @@ class GalleryImage
             }
 			$galleryImage->imageFileName = $imageName;
         }
+        
 		if (isset($postParams['thumb_image_name']))
 		{
 			$galleryImage->thumbImageFileName = $postParams['thumb_image_name'];
@@ -65,7 +67,7 @@ class GalleryImage
 		if (isset($postParams['display_order']) && is_numeric($postParams['display_order']))
 		{
 			$galleryImage->displayOrder = intval($postParams['display_order']);
-		}
+		}		
 		return $galleryImage;
 	}
 	

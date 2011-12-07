@@ -264,14 +264,15 @@ class RoomPricePlan
 			}
 			$sql.= "$this->price, $this->extraBedPrice, " . ($this->isDefault ? "1" : "0") . ")";			
 			$query = mysql_query($sql);
-			if (!$query)
+			if (! $query)
 			{
 				global $logger;
 				$logger->LogFatal("Error executing query: $sql");
 				$logger->LogFatal("Database error: " . mysql_errno() . ". Message: " . mysql_error());
 				die('Error: ' . mysql_error());
 			}
-			$this->id = mysql_insert_id();			
+			$this->id = mysql_insert_id();
+			mysql_free_result($query);
 		}
 		else
 		{
