@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <td align="left" valign="bottom"><img src="images/adminis.gif" alt="" /></td>
-    <td align="right" valign="bottom" class="bodyMenutext8pt"><a href="#" class="bodyMenutext8pt">Visit Site</a><a href="#" class="bodyMenutext8pt"></a></td>
+    <td align="right" valign="bottom" class="bodyMenutext8pt"><a href="../index.php" class="bodyMenutext8pt">Visit Site</a></td>
   </tr>
   <tr>
     <td height="10"></td>
