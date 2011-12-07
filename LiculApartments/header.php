@@ -38,7 +38,7 @@ function outputMenuItemRecurse($parentId, $pad, $language_selected)
                     </div>
                     <div class="text">
                         <a href="index.php" title="">
-                        	<span class="title"><?= $systemConfiguration->getSiteTitle() ?></span> 
+                        	<span class="title"><?= $systemConfiguration->getLogoTitle()?></span> 
                         	<span class="subtitle"><?=HEADER_SLOGAN?></span> </a>
                     </div>
                 </div>

@@ -48,6 +48,28 @@ include ("header.php");
 	?>			
 	<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
 	<fieldset>
+		<legend class="TitleBlue11pt">Logo Settings</legend>
+		<table cellpadding="5" cellspacing="0" border="0" class="bodytext">
+			<tr>
+				<td>Logo Title:</td>
+				<td>
+					<input type="text" name="conf_hotel_logo_title" size="50" width="40"
+					value="<?= htmlentities($systemConfiguration->getLogoTitle()) ?>" />
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">Website Description:</td>
+				<td><textarea cols="40" rows="3" name="conf_hotel_sitedesc"><?= htmlentities($systemConfiguration->getSiteDescription()) ?></textarea></td>
+			</tr>
+			<tr>
+				<td valign="top">Website Keyword:</td>
+				<td>
+					<textarea cols="40" rows="3" name="conf_hotel_sitekeywords"><?= htmlentities($systemConfiguration->getSiteKeywords()) ?></textarea>
+				</td>
+			</tr>			
+		</table>
+	</fieldset>
+	<fieldset>
 		<legend class="TitleBlue11pt">SEO Settings</legend>
 		<table cellpadding="5" cellspacing="0" border="0" class="bodytext">
 			<tr>
@@ -66,7 +88,7 @@ include ("header.php");
 				<td>
 					<textarea cols="40" rows="3" name="conf_hotel_sitekeywords"><?= htmlentities($systemConfiguration->getSiteKeywords()) ?></textarea>
 				</td>
-			</tr>
+			</tr>			
 		</table>
 	</fieldset>
 	<br />
