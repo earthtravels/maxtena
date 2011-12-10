@@ -9,10 +9,11 @@ global $logger;
 $errors = array();
 $message = "";
 $page = new PageContents();
+$logger->LogInfo("PageContents:");
 if(isset($_POST['SBMT_REG']))
 {
-	$logger->LogDebug("Form was submitted. Fetching from for parameters:");	
-    $logger->LogDebug($_POST);
+	$logger->LogInfo("Form was submitted. Fetching from for parameters:");	
+    $logger->LogInfo($_POST);
 	$page = PageContents::fetchFromParameters($_POST);
 	if (!$page->save())
 	{
@@ -28,6 +29,7 @@ if(isset($_POST['SBMT_REG']))
 }
 else if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id']))
 {
+	$logger->LogInfo("Initial request - fetching from for parameters:");
 	$id = intval($_REQUEST['id']);
 	$page = PageContents::fetchFromDb($id);
 }
@@ -78,6 +80,7 @@ else if ($message != "")
 ?>
      <table width="99%" border="0" align="center" cellspacing="1" cellpadding="4" bgcolor="<?=$light?>" style="border:solid 1px <?=$light?>">
                                     <form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data">
+                                    	<input type="hidden" value="1" name="SBMT_REG" >
                                     	<input type="hidden" name="id" value="<?=$page->id?>">
                                      		 <tr class="header_tr">
                                         		<td height="30" width="100%" colspan="2" class="big_title"><a title="Back to Contents Management" href="javascript:window.parent.location.href='content.list.php'" class="big_title">CONTENT MANAGEMENT</a> &gt;
@@ -191,8 +194,8 @@ else if ($message != "")
                                         		</td>
                                       		</tr>
                                       		<tr>
-                                        		<td colspan="2" height="20" align="center">
-                                        			<input type="image" value="1" src="images/button_save.png"  name='SBMT_REG' >
+                                        		<td colspan="2" height="20" align="center">                                        			 
+                                        			<input type="image" value="1" src="images/button_save.png">
                                          		</td>
                                       		</tr>
                                     </form>
