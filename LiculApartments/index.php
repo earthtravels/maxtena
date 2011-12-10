@@ -214,7 +214,13 @@ $logger->LogDebug("Starting HTML ...");
                                     <div class="box_top">
                                     </div>
                                     <!--<object width="290" height="260" id="_player" name="_player" data="http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf" type="application/x-shockwave-flash"><param name="autoPlay" value="false" /><param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="flashvars" value='config={"clip":{"url":"http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv"},"autoPlay":"false","autoBuffering":"true"}' /></object>-->
-                                    <div style="width:295px;height:260px; margin-left: -10px;" id="player"></div>
+<!--                                    	<div style="width:295px;height:260px; margin-left: -10px;" id="player"></div>-->
+									        <!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->
+											<a  
+												 href="videos/Croatia.flv"
+												 style="display:block;width:295px;height:260px; margin-left:-10px"  
+												 id="flowFlashPlayer"><img src="images/play_video.jpg" alt="Search engine friendly content" /> 
+											</a>											
                                     <div class="box_down">
                                     </div>
                                 </div>
@@ -403,12 +409,14 @@ $logger->LogDebug("Starting HTML ...");
     </script>
     
     <script type="text/javascript">
-	    flowplayer("player", "videos/flowplayer-3.1.5.swf", {
-	        clip: {
-	            url: "videos/home_page_video.flv",
-	            autoPlay: false
-	        }
-		});
+//	    flowplayer("player", "videos/flowplayer-3.1.5.swf", {
+//	        clip: {
+//	            url: "videos/home_page_video.flv",
+//	            autoPlay: false
+//	        }
+//		});
+
+    	flowplayer("flowFlashPlayer", "videos/flowplayer-3.2.7.swf");
 
 	    function isEmail(string) 
 		{
