@@ -114,12 +114,12 @@ if (sizeof($_REQUEST) > 0 && isset($_REQUEST['id']) && is_numeric($_REQUEST['id'
         </div>
     </div>
    
-   <script type="text/javascript">
-        var videopath = "./";
-        var swfplayer = videopath + "videos/flowplayer-3.1.5.swf";
-        var swfcontent = videopath + "videos/flowplayer.content-3.1.0.swf";
-        var swfcaptions = videopath + "videos/flowplayer.captions-3.1.4.swf";
-
-    </script>   
+<!--   <script type="text/javascript">-->
+<!--        var videopath = "./";-->
+<!--        var swfplayer = videopath + "videos/flowplayer-3.1.5.swf";-->
+<!--        var swfcontent = videopath + "videos/flowplayer.content-3.1.0.swf";-->
+<!--        var swfcaptions = videopath + "videos/flowplayer.captions-3.1.4.swf";-->
+<!---->
+<!--    </script>   -->
 </body> 	
 </html>
