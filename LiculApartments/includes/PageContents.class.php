@@ -233,7 +233,9 @@ class PageContents
     
     public function save($isValidated=false)
     {
+    	global $logger;
 		$this->errors = array();
+		$logger->LogInfo("Saving: ");
 		if (!$isValidated && !$this->isValid())
 		{
 		    return false;
@@ -258,8 +260,7 @@ class PageContents
             $sql.= $this->templateType . ")";
             $query = mysql_query($sql);
             if (!$query)
-            {
-            	global $logger;
+            {            	
 				$logger->LogFatal("Error executing query: $sql");
 				$logger->LogFatal("Database error: " . mysql_errno() . ". Message: " . mysql_error());
                 die('Error: ' . mysql_error());
@@ -280,16 +281,17 @@ class PageContents
             $sql.= "template_type = " . $this->templateType;	                       
             $sql.= " WHERE id = " . $this->id;
             global $logger;
-	    	$logger->LogDebug("Updating using SQL:");
-	    	$logger->LogDebug($sql);	    	
+	    	$logger->LogInfo("Updating using SQL:");
+	    	$logger->LogInfo($sql);	    	
             $query = mysql_query($sql);
 		    if (!$query)
-		    {
-		    	global $logger;
+		    {		    	
 				$logger->LogFatal("Error executing query: $sql");
 				$logger->LogFatal("Database error: " . mysql_errno() . ". Message: " . mysql_error());
 			    die('Error: ' . mysql_error());
-		    }		    										
+		    }	
+		    $affected = mysql_affected_rows();
+		    $logger->LogInfo("Affected rows: " . $affected);	    										
 		}	
 		return true;	
     }
