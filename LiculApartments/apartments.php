@@ -40,7 +40,8 @@ $logger->LogDebug("Script is starting ...");
     <script type="text/javascript" src="js/date.js"></script>        
     <script type="text/javascript" src="js/flowplayer-3.2.6.min.js"></script>
 </head>
-<body class="light">    
+<body class="light">   
+<?php include_once("analyticstracking.php") ?> 
     <div class="back">
         <div class="base">
 			<?php include("header.php"); ?>

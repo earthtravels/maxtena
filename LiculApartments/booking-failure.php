@@ -52,6 +52,7 @@ else
     <link rel="stylesheet" href="./css/submenu.css" type="text/css" />
 </head>
 <body class="light">
+<?php include_once("analyticstracking.php") ?>
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">

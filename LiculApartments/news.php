@@ -37,6 +37,7 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
     <script type="text/javascript" src="js/script.js"></script>	
 </head>
 <body class="light">    
+<?php include_once("analyticstracking.php") ?>
     <div class="back">
         <div class="base">
 			<?php include("header.php"); ?>

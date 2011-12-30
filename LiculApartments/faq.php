@@ -76,6 +76,7 @@ if ($faqs == null && sizeof(Faq::$staticErrors) > 0)
 	</script>
 </head>
 <body class="light">
+<?php include_once("analyticstracking.php") ?>
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">
