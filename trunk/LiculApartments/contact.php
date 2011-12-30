@@ -39,7 +39,8 @@ $logger->LogInfo(__FILE__);
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="./js/geometr231_hv_bt_400.font.js"></script>
 </head>
-<body class="light">    
+<body class="light">
+<?php include_once("analyticstracking.php") ?>    
     <div class="back">
         <div class="base">
 			<?php include("header.php"); ?>

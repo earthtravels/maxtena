@@ -65,7 +65,8 @@ $logger->LogDebug("Starting HTML ...");
 		<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 	<![endif]-->	
 </head>
-<body class="light">    
+<body class="light">
+<?php include_once("analyticstracking.php") ?>    
     <div class="back">
         <div class="base">
 			<?php include("header.php"); ?>

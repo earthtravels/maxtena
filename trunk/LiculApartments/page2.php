@@ -99,6 +99,7 @@ if (sizeof($_REQUEST) > 0 && isset($_REQUEST['id']) && is_numeric($_REQUEST['id'
     </script>
 </head>
 <body class="light">
+<?php include_once("analyticstracking.php") ?>
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">

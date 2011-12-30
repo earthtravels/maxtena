@@ -1,5 +1,6 @@
 <?php
-define ("MYSQL_SERVER", "rabaccroatia.db.7533000.hostedresource.com");
+//define ("MYSQL_SERVER", "rabaccroatia.db.7533000.hostedresource.com");
+define ("MYSQL_SERVER", "localhost");
 define ("MYSQL_USER", "rabaccroatia");
 define ("MYSQL_PASSWORD", "sdg62m@vA");
 define ("MYSQL_DATABASE", "rabaccroatia");

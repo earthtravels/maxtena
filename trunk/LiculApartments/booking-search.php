@@ -76,6 +76,7 @@ BookingDetails::clearExpiredBookings();
     <script type="text/javascript" src="js/geometr231_hv_bt_400.font.js"></script>
 </head>
 <body class="light">
+<?php include_once("analyticstracking.php") ?>
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">

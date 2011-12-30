@@ -120,7 +120,8 @@ $_SESSION['bookingDetails'] = $bookingDetailsSerialized;
 		<link rel="stylesheet" type="text/css" href="http://www.ait.sk/simplicius/html/css/ie7.css" />
 	<![endif]-->    
 </head>
-<body class="light">        
+<body class="light">  
+<?php include_once("analyticstracking.php") ?>      
     <!-- setting of light/dark main page box -->
     <div class="back">
         <div class="base">
