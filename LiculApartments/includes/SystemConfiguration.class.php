@@ -603,7 +603,9 @@ class SystemConfiguration
     
     private function runUpdate($configKey, $value)
     {
+    	global $logger;
     	$sql = "UPDATE bsi_configure SET conf_value='" . mysql_escape_string($value) . "' WHERE conf_key='" . $configKey . "'";
+    	$logger->LogInfo("SQL: " . $sql);
     	$query = mysql_query($sql);
     	if (!$query)
     	{    		

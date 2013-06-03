@@ -13,7 +13,7 @@ $logger->LogInfo("Loading payment gateway for code 'pp' ...");
 $paypalPaymentGateway = PaymentGateway::fetchFromDbForCode("pp");
 if ($paypalPaymentGateway == null)
 {
-	$logger->LogError("Payment gateway coudl not be found!");
+	$logger->LogError("Payment gateway could not be found!");
 	header('Location: booking-failure.php?error_code=9');
 }
 
