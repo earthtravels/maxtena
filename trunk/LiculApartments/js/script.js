@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	
+	$('.slider .slides img').css({'visibility': 'visible'});
+	
 	// Apply fancybox on all images
 	$("a[href$='gif']").fancybox();
 	$("a[href$='jpg']").fancybox();
@@ -38,6 +41,8 @@ $(document).ready(function () {
 		},
 		slideshowEnd: 				function(){} //Triggers after all slides have been shown
 	});
+	
+	$('.slider .slides img').css({'visibility': 'visible'});
 	
 //	// Validate contact form
 //	$('#contact_form').validate();

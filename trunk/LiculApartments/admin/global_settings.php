@@ -3,12 +3,14 @@
 include ("access.php");
 require_once ("../includes/SystemConfiguration.class.php");
 global $systemConfiguration;
+global $logger;
 
 $errors = array();
 $message = "";
 
 if (sizeof($_POST) > 0 && isset($_POST['conf_currency_code']))
 {
+	$logger->LogInfo("Updating values for global settings ...");
 	$details = SystemConfiguration::fetchFromParameters($_POST);
 	if ($details->save())
 	{
